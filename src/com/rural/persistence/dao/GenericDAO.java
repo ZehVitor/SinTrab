@@ -1,8 +1,9 @@
-package persistence.dao;
+package com.rural.persistence.dao;
 
+import com.rural.persistence.Banco;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import persistence.Banco;
+
 
 public class GenericDAO {
 
