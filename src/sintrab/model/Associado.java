@@ -5,15 +5,34 @@
  */
 package sintrab.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
  *
  * @author JoseVitor
  */
-public class Associado {
-    private String nome;
+@Entity
+@Table(name="Associado")
+public class Associado implements Serializable {
+    
+        @Id
+	@SequenceGenerator(name="SEQ_ASSOCIADO", initialValue=1,
+	allocationSize=1, sequenceName="seq_associado")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ASSOCIADO")
+	@Column(name="id_Associado")
+	private int id;
+
+        private String nome;
 	private String apelido;
 	private String sexo;
 	private String cpf;
@@ -57,6 +76,7 @@ public class Associado {
 	private String ufAssalariado;
 	private String dataMoradiaAssalariado;
 	
+        @OneToMany(mappedBy="associado")
 	private List<Dependente> dependentes;
 	
 	private int transferidoSTTR;
@@ -81,7 +101,15 @@ public class Associado {
 	private String telefone;
 	private String email;
 	private String foto;
-	
+        
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+    
 	public String getCpf() {
 		return cpf;
 	}
