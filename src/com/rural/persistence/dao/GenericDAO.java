@@ -53,7 +53,7 @@ public class GenericDAO {
 		return obj;
 	}
 	
-	private EntityManager getEntityManager(){
+	protected EntityManager getEntityManager(){
 		return Banco.getInstance();
 	}
 }

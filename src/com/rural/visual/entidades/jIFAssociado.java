@@ -6,7 +6,11 @@
 
 package com.rural.visual.entidades;
 
+import com.rural.enums.Sexo;
 import com.rural.model.Associado;
+import com.rural.persistence.dao.GenericDAO;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +47,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTFApelido = new javax.swing.JTextField();
-        jCBCombo = new javax.swing.JComboBox<>();
+        jCBSexo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jTFFiliacao = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -160,7 +164,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jBSalvar = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Associado");
@@ -192,7 +196,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Apelido");
 
-        jCBCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setText("Sexo");
 
@@ -263,7 +267,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel7)
-                                                .addComponent(jCBCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jCBSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addComponent(jFTFDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel8)
                                 .addComponent(jTFFiliacao))
@@ -355,7 +359,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTFApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCBCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jCBSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
@@ -551,7 +555,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel35)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel33)
-                                        .addComponent(jTextField26, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                        .addComponent(jTextField26)
                                         .addComponent(jFormattedTextField6))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -1007,7 +1011,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jButton3.setText("jButton3");
 
-        jButton4.setText("jButton4");
+        jBSalvar.setText("Salvar");
+        jBSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1016,7 +1025,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             .addComponent(jPDocumentacao)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(jBSalvar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1034,21 +1043,54 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jBSalvar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
+//        validate();
+        Associado ass = new Associado();
+        GenericDAO dao = new GenericDAO();
+        
+//      Dados pessoais
+        ass.setMatricula(Long.parseLong(jTFMatricula.getText()));
+        ass.setExpedicao(new Date(jFTTFExpedicao.getText()));
+        ass.setMatriculaAnterior(Long.parseLong(jTFMatriculaAnterior.getText()));
+        ass.setDataAdmissao(new Date(jFTFDataAdmissao.getText()));
+        ass.setNome(jTFNome.getText());
+        ass.setApelido(jTFApelido.getText());
+        ass.setSexo(jCBSexo.getSelectedItem().toString()); // usar enum
+        ass.setFiliacao(jTFFiliacao.getText());
+        ass.setNascimento(new Date(jFTFNascimento.getText()));
+        ass.setNaturalidade(jTFNaturalidade.getText());
+        ass.setEstadoCivil(jCBEstadoCivil.getSelectedItem().toString());
+        ass.setConjuge(jTFConjuge.getText());
+        ass.setGrauInstrucao(jTFGrauInstrucao.getText());
+        ass.setEndereco(jTFEnderecoResidencial.getText());
+        ass.setBairro(jTFBairro.getText());
+        ass.setCidade(jTFMunicipio.getText());
+        ass.setUf(jCBUF.getSelectedItem().toString());
+        ass.setTelefone(jTFTelefone.getText());
+        ass.setEmail(jTFEmail.getText());
+        
+//      Fim Dados pessoais
+
+        dao.inserir(ass);
+        JOptionPane.showMessageDialog(null, ass.getNome().toUpperCase() + " cadastrado com sucesso!");
+
+    }//GEN-LAST:event_jBSalvarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jCBCombo;
     private javax.swing.JComboBox<String> jCBEstadoCivil;
+    private javax.swing.JComboBox<String> jCBSexo;
     private javax.swing.JComboBox<String> jCBUF;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
