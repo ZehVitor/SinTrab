@@ -84,10 +84,6 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMIAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAssociadoActionPerformed
-        
-        
-        EntityManager em =  Banco.getInstance();
-
         jIFAssociado jifas = new jIFAssociado();
         jDPPrincipal.add(jifas);
         jifas.setVisible(true);
