@@ -1,4 +1,4 @@
-package persistence;
+package com.rural.persistence;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,7 +10,7 @@ public class Banco {
 	public static EntityManager getInstance(){
 		if (em == null) {
 			EntityManagerFactory emf =
-					Persistence.createEntityManagerFactory("SinTrab");
+					Persistence.createEntityManagerFactory("TreinoPU");
 			em = emf.createEntityManager();
 		}
 		
