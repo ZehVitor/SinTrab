@@ -4,6 +4,8 @@ package com.rural.visual.entidades;
 import com.rural.enums.Sexo;
 import com.rural.model.Associado;
 import com.rural.persistence.dao.GenericDAO;
+import com.rural.uteis.Formatos;
+import java.text.ParseException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -16,6 +18,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     /** Creates new form jIFAssociado */
     public jIFAssociado() {
         initComponents();
+        limparCampos();
+    
+        try {
+            setFormatos();
+        } catch (Exception e) {
+        }
     }
 
     /** This method is called from within the constructor to
@@ -905,7 +913,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jPDocumentacao.addTab("Dependentes", jPDependentes);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Excluir");
 
         jButton2.setText("jButton2");
 
@@ -1093,6 +1101,18 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFIncraProprietario.setText("");
         jTFMunicipioProprietario.setText("");
     }
+    
+    private void setFormatos() throws ParseException {      
+        formatos.getFormatoCPF().install(jFTFCPF);
+        formatos.getFormatoDataSimples().install(jFTFNascimento);
+        formatos.getFormatoDataSimples().install(jFTFDataEmpregado);
+        formatos.getFormatoDataSimples().install(jFTFDataExpedicao);
+        formatos.getFormatoDataSimples().install(jFTFDataAdmissao);
+        formatos.getFormatoDataSimples().install(jFTFDataPropria);
+        formatos.getFormatoDataSimples().install(jFTFDataRecadastramento);
+        formatos.getFormatoDataSimples().install(jFTFDataTerceiros);
+        formatos.getFormatoDataSimples().install(jFTFDataTransferencia);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Variables declaration">
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1229,4 +1249,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
     private Associado associado = new Associado();
+    private Formatos formatos = new Formatos();
+    
 }

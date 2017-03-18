@@ -20,7 +20,7 @@ public class Formatos {
     }
 
     public MaskFormatter getFormatoCPF() throws ParseException {
-        MaskFormatter m = new MaskFormatter("###.###.###-###");
+        MaskFormatter m = new MaskFormatter("###.###.###-##");
         return m;
     }
 

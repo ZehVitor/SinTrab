@@ -41,6 +41,19 @@ public class GenericDAO {
 			em.close();
 		}
 	}
+        
+        public void inserirAlterar (Object entidade){
+            EntityManager em = getEntityManager();
+            em.getTransaction().begin();
+                
+            try {
+                em.persist(entidade);
+            } catch (Exception e) {
+                em.merge(entidade);
+            }
+            
+            em.getTransaction().commit();
+        }
 	
 	public <T> Object findById (int id, Class<T> objClass) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
 		EntityManager em = getEntityManager();
