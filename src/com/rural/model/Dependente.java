@@ -5,6 +5,7 @@
  */
 package com.rural.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,7 +16,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -23,25 +23,22 @@ import javax.persistence.Table;
  * @author diego
  */
 @Entity
-@Table(name="Dependente")
-public class Dependente {
+@Table(name = "Dependente")
+public class Dependente implements Serializable {
 
     @Id
-    @SequenceGenerator(name="SEQ_DEPENDENTE", initialValue=1,
-    allocationSize=1, sequenceName="seq_dependente")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_DEPENDENTE")
-    @Column(name="id_Dependente")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Dependente")
     private int id;
 
     private String nome;
     private String parentesco;
     private Date nascimento;
-    
-    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "associado")
     private Associado associado;
 
-    
     public int getId() {
         return id;
     }
@@ -49,7 +46,7 @@ public class Dependente {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     /**
      * @return the nome
      */
