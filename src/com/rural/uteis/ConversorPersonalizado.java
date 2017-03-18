@@ -24,11 +24,11 @@ public class ConversorPersonalizado {
         return date.format(dtf);
     }
 
-    public String convertNumberToString(Long numero) {
+    public static String convertNumberToString(Long numero) {
         return String.valueOf(numero);
     }
 
-    public String convertNumberToString(Integer numero) {
+    public static String convertNumberToString(Integer numero) {
         return String.valueOf(numero);
     }
 }
