@@ -940,7 +940,7 @@
                                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="366" max="32767" attributes="0"/>
+                              <EmptySpace pref="456" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -961,7 +961,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jCBUfProfissao" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jFTFDataMoradia" min="-2" pref="132" max="-2" attributes="0"/>
+                                      <Component id="jFTFDataPropria" min="-2" pref="132" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1002,7 +1002,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jComboBox5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextField9" min="-2" pref="132" max="-2" attributes="0"/>
+                                      <Component id="jFTFDataTerceiros" min="-2" pref="132" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jTextField41" min="-2" pref="331" max="-2" attributes="0"/>
@@ -1011,7 +1011,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jComboBox6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextField10" min="-2" pref="132" max="-2" attributes="0"/>
+                                      <Component id="jFTFDataEmpregado" min="-2" pref="132" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1107,7 +1107,7 @@
                           <Component id="jTFEnderecoProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTFMunicipioProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCBUfProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFTFDataMoradia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFTFDataPropria" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1142,7 +1142,7 @@
                           <Component id="jTextField36" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField39" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFTFDataTerceiros" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1177,7 +1177,7 @@
                           <Component id="jTextField41" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField44" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBox6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFTFDataEmpregado" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -1201,7 +1201,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel41">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tamanho Propriedade"/>
+                <Property name="text" type="java.lang.String" value="Tamanho Propriedade (Pr&#xf3;pria)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTFTamanhoProrpiedade">
@@ -1252,7 +1252,7 @@
                 <Property name="text" type="java.lang.String" value="Desde"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFTFDataMoradia">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataPropria">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel47">
               <Properties>
@@ -1263,7 +1263,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel48">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Se Propriedade de Terceiros (Nome do Propriet&#xe1;rio)"/>
+                <Property name="text" type="java.lang.String" value="Tamanho Propriedade (Terceiros)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTFNomeProprietario">
@@ -1304,7 +1304,7 @@
                 <Property name="text" type="java.lang.String" value="Desde"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField9">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataTerceiros">
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox5">
               <Properties>
@@ -1325,7 +1325,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel55">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tamanho Propriedade"/>
+                <Property name="text" type="java.lang.String" value="Tamanho Propriedade (Empregado)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField40">
@@ -1366,7 +1366,7 @@
                 <Property name="text" type="java.lang.String" value="Desde"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField10">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataEmpregado">
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox6">
               <Properties>
