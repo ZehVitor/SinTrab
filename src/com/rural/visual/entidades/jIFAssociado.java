@@ -1132,7 +1132,25 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     }
     
     private void limparCampos(){
-        
+        jTFMatricula.setText("");
+        jFTTFExpedicao.setText("");
+        jTFMatriculaAnterior.setText("");
+        jFTFDataAdmissao.setText("");
+        jTFNome.setText("");
+        jTFApelido.setText("");
+        jCBSexo.setSelectedIndex(0);
+        jTFFiliacao.setText("");
+        jFTFNascimento.setText("");
+        jTFNaturalidade.setText("");
+        jCBEstadoCivil.setSelectedIndex(0);
+        jTFConjuge.setText("");
+        jTFGrauInstrucao.setText("");
+        jTFEnderecoResidencial.setText("");
+        jTFBairro.setText("");
+        jTFMunicipio.setText("");
+        jCBUF.setSelectedIndex(0);
+        jTFTelefone.setText("");
+        jTFEmail.setText("");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Variables declaration">
