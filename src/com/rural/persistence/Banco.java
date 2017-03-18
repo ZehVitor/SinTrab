@@ -10,7 +10,7 @@ public class Banco {
 	public static EntityManager getInstance(){
 		if (em == null) {
 			EntityManagerFactory emf =
-					Persistence.createEntityManagerFactory("TreinoPU");
+					Persistence.createEntityManagerFactory("SinTrab");
 			em = emf.createEntityManager();
 		}
 		
