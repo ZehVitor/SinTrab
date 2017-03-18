@@ -1052,7 +1052,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private void populaCampos(Associado asso) {
         
-        jTFMatricula.setText(matricula);
         jFTTFExpedicao.setText(asso.getExpedicao());
         jTFMatriculaAnterior.setText(asso.getMatriculaAnterior());
         jFTFDataAdmissao.setText(asso.getDataAdmissao());
