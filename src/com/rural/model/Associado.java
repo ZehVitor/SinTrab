@@ -58,7 +58,7 @@ public class Associado implements Serializable {
 	private String enderecoProfissao;
 	private String municipioProfissao;
 	private String ufProfissao;
-	private String dataMoradiaProfissao;
+	private Date dataMoradiaProfissao;
 	
 	private String nomeProprietario;
 	private String incraProprietario;
@@ -66,7 +66,7 @@ public class Associado implements Serializable {
 	private String enderecoProprietario;
 	private String municipioProprietario;
 	private String ufProprietario;
-	private String dataMoradiaProprietario;
+	private Date dataMoradiaProprietario;
 	
 	private String assalariado;
 	private String cargoAssalariado;
@@ -74,7 +74,7 @@ public class Associado implements Serializable {
         private String enderecoAssalariado;
 	private String municipioAssalariado;
 	private String ufAssalariado;
-	private String dataMoradiaAssalariado;
+	private Date dataMoradiaAssalariado;
 	
         @OneToMany(mappedBy="associado")
 	private List<Dependente> dependentes;
@@ -236,10 +236,10 @@ public class Associado implements Serializable {
 	public void setUfProfissao(String ufProfissao) {
 		this.ufProfissao = ufProfissao;
 	}
-	public String getDataMoradiaProfissao() {
+	public Date getDataMoradiaProfissao() {
 		return dataMoradiaProfissao;
 	}
-	public void setDataMoradiaProfissao(String dataMoradiaProfissao) {
+	public void setDataMoradiaProfissao(Date dataMoradiaProfissao) {
 		this.dataMoradiaProfissao = dataMoradiaProfissao;
 	}
 	public String getNomeProprietario() {
@@ -278,10 +278,10 @@ public class Associado implements Serializable {
 	public void setUfProprietario(String ufProprietario) {
 		this.ufProprietario = ufProprietario;
 	}
-	public String getDataMoradiaProprietario() {
+	public Date getDataMoradiaProprietario() {
 		return dataMoradiaProprietario;
 	}
-	public void setDataMoradiaProprietario(String dataMoradiaProprietario) {
+	public void setDataMoradiaProprietario(Date dataMoradiaProprietario) {
 		this.dataMoradiaProprietario = dataMoradiaProprietario;
 	}
 	public String getAssalariado() {
@@ -314,10 +314,10 @@ public class Associado implements Serializable {
 	public void setUfAssalariado(String ufAssalariado) {
 		this.ufAssalariado = ufAssalariado;
 	}
-	public String getDataMoradiaAssalariado() {
+	public Date getDataMoradiaAssalariado() {
 		return dataMoradiaAssalariado;
 	}
-	public void setDataMoradiaAssalariado(String dataMoradiaAssalariado) {
+	public void setDataMoradiaAssalariado(Date dataMoradiaAssalariado) {
 		this.dataMoradiaAssalariado = dataMoradiaAssalariado;
 	}
 	public List<Dependente> getDependentes() {

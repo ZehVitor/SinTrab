@@ -568,51 +568,51 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jFormattedTextField4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jFTFDataExpedicao" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField19" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                              <Component id="jTFCtps" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextField18" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                              <Component id="jTFSerie" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                               <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField20" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTFCertidaoNascimentoCasamento" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField21" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="jTFTituloEleitor" min="-2" pref="160" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField22" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                          <Component id="jTFZona" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField23" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                          <Component id="jTFSecao" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jTextField27" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTFSttr" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jTextField24" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                                      <Component id="jTFNumeroBeneficio" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jTextField25" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                                      <Component id="jTFEspecie" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -623,8 +623,8 @@
                                           <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField26" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jFormattedTextField6" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTFNit" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jFTFDataTransferencia" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -638,12 +638,12 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField28" min="-2" pref="287" max="-2" attributes="0"/>
+                                  <Component id="jTFPrimeiraMatricula" min="-2" pref="287" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel38" max="32767" attributes="0"/>
-                                  <Component id="jFormattedTextField7" max="32767" attributes="0"/>
+                                  <Component id="jFTFDataRecadastramento" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -659,12 +659,12 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField18" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFSerie" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField19" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFCtps" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -674,7 +674,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jTFDocExpeditor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFTFDataExpedicao" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -695,25 +695,25 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField20" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFCertidaoNascimentoCasamento" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField21" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTFTituloEleitor" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField22" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTFZona" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField23" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFSecao" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -721,17 +721,17 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField24" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFNumeroBeneficio" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField25" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFEspecie" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField26" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFNit" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -741,8 +741,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField27" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFSttr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFTFDataTransferencia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
@@ -751,12 +751,12 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField28" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFPrimeiraMatricula" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField7" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFTFDataRecadastramento" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="249" max="32767" attributes="0"/>
@@ -784,7 +784,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTFDocExpeditor">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField4">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataExpedicao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jFormattedTextField4"/>
               </Properties>
@@ -804,12 +804,12 @@
                 <Property name="text" type="java.lang.String" value="S&#xe9;rie"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField18">
+            <Component class="javax.swing.JTextField" name="jTFSerie">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField19">
+            <Component class="javax.swing.JTextField" name="jTFCtps">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -819,7 +819,7 @@
                 <Property name="text" type="java.lang.String" value="Certid&#xe3;o de Nascimento ou Casamento (Livro/Folha)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField20">
+            <Component class="javax.swing.JTextField" name="jTFCertidaoNascimentoCasamento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -831,7 +831,7 @@
                 <Property name="text" type="java.lang.String" value="T&#xed;tulo de Eleitor"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField21">
+            <Component class="javax.swing.JTextField" name="jTFTituloEleitor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -841,7 +841,7 @@
                 <Property name="text" type="java.lang.String" value="Zona"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField22">
+            <Component class="javax.swing.JTextField" name="jTFZona">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -851,7 +851,7 @@
                 <Property name="text" type="java.lang.String" value="Se&#xe7;&#xe3;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField23">
+            <Component class="javax.swing.JTextField" name="jTFSecao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -861,32 +861,29 @@
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero do Benef&#xed;cio"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField24">
+            <Component class="javax.swing.JTextField" name="jTFNumeroBeneficio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFNumeroBeneficioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Esp&#xe9;cie"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField25">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField15"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="jTFEspecie">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel33">
               <Properties>
                 <Property name="text" type="java.lang.String" value="NIT"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField26">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField15"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="jTFNit">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField27">
+            <Component class="javax.swing.JTextField" name="jTFSttr">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -896,7 +893,7 @@
                 <Property name="text" type="java.lang.String" value="Transfer&#xea;ncia do STTR"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField6">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataTransferencia">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jFormattedTextField4"/>
               </Properties>
@@ -916,12 +913,12 @@
                 <Property name="text" type="java.lang.String" value="Primeira Matr&#xed;cula"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField28">
+            <Component class="javax.swing.JTextField" name="jTFPrimeiraMatricula">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField7">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataRecadastramento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jFormattedTextField4"/>
               </Properties>
@@ -950,27 +947,27 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField15" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="jTFProfissao" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                                   <Component id="jLabel39" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField29" min="-2" pref="323" max="-2" attributes="0"/>
+                                  <Component id="jTFRegimeAtividade" min="-2" pref="323" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jTextField33" min="-2" pref="331" max="-2" attributes="0"/>
+                              <Component id="jTFEnderecoProfissao" min="-2" pref="331" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField34" min="-2" pref="89" max="-2" attributes="0"/>
+                              <Component id="jTFMunicipioProfissao" min="-2" pref="89" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCBUfProfissao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField8" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="jFTFDataMoradia" min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField30" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="jTFTamanhoProrpiedade" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                                   <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -979,7 +976,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField31" min="-2" pref="198" max="-2" attributes="0"/>
+                                          <Component id="jTFAreaUtilizada" min="-2" pref="198" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1001,7 +998,7 @@
                                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                               <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField32" min="-2" pref="210" max="-2" attributes="0"/>
+                                          <Component id="jTFIncra" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1017,7 +1014,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField35" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="jTFNomeProprietario" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                                   <Component id="jLabel48" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1026,7 +1023,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField37" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
+                                          <Component id="jTFMunicipioProprietario" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1048,7 +1045,7 @@
                                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                               <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField38" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                                          <Component id="jTFIncraProprietario" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1101,7 +1098,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="407" max="32767" attributes="0"/>
+                      <EmptySpace pref="339" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1113,12 +1110,12 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField29" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFRegimeAtividade" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField15" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFProfissao" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1126,7 +1123,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField30" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFTamanhoProrpiedade" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1135,8 +1132,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField31" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField32" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFAreaUtilizada" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFIncra" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1151,17 +1148,17 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField33" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField34" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFEnderecoProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFMunicipioProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCBUfProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFTFDataMoradia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField35" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFNomeProprietario" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1170,8 +1167,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField38" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFMunicipioProprietario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFIncraProprietario" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1237,7 +1234,7 @@
                 <Property name="text" type="java.lang.String" value="Profiss&#xe3;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField15">
+            <Component class="javax.swing.JTextField" name="jTFProfissao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -1247,7 +1244,7 @@
                 <Property name="text" type="java.lang.String" value="Regime de Atividade"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField29">
+            <Component class="javax.swing.JTextField" name="jTFRegimeAtividade">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -1257,7 +1254,7 @@
                 <Property name="text" type="java.lang.String" value="Tamanho Propriedade"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField30">
+            <Component class="javax.swing.JTextField" name="jTFTamanhoProrpiedade">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -1267,7 +1264,7 @@
                 <Property name="text" type="java.lang.String" value="&#xc1;rea Utilizada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField31">
+            <Component class="javax.swing.JTextField" name="jTFAreaUtilizada">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -1277,22 +1274,22 @@
                 <Property name="text" type="java.lang.String" value="INCRA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField32">
+            <Component class="javax.swing.JTextField" name="jTFIncra">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField33">
+            <Component class="javax.swing.JTextField" name="jTFEnderecoProfissao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel44">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Endere&#xe7;o Residencial"/>
+                <Property name="text" type="java.lang.String" value="Endere&#xe7;o de trabalho"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox4">
+            <Component class="javax.swing.JComboBox" name="jCBUfProfissao">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1317,27 +1314,30 @@
                 <Property name="text" type="java.lang.String" value="Desde"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField8">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataMoradia">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jFormattedTextField4"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFTFDataMoradiaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel47">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Munic&#xed;pio"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField34">
+            <Component class="javax.swing.JTextField" name="jTFMunicipioProfissao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel48">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tamanho Propriedade"/>
+                <Property name="text" type="java.lang.String" value="Se Propriedade de Terceiros (Nome do Propriet&#xe1;rio)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField35">
+            <Component class="javax.swing.JTextField" name="jTFNomeProprietario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -1354,10 +1354,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel50">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#xc1;rea Utilizada"/>
+                <Property name="text" type="java.lang.String" value="Munic&#xed;pio"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField37">
+            <Component class="javax.swing.JTextField" name="jTFMunicipioProprietario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
@@ -1367,7 +1367,7 @@
                 <Property name="text" type="java.lang.String" value="INCRA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField38">
+            <Component class="javax.swing.JTextField" name="jTFIncraProprietario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField15"/>
               </Properties>
