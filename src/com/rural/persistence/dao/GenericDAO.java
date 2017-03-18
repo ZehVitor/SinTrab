@@ -1,6 +1,7 @@
 package com.rural.persistence.dao;
 
 import com.rural.persistence.Banco;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -48,7 +49,7 @@ public class GenericDAO {
                 
             try {
                 em.persist(entidade);
-            } catch (Exception e) {
+            } catch (EntityExistsException e) {
                 em.merge(entidade);
             }
             
