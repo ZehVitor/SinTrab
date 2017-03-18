@@ -11,6 +11,6 @@ package com.rural.enums;
  */
 public enum Sexo {
 
-    masculino, feminino;
+    MASCULINO, FEMININO;
 
 }
