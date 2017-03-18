@@ -197,6 +197,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel6.setText("Apelido");
 
         jCBSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBSexo.setSelectedItem(jCBSexo.bounds());
 
         jLabel7.setText("Sexo");
 
@@ -1054,7 +1055,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         Associado ass = new Associado();
         GenericDAO dao = new GenericDAO();
         
-//      Dados pessoais
+// <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
         ass.setMatricula(Long.parseLong(jTFMatricula.getText()));
         ass.setExpedicao(new Date(jFTTFExpedicao.getText()));
         ass.setMatriculaAnterior(Long.parseLong(jTFMatriculaAnterior.getText()));
@@ -1074,9 +1075,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         ass.setUf(jCBUF.getSelectedItem().toString());
         ass.setTelefone(jTFTelefone.getText());
         ass.setEmail(jTFEmail.getText());
-//      Fim Dados pessoais
+// </editor-fold>
 
-//      Documentação
+// <editor-fold defaultstate="collapsed" desc="Documentação">
         ass.setCpf(jFTFCPF.getText());
         ass.setRg(jTFRG.getText());
         ass.setOrgaoExpedidor(jTFDocExpeditor.getText());
@@ -1094,9 +1095,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         ass.setDataTransferenciaSTTR(new Date(jFTFDataTransferencia.getText()));
         ass.setPrimeiraMatricula(Long.parseLong(jTFPrimeiraMatricula.getText()));
         ass.setDataRecadastramento(new Date(jFTFDataRecadastramento.getText()));
-//      Fim Documentação
+// </editor-fold>
 
-//      Dados Profissionais
+// <editor-fold defaultstate="collapsed" desc="Dados Profissionais">
         ass.setProfissao(jTFProfissao.getText());
         ass.setRegimeAtividade(jTFRegimeAtividade.getText());
         ass.setTamanhoPropriedade(jTFTamanhoProrpiedade.getText());
@@ -1109,7 +1110,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         ass.setNomeProprietario(jTFNomeProprietario.getText());
         ass.setIncraProprietario(jTFIncraProprietario.getText());
         ass.setMunicipioProprietario(jTFMunicipioProprietario.getText());
-//      Fim Dados Profissionais
+//  </editor-fold>
 
         dao.inserir(ass);
         JOptionPane.showMessageDialog(null, ass.getNome().toUpperCase() + " cadastrado com sucesso!");
@@ -1118,13 +1119,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private boolean validateCamposCadastro(){
         StringBuilder erros = new StringBuilder();
         if (jTFNome.getText().isEmpty()) {
-            erros.append("O nome não foi preenchido.\n");
+            erros.append("O Nome não foi preenchido.\n");
         }
         if (jFTFCPF.getText().isEmpty()) {
             erros.append("O CPF não foi preenchido.\n");
         }
         if (jTFMatricula.getText().isEmpty()) {
-            erros.append("A matrícula não foi preenchida.\n");
+            erros.append("A Matrícula não foi preenchida.\n");
         }
         
         if (erros.length() > 0) {
@@ -1134,7 +1135,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         
         return true;
     }
+    
+    private void limparCampos(){
+        
+    }
 
+    // <editor-fold defaultstate="collapsed" desc="Variables declaration">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;
@@ -1270,6 +1276,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField43;
     private javax.swing.JTextField jTextField44;
     // End of variables declaration//GEN-END:variables
-
+    // </editor-fold>
     private Associado associado = new Associado();
 }
