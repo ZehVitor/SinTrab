@@ -462,11 +462,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel31.setText("Número do Benefício");
 
         jTFNumeroBeneficio.setText("jTextField15");
-        jTFNumeroBeneficio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFNumeroBeneficioActionPerformed(evt);
-            }
-        });
 
         jLabel32.setText("Espécie");
 
@@ -692,11 +687,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel46.setText("Desde");
 
         jFTFDataMoradia.setText("jFormattedTextField4");
-        jFTFDataMoradia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFTFDataMoradiaActionPerformed(evt);
-            }
-        });
 
         jLabel47.setText("Município");
 
@@ -1057,7 +1047,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-//        validate();
+        if (!validateCamposCadastro()) {
+            return;
+        }
+        
         Associado ass = new Associado();
         GenericDAO dao = new GenericDAO();
         
@@ -1120,17 +1113,27 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         dao.inserir(ass);
         JOptionPane.showMessageDialog(null, ass.getNome().toUpperCase() + " cadastrado com sucesso!");
-
     }//GEN-LAST:event_jBSalvarActionPerformed
 
-    private void jTFNumeroBeneficioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNumeroBeneficioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFNumeroBeneficioActionPerformed
-
-    private void jFTFDataMoradiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFDataMoradiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFDataMoradiaActionPerformed
-
+    private boolean validateCamposCadastro(){
+        StringBuilder erros = new StringBuilder();
+        if (jTFNome.getText().isEmpty()) {
+            erros.append("O nome não foi preenchido.\n");
+        }
+        if (jFTFCPF.getText().isEmpty()) {
+            erros.append("O CPF não foi preenchido.\n");
+        }
+        if (jTFMatricula.getText().isEmpty()) {
+            erros.append("A matrícula não foi preenchida.\n");
+        }
+        
+        if (erros.length() > 0) {
+            JOptionPane.showMessageDialog(rootPane, "O seguintes problemas foram encontrados:\n" + erros.toString());
+            return false;
+        }
+        
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalvar;
