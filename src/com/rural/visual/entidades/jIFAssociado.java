@@ -198,7 +198,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Naturalidade");
 
-        jCBEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SOLTEIRO", "ESTAVEL", "CASADO", "DIVORCIADO", "VIUVO" }));
 
         jLabel11.setText("Estado Civil");
 
@@ -214,7 +214,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel17.setText("UF");
 
-        jCBUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RN", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jCBUF.setToolTipText("");
 
         jLabel18.setText("Telefone");
 
@@ -636,7 +637,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel44.setText("Endereço de trabalho");
 
-        jCBUfProfissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBUfProfissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RN", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         jLabel45.setText("UF");
 
@@ -658,7 +659,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel54.setText("Desde");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RN", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         jLabel55.setText("Tamanho Propriedade (Empregado)");
 
@@ -674,7 +675,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel61.setText("Desde");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RN", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         javax.swing.GroupLayout jPDadosProfissionaisLayout = new javax.swing.GroupLayout(jPDadosProfissionais);
         jPDadosProfissionais.setLayout(jPDadosProfissionaisLayout);
@@ -984,7 +985,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setEndereco(jTFEnderecoResidencial.getText());
         asso.setBairro(jTFBairro.getText());
         asso.setCidade(jTFMunicipio.getText());
-        asso.setUf(jCBUF.getSelectedItem().toString());
+        asso.setUf(ConversorPersonalizado.convertStringToUF(jCBUF.getSelectedItem().toString()));
         asso.setTelefone(jTFTelefone.getText());
         asso.setEmail(jTFEmail.getText());
 // </editor-fold>
@@ -1017,7 +1018,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setIncra(jTFIncra.getText());
         asso.setEnderecoProfissao(jTFEnderecoProfissao.getText());
         asso.setMunicipioProfissao(jTFMunicipioProfissao.getText());
-        asso.setUfProfissao(jCBUfProfissao.getSelectedItem().toString());
+        asso.setUfProfissao(ConversorPersonalizado.convertStringToUF(jCBUfProfissao.getSelectedItem().toString()));
         asso.setDataMoradiaProfissao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataPropria.getText()));
         asso.setNomeProprietario(jTFNomeProprietario.getText());
         asso.setIncraProprietario(jTFIncraProprietario.getText());

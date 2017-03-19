@@ -6,6 +6,7 @@
 package com.rural.uteis;
 
 import com.rural.enums.Sexo;
+import com.rural.enums.UF;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -33,11 +34,11 @@ public class ConversorPersonalizado {
     }
 
     public static String convertNumberToString(Long numero) {
-      
-        if(numero.equals("")){
+
+        if (numero.equals("")) {
             return null;
         }
-               
+
         return String.valueOf(numero);
     }
 
@@ -48,4 +49,9 @@ public class ConversorPersonalizado {
     public static Sexo convertStringToSexo(String texto) {
         return Sexo.valueOf(texto);
     }
+
+    public static UF convertStringToUF(String texto) {
+        return UF.valueOf(texto);
+    }
+
 }

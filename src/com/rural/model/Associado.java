@@ -6,6 +6,7 @@
 package com.rural.model;
 
 import com.rural.enums.Sexo;
+import com.rural.enums.UF;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -18,6 +19,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -58,7 +60,8 @@ public class Associado implements Serializable {
     private String incra;
     private String enderecoProfissao;
     private String municipioProfissao;
-    private String ufProfissao;
+    @Enumerated(EnumType.STRING)
+    private UF ufProfissao;
     private LocalDate dataMoradiaProfissao;
 
     private String nomeProprietario;
@@ -66,7 +69,8 @@ public class Associado implements Serializable {
     private String areaUtilizadaProprietario;
     private String enderecoProprietario;
     private String municipioProprietario;
-    private String ufProprietario;
+    @Enumerated(EnumType.STRING)
+    private UF ufProprietario;
     private LocalDate dataMoradiaProprietario;
 
     private String assalariado;
@@ -74,7 +78,8 @@ public class Associado implements Serializable {
 
     private String enderecoAssalariado;
     private String municipioAssalariado;
-    private String ufAssalariado;
+    @Enumerated(EnumType.STRING)
+    private UF ufAssalariado;
     private LocalDate dataMoradiaAssalariado;
 
     @OneToMany(mappedBy = "associado")
@@ -98,10 +103,10 @@ public class Associado implements Serializable {
     private String endereco;
     private String bairro;
     private String cidade;
-    private String uf;
+    @Enumerated(EnumType.STRING)
+    private UF uf;
     private String telefone;
     private String email;
-    private String foto;
 
     public int getId() {
         return id;
@@ -271,11 +276,11 @@ public class Associado implements Serializable {
         this.municipioProfissao = municipioProfissao;
     }
 
-    public String getUfProfissao() {
+    public UF getUfProfissao() {
         return ufProfissao;
     }
 
-    public void setUfProfissao(String ufProfissao) {
+    public void setUfProfissao(UF ufProfissao) {
         this.ufProfissao = ufProfissao;
     }
 
@@ -327,11 +332,11 @@ public class Associado implements Serializable {
         this.municipioProprietario = municipioProprietario;
     }
 
-    public String getUfProprietario() {
+    public UF getUfProprietario() {
         return ufProprietario;
     }
 
-    public void setUfProprietario(String ufProprietario) {
+    public void setUfProprietario(UF ufProprietario) {
         this.ufProprietario = ufProprietario;
     }
 
@@ -375,11 +380,11 @@ public class Associado implements Serializable {
         this.municipioAssalariado = municipioAssalariado;
     }
 
-    public String getUfAssalariado() {
+    public UF getUfAssalariado() {
         return ufAssalariado;
     }
 
-    public void setUfAssalariado(String ufAssalariado) {
+    public void setUfAssalariado(UF ufAssalariado) {
         this.ufAssalariado = ufAssalariado;
     }
 
@@ -463,11 +468,11 @@ public class Associado implements Serializable {
         this.cidade = cidade;
     }
 
-    public String getUf() {
+    public UF getUf() {
         return uf;
     }
 
-    public void setUf(String uf) {
+    public void setUf(UF uf) {
         this.uf = uf;
     }
 
@@ -485,14 +490,6 @@ public class Associado implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
     }
 
     public String getNome() {
