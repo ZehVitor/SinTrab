@@ -4,7 +4,9 @@ import com.rural.model.Associado;
 import com.rural.persistence.dao.GenericDAO;
 import com.rural.uteis.ConversorPersonalizado;
 import com.rural.uteis.Formatos;
+import com.rural.uteis.ValidatorUtil;
 import java.text.ParseException;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
 /**
@@ -179,8 +181,19 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel2.setText("Expedição");
 
         jFTTFExpedicao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jFTTFExpedicao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTTFExpedicaoFocusLost(evt);
+            }
+        });
 
         jLabel3.setText("Matrícula Anterior");
+
+        jFTFDataAdmissao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFDataAdmissaoFocusLost(evt);
+            }
+        });
 
         jLabel4.setText("Data de Admissão");
 
@@ -195,6 +208,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel8.setText("Filiação");
 
         jLabel9.setText("Nascimento");
+
+        jFTFNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFNascimentoFocusLost(evt);
+            }
+        });
 
         jLabel10.setText("Naturalidade");
 
@@ -391,7 +410,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCBUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                         .addComponent(jLabel18)
@@ -405,7 +424,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jPDocumentacao.addTab("Dados Pessoais", jPDadosPessoais);
@@ -415,6 +434,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel22.setText("RG");
 
         jLabel23.setText("Org. Expeditor");
+
+        jFTFDataExpedicao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFDataExpedicaoFocusLost(evt);
+            }
+        });
 
         jLabel24.setText("Data Expedição");
 
@@ -438,11 +463,23 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel34.setText("Transferência do STTR");
 
+        jFTFDataTransferencia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFDataTransferenciaFocusLost(evt);
+            }
+        });
+
         jLabel35.setText("Data de Transferência");
 
         jLabel36.setText("Em caso de recadastramento (Conforme Assembléia de Classe)");
 
         jLabel37.setText("Primeira Matrícula");
+
+        jFTFDataRecadastramento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFDataRecadastramentoFocusLost(evt);
+            }
+        });
 
         jLabel38.setText("Data do Recadastramento");
 
@@ -643,6 +680,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel46.setText("Desde");
 
+        jFTFDataPropria.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFDataPropriaFocusLost(evt);
+            }
+        });
+
         jLabel47.setText("Município");
 
         jLabel48.setText("Tamanho Propriedade (Terceiros)");
@@ -659,6 +702,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel54.setText("Desde");
 
+        jFTFDataTerceiros.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFDataTerceirosFocusLost(evt);
+            }
+        });
+
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RN", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         jLabel55.setText("Tamanho Propriedade (Empregado)");
@@ -674,6 +723,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel60.setText("UF");
 
         jLabel61.setText("Desde");
+
+        jFTFDataEmpregado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFDataEmpregadoFocusLost(evt);
+            }
+        });
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RN", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
@@ -1027,8 +1082,58 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         dao.inserirAlterar(asso);
         JOptionPane.showMessageDialog(rootPane, asso.getNome().toUpperCase() + " cadastrado com sucesso!");
+        limparCampos();
     }//GEN-LAST:event_jBSalvarActionPerformed
 
+    private void jFTFDataAdmissaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataAdmissaoFocusLost
+        validateData(jFTFDataAdmissao);
+    }//GEN-LAST:event_jFTFDataAdmissaoFocusLost
+
+    private void jFTFNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFNascimentoFocusLost
+        validateData(jFTFNascimento);
+    }//GEN-LAST:event_jFTFNascimentoFocusLost
+
+    private void jFTTFExpedicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTTFExpedicaoFocusLost
+        validateData(jFTTFExpedicao);
+    }//GEN-LAST:event_jFTTFExpedicaoFocusLost
+
+    private void jFTFDataExpedicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataExpedicaoFocusLost
+        validateData(jFTFDataExpedicao);
+    }//GEN-LAST:event_jFTFDataExpedicaoFocusLost
+
+    private void jFTFDataTransferenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataTransferenciaFocusLost
+        validateData(jFTFDataTransferencia);
+    }//GEN-LAST:event_jFTFDataTransferenciaFocusLost
+
+    private void jFTFDataRecadastramentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataRecadastramentoFocusLost
+        validateData(jFTFDataRecadastramento);
+    }//GEN-LAST:event_jFTFDataRecadastramentoFocusLost
+
+    private void jFTFDataPropriaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataPropriaFocusLost
+        validateData(jFTFDataPropria);
+    }//GEN-LAST:event_jFTFDataPropriaFocusLost
+
+    private void jFTFDataTerceirosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataTerceirosFocusLost
+        validateData(jFTFDataTerceiros);
+    }//GEN-LAST:event_jFTFDataTerceirosFocusLost
+
+    private void jFTFDataEmpregadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataEmpregadoFocusLost
+        validateData(jFTFDataEmpregado);
+    }//GEN-LAST:event_jFTFDataEmpregadoFocusLost
+
+    private void validateData(JFormattedTextField data){
+        String aux = data.getText();
+        aux = aux.replaceAll("/", "");
+        aux = aux.trim();
+
+        if (!ValidatorUtil.isNullOrEmpty(aux)) {
+            if (!ValidatorUtil.isValidDate(data.getText())) {
+                JOptionPane.showMessageDialog(rootPane, "Data em formato inválido.");
+                data.setText("");
+            }
+        }
+    }
+    
     private boolean validateCamposCadastro() {
         StringBuilder erros = new StringBuilder();
         if (jTFNome.getText().isEmpty()) {

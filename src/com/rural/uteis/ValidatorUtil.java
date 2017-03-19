@@ -50,17 +50,29 @@ public  class ValidatorUtil {
         return false;
     }
     
-    public static boolean isValidDate(LocalDate data){
-        int dia = data.getDayOfMonth();
-        int mes = data.getMonthValue();
-        int ano = data.getYear();
+    public static boolean isValidDate(String data){
+        if (isNullOrEmpty(data)) {
+            return false;
+        }
+        
+        int dia = 0;
+        int mes = 0;
+        int ano = 0;
+        try {
+            dia = Integer.parseInt(data.split("/")[0]);
+            mes = Integer.parseInt(data.split("/")[1]);
+            ano = Integer.parseInt(data.split("/")[2]);
+        } catch (Exception e) {
+            return false;
+        }
+        
         if (dia > 31 || dia < 1) {
             return false;
         }
         if (mes > 12 || mes < 1) {
             return false;
         }
-        if (ano > LocalDate.now().getYear() || ano < 1900) {
+        if (ano < 1800) {
             return false;
         }
                 

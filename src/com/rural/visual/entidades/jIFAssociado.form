@@ -306,7 +306,7 @@
                               <Component id="jCBUF" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
@@ -323,7 +323,7 @@
                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTFEmail" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -347,6 +347,9 @@
                   <Format subtype="0" type="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTTFExpedicaoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
@@ -356,6 +359,9 @@
             <Component class="javax.swing.JTextField" name="jTFMatriculaAnterior">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataAdmissao">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataAdmissaoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -407,6 +413,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFNascimento">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFNascimentoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTFNaturalidade">
             </Component>
@@ -803,6 +812,9 @@
             <Component class="javax.swing.JTextField" name="jTFOrgExpeditor">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataExpedicao">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataExpedicaoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
@@ -882,6 +894,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataTransferencia">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataTransferenciaFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
@@ -901,6 +916,9 @@
             <Component class="javax.swing.JTextField" name="jTFPrimeiraMatricula">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataRecadastramento">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataRecadastramentoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel38">
               <Properties>
@@ -1296,6 +1314,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataPropria">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataPropriaFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel47">
               <Properties>
@@ -1348,6 +1369,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataTerceiros">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataTerceirosFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox5">
               <Properties>
@@ -1433,6 +1457,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataEmpregado">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataEmpregadoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox6">
               <Properties>
