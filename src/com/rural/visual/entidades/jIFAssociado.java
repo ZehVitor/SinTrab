@@ -1,11 +1,10 @@
 package com.rural.visual.entidades;
 
-import com.rural.enums.Sexo;
 import com.rural.model.Associado;
 import com.rural.persistence.dao.GenericDAO;
+import com.rural.uteis.ConversorPersonalizado;
 import com.rural.uteis.Formatos;
 import java.text.ParseException;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -83,7 +82,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel22 = new javax.swing.JLabel();
         jTFRG = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jTFDocExpeditor = new javax.swing.JTextField();
+        jTFOrgExpeditor = new javax.swing.JTextField();
         jFTFDataExpedicao = new javax.swing.JFormattedTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -189,8 +188,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Apelido");
 
-        jCBSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jCBSexo.setSelectedItem(jCBSexo.bounds());
+        jCBSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMININO" }));
 
         jLabel7.setText("Sexo");
 
@@ -513,7 +511,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addComponent(jTFRG, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFDocExpeditor, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFOrgExpeditor, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -555,7 +553,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addComponent(jLabel24))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTFDocExpeditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFOrgExpeditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jFTFDataExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel22)
@@ -942,7 +940,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addComponent(jPDocumentacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -970,15 +968,15 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         GenericDAO dao = new GenericDAO();
 
 // <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
-        asso.setMatricula(Long.parseLong(jTFMatricula.getText()));
-        asso.setExpedicao(new Date(jFTTFExpedicao.getText()));
-        asso.setMatriculaAnterior(Long.parseLong(jTFMatriculaAnterior.getText()));
-        asso.setDataAdmissao(new Date(jFTFDataAdmissao.getText()));
+        asso.setMatricula(jTFMatricula.getText());
+        asso.setDataExpedicao(ConversorPersonalizado.convertStringToLocalDate(jFTTFExpedicao.getText()));
+        asso.setMatriculaAnterior(jTFMatriculaAnterior.getText());
+        asso.setDataAdmissao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataAdmissao.getText()));
         asso.setNome(jTFNome.getText());
         asso.setApelido(jTFApelido.getText());
-        asso.setSexo(jCBSexo.getSelectedItem().toString()); // usar enum
+        asso.setSexo(ConversorPersonalizado.convertStringToSexo(jCBSexo.getSelectedItem().toString())); // usar enum
         asso.setFiliacao(jTFFiliacao.getText());
-        asso.setNascimento(new Date(jFTFNascimento.getText()));
+        asso.setNascimento(ConversorPersonalizado.convertStringToLocalDate(jFTFNascimento.getText()));
         asso.setNaturalidade(jTFNaturalidade.getText());
         asso.setEstadoCivil(jCBEstadoCivil.getSelectedItem().toString());
         asso.setConjuge(jTFConjuge.getText());
@@ -994,21 +992,21 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 // <editor-fold defaultstate="collapsed" desc="Documentação">
         asso.setCpf(jFTFCPF.getText());
         asso.setRg(jTFRG.getText());
-        asso.setOrgaoExpedidor(jTFDocExpeditor.getText());
-        asso.setExpedicao(new Date(jFTFDataExpedicao.getText()));
-        asso.setCtps(Integer.parseInt(jTFCtps.getText()));
-        asso.setSerieCtps(Integer.parseInt(jTFSerie.getText()));
+        asso.setOrgaoExpedidor(jTFOrgExpeditor.getText());
+        asso.setDataExpedicao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataExpedicao.getText()));
+        asso.setCtps(jTFCtps.getText());
+        asso.setSerieCtps(jTFSerie.getText());
         asso.setCertidaoNascimentoCasamento(jTFCertidaoNascimentoCasamento.getText());
-        asso.setTituloEleitor(Integer.parseInt(jTFTituloEleitor.getText()));
-        asso.setZonaEleitoral(Integer.parseInt(jTFZona.getText()));
-        asso.setSecaoEleitoral(Integer.parseInt(jTFSecao.getText()));
-        asso.setNumeroBeneficio(Integer.parseInt(jTFNumeroBeneficio.getText()));
-        asso.setEspecie(Integer.parseInt(jTFEspecie.getText()));
-        asso.setNit(Integer.parseInt(jTFNit.getText()));
-        asso.setTransferidoSTTR(Integer.parseInt(jTFSttr.getText()));
-        asso.setDataTransferenciaSTTR(new Date(jFTFDataTransferencia.getText()));
-        asso.setPrimeiraMatricula(Long.parseLong(jTFPrimeiraMatricula.getText()));
-        asso.setDataRecadastramento(new Date(jFTFDataRecadastramento.getText()));
+        asso.setTituloEleitor(jTFTituloEleitor.getText());
+        asso.setZonaEleitoral(jTFZona.getText());
+        asso.setSecaoEleitoral(jTFSecao.getText());
+        asso.setNumeroBeneficio(jTFNumeroBeneficio.getText());
+        asso.setEspecie(jTFEspecie.getText());
+        asso.setNit(jTFNit.getText());
+        asso.setTransferidoSTTR(jTFSttr.getText());
+        asso.setDataTransferenciaSTTR(ConversorPersonalizado.convertStringToLocalDate(jFTFDataTransferencia.getText()));
+        asso.setPrimeiraMatricula(jTFPrimeiraMatricula.getText());
+        asso.setDataRecadastramento(ConversorPersonalizado.convertStringToLocalDate(jFTFDataRecadastramento.getText()));
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="Dados Profissionais">
@@ -1020,7 +1018,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setEnderecoProfissao(jTFEnderecoProfissao.getText());
         asso.setMunicipioProfissao(jTFMunicipioProfissao.getText());
         asso.setUfProfissao(jCBUfProfissao.getSelectedItem().toString());
-        asso.setDataMoradiaProfissao(new Date(jFTFDataPropria.getText()));
+        asso.setDataMoradiaProfissao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataPropria.getText()));
         asso.setNomeProprietario(jTFNomeProprietario.getText());
         asso.setIncraProprietario(jTFIncraProprietario.getText());
         asso.setMunicipioProprietario(jTFMunicipioProprietario.getText());
@@ -1051,16 +1049,16 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     }
 
     private void populaCampos(Associado asso) {
-        
+
         jTFMatricula.setText(asso.getMatricula());
-        jFTTFExpedicao.setText(asso.getExpedicao());
+        jFTTFExpedicao.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataExpedicao()));
         jTFMatriculaAnterior.setText(asso.getMatriculaAnterior());
-        jFTFDataAdmissao.setText(asso.getDataAdmissao());
+        jFTFDataAdmissao.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataAdmissao()));
         jTFNome.setText(asso.getNome());
         jTFApelido.setText(asso.getApelido());
         jCBSexo.setSelectedIndex(0);
         jTFFiliacao.setText(asso.getFiliacao());
-        jFTFNascimento.setText(asso.getNascimento());
+        jFTFNascimento.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getNascimento()));
         jTFNaturalidade.setText(asso.getNaturalidade());
         jCBEstadoCivil.setSelectedIndex(0);
         jTFConjuge.setText(asso.getConjuge());
@@ -1074,8 +1072,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jFTFCPF.setText(asso.getCpf());
         jTFRG.setText(asso.getRg());
-        jTFDocExpeditor.setText(asso.getExpedicaoDocumento());
-        jFTFDataExpedicao.setText(asso.getExpedicao());
+        jTFOrgExpeditor.setText(asso.getOrgaoExpedidor());
+        jFTFDataExpedicao.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataExpedicao()));
         jTFCtps.setText(asso.getCtps());
         jTFSerie.setText(asso.getSerieCtps());
         jTFCertidaoNascimentoCasamento.setText(asso.getCertidaoNascimentoCasamento());
@@ -1086,9 +1084,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFEspecie.setText(asso.getEspecie());
         jTFNit.setText(asso.getNit());
         jTFSttr.setText(asso.getTransferidoSTTR());
-        jFTFDataTransferencia.setText(asso.getDataTransferenciaSTTR());
+        jFTFDataTransferencia.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataTransferenciaSTTR()));
         jTFPrimeiraMatricula.setText(asso.getPrimeiraMatricula());
-        jFTFDataRecadastramento.setText(asso.getDataRecadastramento());
+        jFTFDataRecadastramento.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataRecadastramento()));
 
         jTFProfissao.setText(asso.getProfissao());
         jTFRegimeAtividade.setText(asso.getRegimeAtividade());
@@ -1098,7 +1096,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFEnderecoProfissao.setText(asso.getEnderecoProfissao());
         jTFMunicipioProfissao.setText(asso.getMunicipioProfissao());
         jCBUfProfissao.setSelectedIndex(0);
-        jFTFDataPropria.setText(asso.getDataMoradiaProprietario());
+        jFTFDataPropria.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataMoradiaProprietario()));
         jTFNomeProprietario.setText(asso.getNomeProprietario());
         jTFIncraProprietario.setText(asso.getIncraProprietario());
         jTFMunicipioProprietario.setText(asso.getMunicipioProprietario());
@@ -1127,7 +1125,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jFTFCPF.setText("");
         jTFRG.setText("");
-        jTFDocExpeditor.setText("");
+        jTFOrgExpeditor.setText("");
         jFTFDataExpedicao.setText("");
         jTFCtps.setText("");
         jTFSerie.setText("");
@@ -1263,7 +1261,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTFCertidaoNascimentoCasamento;
     private javax.swing.JTextField jTFConjuge;
     private javax.swing.JTextField jTFCtps;
-    private javax.swing.JTextField jTFDocExpeditor;
     private javax.swing.JTextField jTFEmail;
     private javax.swing.JTextField jTFEnderecoProfissao;
     private javax.swing.JTextField jTFEnderecoResidencial;
@@ -1282,6 +1279,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTFNome;
     private javax.swing.JTextField jTFNomeProprietario;
     private javax.swing.JTextField jTFNumeroBeneficio;
+    private javax.swing.JTextField jTFOrgExpeditor;
     private javax.swing.JTextField jTFPrimeiraMatricula;
     private javax.swing.JTextField jTFProfissao;
     private javax.swing.JTextField jTFRG;

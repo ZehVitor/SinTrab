@@ -39,7 +39,7 @@
                   </Group>
                   <Component id="jPDocumentacao" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -379,15 +379,10 @@
             <Component class="javax.swing.JComboBox" name="jCBSexo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="2">
+                    <StringItem index="0" value="MASCULINO"/>
+                    <StringItem index="1" value="FEMININO"/>
                   </StringArray>
-                </Property>
-                <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection component="jCBSexo" name="bounds" type="method"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -613,7 +608,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTFDocExpeditor" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="jTFOrgExpeditor" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                   <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -669,7 +664,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTFDocExpeditor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFOrgExpeditor" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFTFDataExpedicao" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -780,7 +775,7 @@
                 <Property name="text" type="java.lang.String" value="Org. Expeditor"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTFDocExpeditor">
+            <Component class="javax.swing.JTextField" name="jTFOrgExpeditor">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFTFDataExpedicao">
             </Component>

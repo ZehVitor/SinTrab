@@ -8,7 +8,6 @@ package com.rural.model;
 import com.rural.enums.Sexo;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,14 +42,14 @@ public class Associado implements Serializable {
     private LocalDate expedicaoDocumento;
     private String certidaoNascimentoCasamento;
 
-    private int ctps;
-    private int serieCtps;
-    private int tituloEleitor;
-    private int zonaEleitoral;
-    private int secaoEleitoral;
-    private int numeroBeneficio;
-    private int especie;
-    private int nit;
+    private String ctps;
+    private String serieCtps;
+    private String tituloEleitor;
+    private String zonaEleitoral;
+    private String secaoEleitoral;
+    private String numeroBeneficio;
+    private String especie;
+    private String nit;
     private String profissao;
     private String regimeAtividade;
 
@@ -60,7 +59,7 @@ public class Associado implements Serializable {
     private String enderecoProfissao;
     private String municipioProfissao;
     private String ufProfissao;
-    private Date dataMoradiaProfissao;
+    private LocalDate dataMoradiaProfissao;
 
     private String nomeProprietario;
     private String incraProprietario;
@@ -68,7 +67,7 @@ public class Associado implements Serializable {
     private String enderecoProprietario;
     private String municipioProprietario;
     private String ufProprietario;
-    private Date dataMoradiaProprietario;
+    private LocalDate dataMoradiaProprietario;
 
     private String assalariado;
     private String cargoAssalariado;
@@ -76,22 +75,22 @@ public class Associado implements Serializable {
     private String enderecoAssalariado;
     private String municipioAssalariado;
     private String ufAssalariado;
-    private Date dataMoradiaAssalariado;
+    private LocalDate dataMoradiaAssalariado;
 
     @OneToMany(mappedBy = "associado")
     private List<Dependente> dependentes;
 
-    private int transferidoSTTR;
-    private Date dataTransferenciaSTTR;
+    private String transferidoSTTR;
+    private LocalDate dataTransferenciaSTTR;
 
     private String filiacao;
-    private long matricula;
-    private long matriculaAnterior;
-    private long primeiraMatricula;
-    private Date dataRecadastramento;
-    private Date expedicao;
-    private Date dataAdmissao;
-    private Date nascimento;
+    private String matricula;
+    private String matriculaAnterior;
+    private String primeiraMatricula;
+    private LocalDate dataRecadastramento;
+    private LocalDate dataExpedicao;
+    private LocalDate dataAdmissao;
+    private LocalDate dataNascimento;
     private String naturalidade;
     private String estadoCivil;
     private String conjuge;
@@ -152,67 +151,67 @@ public class Associado implements Serializable {
         this.certidaoNascimentoCasamento = certidaoNascimentoCasamento;
     }
 
-    public int getCtps() {
+    public String getCtps() {
         return ctps;
     }
 
-    public void setCtps(int ctps) {
+    public void setCtps(String ctps) {
         this.ctps = ctps;
     }
 
-    public int getSerieCtps() {
+    public String getSerieCtps() {
         return serieCtps;
     }
 
-    public void setSerieCtps(int serieCtps) {
+    public void setSerieCtps(String serieCtps) {
         this.serieCtps = serieCtps;
     }
 
-    public int getTituloEleitor() {
+    public String getTituloEleitor() {
         return tituloEleitor;
     }
 
-    public void setTituloEleitor(int tituloEleitor) {
+    public void setTituloEleitor(String tituloEleitor) {
         this.tituloEleitor = tituloEleitor;
     }
 
-    public int getZonaEleitoral() {
+    public String getZonaEleitoral() {
         return zonaEleitoral;
     }
 
-    public void setZonaEleitoral(int zonaEleitoral) {
+    public void setZonaEleitoral(String zonaEleitoral) {
         this.zonaEleitoral = zonaEleitoral;
     }
 
-    public int getSecaoEleitoral() {
+    public String getSecaoEleitoral() {
         return secaoEleitoral;
     }
 
-    public void setSecaoEleitoral(int secaoEleitoral) {
+    public void setSecaoEleitoral(String secaoEleitoral) {
         this.secaoEleitoral = secaoEleitoral;
     }
 
-    public int getNumeroBeneficio() {
+    public String getNumeroBeneficio() {
         return numeroBeneficio;
     }
 
-    public void setNumeroBeneficio(int numeroBeneficio) {
+    public void setNumeroBeneficio(String numeroBeneficio) {
         this.numeroBeneficio = numeroBeneficio;
     }
 
-    public int getEspecie() {
+    public String getEspecie() {
         return especie;
     }
 
-    public void setEspecie(int especie) {
+    public void setEspecie(String especie) {
         this.especie = especie;
     }
 
-    public int getNit() {
+    public String getNit() {
         return nit;
     }
 
-    public void setNit(int nit) {
+    public void setNit(String nit) {
         this.nit = nit;
     }
 
@@ -280,11 +279,11 @@ public class Associado implements Serializable {
         this.ufProfissao = ufProfissao;
     }
 
-    public Date getDataMoradiaProfissao() {
+    public LocalDate getDataMoradiaProfissao() {
         return dataMoradiaProfissao;
     }
 
-    public void setDataMoradiaProfissao(Date dataMoradiaProfissao) {
+    public void setDataMoradiaProfissao(LocalDate dataMoradiaProfissao) {
         this.dataMoradiaProfissao = dataMoradiaProfissao;
     }
 
@@ -336,11 +335,11 @@ public class Associado implements Serializable {
         this.ufProprietario = ufProprietario;
     }
 
-    public Date getDataMoradiaProprietario() {
+    public LocalDate getDataMoradiaProprietario() {
         return dataMoradiaProprietario;
     }
 
-    public void setDataMoradiaProprietario(Date dataMoradiaProprietario) {
+    public void setDataMoradiaProprietario(LocalDate dataMoradiaProprietario) {
         this.dataMoradiaProprietario = dataMoradiaProprietario;
     }
 
@@ -384,11 +383,11 @@ public class Associado implements Serializable {
         this.ufAssalariado = ufAssalariado;
     }
 
-    public Date getDataMoradiaAssalariado() {
+    public LocalDate getDataMoradiaAssalariado() {
         return dataMoradiaAssalariado;
     }
 
-    public void setDataMoradiaAssalariado(Date dataMoradiaAssalariado) {
+    public void setDataMoradiaAssalariado(LocalDate dataMoradiaAssalariado) {
         this.dataMoradiaAssalariado = dataMoradiaAssalariado;
     }
 
@@ -400,35 +399,35 @@ public class Associado implements Serializable {
         this.dependentes = dependentes;
     }
 
-    public int getTransferidoSTTR() {
+    public String getTransferidoSTTR() {
         return transferidoSTTR;
     }
 
-    public void setTransferidoSTTR(int transferidoSTTR) {
+    public void setTransferidoSTTR(String transferidoSTTR) {
         this.transferidoSTTR = transferidoSTTR;
     }
 
-    public Date getDataTransferenciaSTTR() {
+    public LocalDate getDataTransferenciaSTTR() {
         return dataTransferenciaSTTR;
     }
 
-    public void setDataTransferenciaSTTR(Date dataTransferenciaSTTR) {
+    public void setDataTransferenciaSTTR(LocalDate dataTransferenciaSTTR) {
         this.dataTransferenciaSTTR = dataTransferenciaSTTR;
     }
 
-    public long getPrimeiraMatricula() {
+    public String getPrimeiraMatricula() {
         return primeiraMatricula;
     }
 
-    public void setPrimeiraMatricula(long primeiraMatricula) {
+    public void setPrimeiraMatricula(String primeiraMatricula) {
         this.primeiraMatricula = primeiraMatricula;
     }
 
-    public Date getDataRecadastramento() {
+    public LocalDate getDataRecadastramento() {
         return dataRecadastramento;
     }
 
-    public void setDataRecadastramento(Date dataRecadastramento) {
+    public void setDataRecadastramento(LocalDate dataRecadastramento) {
         this.dataRecadastramento = dataRecadastramento;
     }
 
@@ -528,44 +527,44 @@ public class Associado implements Serializable {
         this.filiacao = filiacao;
     }
 
-    public long getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(long matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
-    public Date getExpedicao() {
-        return expedicao;
+    public LocalDate getDataExpedicao() {
+        return dataExpedicao;
     }
 
-    public void setExpedicao(Date expedicao) {
-        this.expedicao = expedicao;
+    public void setDataExpedicao(LocalDate dataExpedicao) {
+        this.dataExpedicao = dataExpedicao;
     }
 
-    public long getMatriculaAnterior() {
+    public String getMatriculaAnterior() {
         return matriculaAnterior;
     }
 
-    public void setMatriculaAnterior(long matriculaAnterior) {
+    public void setMatriculaAnterior(String matriculaAnterior) {
         this.matriculaAnterior = matriculaAnterior;
     }
 
-    public Date getDataAdmissao() {
+    public LocalDate getDataAdmissao() {
         return dataAdmissao;
     }
 
-    public void setDataAdmissao(Date dataAdmissao) {
+    public void setDataAdmissao(LocalDate dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
 
-    public Date getNascimento() {
-        return nascimento;
+    public LocalDate getNascimento() {
+        return dataNascimento;
     }
 
-    public void setNascimento(Date nascimento) {
-        this.nascimento = nascimento;
+    public void setNascimento(LocalDate nascimento) {
+        this.dataNascimento = nascimento;
     }
 
     public String getNaturalidade() {
