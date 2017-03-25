@@ -8,7 +8,7 @@ package com.rural.model;
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +20,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -41,7 +42,8 @@ public class Associado implements Serializable {
     private String cpf;
     private String rg;
     private String orgaoExpedidor;
-    private LocalDate expedicaoDocumento;
+    @Temporal(TemporalType.DATE)
+    private Date expedicaoDocumento;
     private String certidaoNascimentoCasamento;
 
     private String ctps;
@@ -62,7 +64,8 @@ public class Associado implements Serializable {
     private String municipioProfissao;
     @Enumerated(EnumType.STRING)
     private UF ufProfissao;
-    private LocalDate dataMoradiaProfissao;
+    @Temporal(TemporalType.DATE)
+    private Date dataMoradiaProfissao;
 
     private String nomeProprietario;
     private String incraProprietario;
@@ -71,7 +74,8 @@ public class Associado implements Serializable {
     private String municipioProprietario;
     @Enumerated(EnumType.STRING)
     private UF ufProprietario;
-    private LocalDate dataMoradiaProprietario;
+    @Temporal(TemporalType.DATE)
+    private Date dataMoradiaProprietario;
 
     private String assalariado;
     private String cargoAssalariado;
@@ -80,23 +84,29 @@ public class Associado implements Serializable {
     private String municipioAssalariado;
     @Enumerated(EnumType.STRING)
     private UF ufAssalariado;
-    private LocalDate dataMoradiaAssalariado;
+    @Temporal(TemporalType.DATE)
+    private Date dataMoradiaAssalariado;
 
     @OneToMany(mappedBy = "associado")
     private List<Dependente> dependentes;
 
     private String transferidoSTTR;
-    private LocalDate dataTransferenciaSTTR;
+    @Temporal(TemporalType.DATE)
+    private Date dataTransferenciaSTTR;
 
     private String filiacaoMae;
     private String filiacaoPai;
     private String matricula;
     private String matriculaAnterior;
     private String primeiraMatricula;
-    private LocalDate dataRecadastramento;
-    private LocalDate dataExpedicao;
-    private LocalDate dataAdmissao;
-    private LocalDate dataNascimento;
+    @Temporal(TemporalType.DATE)
+    private Date dataRecadastramento;
+    @Temporal(TemporalType.DATE)
+    private Date dataExpedicao;
+    @Temporal(TemporalType.DATE)
+    private Date dataAdmissao;
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
     private String naturalidade;
     private String estadoCivil;
     private String conjuge;
@@ -141,11 +151,11 @@ public class Associado implements Serializable {
         this.orgaoExpedidor = orgaoExpedidor;
     }
 
-    public LocalDate getExpedicaoDocumento() {
+    public Date getExpedicaoDocumento() {
         return expedicaoDocumento;
     }
 
-    public void setExpedicaoDocumento(LocalDate expedicaoDocumento) {
+    public void setExpedicaoDocumento(Date expedicaoDocumento) {
         this.expedicaoDocumento = expedicaoDocumento;
     }
 
@@ -285,11 +295,11 @@ public class Associado implements Serializable {
         this.ufProfissao = ufProfissao;
     }
 
-    public LocalDate getDataMoradiaProfissao() {
+    public Date getDataMoradiaProfissao() {
         return dataMoradiaProfissao;
     }
 
-    public void setDataMoradiaProfissao(LocalDate dataMoradiaProfissao) {
+    public void setDataMoradiaProfissao(Date dataMoradiaProfissao) {
         this.dataMoradiaProfissao = dataMoradiaProfissao;
     }
 
@@ -341,11 +351,11 @@ public class Associado implements Serializable {
         this.ufProprietario = ufProprietario;
     }
 
-    public LocalDate getDataMoradiaProprietario() {
+    public Date getDataMoradiaProprietario() {
         return dataMoradiaProprietario;
     }
 
-    public void setDataMoradiaProprietario(LocalDate dataMoradiaProprietario) {
+    public void setDataMoradiaProprietario(Date dataMoradiaProprietario) {
         this.dataMoradiaProprietario = dataMoradiaProprietario;
     }
 
@@ -389,11 +399,11 @@ public class Associado implements Serializable {
         this.ufAssalariado = ufAssalariado;
     }
 
-    public LocalDate getDataMoradiaAssalariado() {
+    public Date getDataMoradiaAssalariado() {
         return dataMoradiaAssalariado;
     }
 
-    public void setDataMoradiaAssalariado(LocalDate dataMoradiaAssalariado) {
+    public void setDataMoradiaAssalariado(Date dataMoradiaAssalariado) {
         this.dataMoradiaAssalariado = dataMoradiaAssalariado;
     }
 
@@ -413,11 +423,11 @@ public class Associado implements Serializable {
         this.transferidoSTTR = transferidoSTTR;
     }
 
-    public LocalDate getDataTransferenciaSTTR() {
+    public Date getDataTransferenciaSTTR() {
         return dataTransferenciaSTTR;
     }
 
-    public void setDataTransferenciaSTTR(LocalDate dataTransferenciaSTTR) {
+    public void setDataTransferenciaSTTR(Date dataTransferenciaSTTR) {
         this.dataTransferenciaSTTR = dataTransferenciaSTTR;
     }
 
@@ -429,11 +439,11 @@ public class Associado implements Serializable {
         this.primeiraMatricula = primeiraMatricula;
     }
 
-    public LocalDate getDataRecadastramento() {
+    public Date getDataRecadastramento() {
         return dataRecadastramento;
     }
 
-    public void setDataRecadastramento(LocalDate dataRecadastramento) {
+    public void setDataRecadastramento(Date dataRecadastramento) {
         this.dataRecadastramento = dataRecadastramento;
     }
 
@@ -533,11 +543,11 @@ public class Associado implements Serializable {
         this.matricula = matricula;
     }
 
-    public LocalDate getDataExpedicao() {
+    public Date getDataExpedicao() {
         return dataExpedicao;
     }
 
-    public void setDataExpedicao(LocalDate dataExpedicao) {
+    public void setDataExpedicao(Date dataExpedicao) {
         this.dataExpedicao = dataExpedicao;
     }
 
@@ -549,19 +559,19 @@ public class Associado implements Serializable {
         this.matriculaAnterior = matriculaAnterior;
     }
 
-    public LocalDate getDataAdmissao() {
+    public Date getDataAdmissao() {
         return dataAdmissao;
     }
 
-    public void setDataAdmissao(LocalDate dataAdmissao) {
+    public void setDataAdmissao(Date dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
 
-    public LocalDate getNascimento() {
+    public Date getNascimento() {
         return getDataNascimento();
     }
 
-    public void setNascimento(LocalDate nascimento) {
+    public void setNascimento(Date nascimento) {
         this.setDataNascimento(nascimento);
     }
 
@@ -606,14 +616,14 @@ public class Associado implements Serializable {
     /**
      * @return the dataNascimento
      */
-    public LocalDate getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
     /**
      * @param dataNascimento the dataNascimento to set
      */
-    public void setDataNascimento(LocalDate dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

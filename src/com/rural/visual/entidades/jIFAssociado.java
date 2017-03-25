@@ -6,6 +6,8 @@ import com.rural.uteis.ConversorPersonalizado;
 import com.rural.uteis.Formatos;
 import com.rural.uteis.ValidatorUtil;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
@@ -21,7 +23,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     public jIFAssociado() {
         initComponents();
         limparCampos();
-        jdpa = new jDPesquisaAssociado(null, true);
+        
 
         try {
             setFormatos();
@@ -1103,15 +1105,20 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
 // <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
         asso.setMatricula(jTFMatricula.getText());
-        asso.setDataExpedicao(ConversorPersonalizado.convertStringToLocalDate(jFTFExpedicaoDoc.getText()));
+        try {
+            asso.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFExpedicaoDoc.getText()));
+            asso.setNascimento(ConversorPersonalizado.convertStringToDate(jFTFNascimento.getText()));
+            asso.setDataAdmissao(ConversorPersonalizado.convertStringToDate(jFTFDataAdmissao.getText()));
+        } catch (ParseException ex) {
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         asso.setMatriculaAnterior(jTFMatriculaAnterior.getText());
-        asso.setDataAdmissao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataAdmissao.getText()));
         asso.setNome(jTFNome.getText());
         asso.setApelido(jTFApelido.getText());
         asso.setSexo(ConversorPersonalizado.convertStringToSexo(jCBSexo.getSelectedItem().toString())); // usar enum
         asso.setFiliacaoMae(jTFFiliacao.getText());
         asso.setFiliacaoPai(jTFFiliacaoPai.getText());
-        asso.setNascimento(ConversorPersonalizado.convertStringToLocalDate(jFTFNascimento.getText()));
         asso.setNaturalidade(jTFNaturalidade.getText());
         asso.setEstadoCivil(jCBEstadoCivil.getSelectedItem().toString());
         asso.setConjuge(jTFConjuge.getText());
@@ -1128,7 +1135,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setCpf(jFTFCPF.getText());
         asso.setRg(jTFRG.getText());
         asso.setOrgaoExpedidor(jTFOrgExpeditor.getText());
-        asso.setDataExpedicao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataExpedicao.getText()));
+        try {
+            asso.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFDataExpedicao.getText()));
+            asso.setDataRecadastramento(ConversorPersonalizado.convertStringToDate(jFTFDataRecadastramento.getText()));
+            asso.setDataTransferenciaSTTR(ConversorPersonalizado.convertStringToDate(jFTFDataTransferencia.getText()));
+        } catch (ParseException ex) {
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        }
         asso.setCtps(jTFCtps.getText());
         asso.setSerieCtps(jTFSerie.getText());
         asso.setCertidaoNascimentoCasamento(jTFCertidaoNascimentoCasamento.getText());
@@ -1139,11 +1152,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setEspecie(jTFEspecie.getText());
         asso.setNit(jTFNit.getText());
         asso.setTransferidoSTTR(jTFSttr.getText());
-        asso.setDataTransferenciaSTTR(ConversorPersonalizado.convertStringToLocalDate(jFTFDataTransferencia.getText()));
-        asso.setPrimeiraMatricula(jTFPrimeiraMatricula.getText());
-        asso.setDataRecadastramento(ConversorPersonalizado.convertStringToLocalDate(jFTFDataRecadastramento.getText()));
-// </editor-fold>
 
+        asso.setPrimeiraMatricula(jTFPrimeiraMatricula.getText());
+
+// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Dados Profissionais">
         asso.setProfissao(jTFProfissao.getText());
         asso.setRegimeAtividade(jTFRegimeAtividade.getText());
@@ -1153,7 +1165,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setEnderecoProfissao(jTFEnderecoProfissao.getText());
         asso.setMunicipioProfissao(jTFMunicipioProfissao.getText());
         asso.setUfProfissao(ConversorPersonalizado.convertStringToUF(jCBUfProfissao.getSelectedItem().toString()));
-        asso.setDataMoradiaProfissao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataPropria.getText()));
+        try {
+            asso.setDataMoradiaProfissao(ConversorPersonalizado.convertStringToDate(jFTFDataPropria.getText()));
+        } catch (ParseException ex) {
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        }
         asso.setNomeProprietario(jTFNomeProprietario.getText());
         asso.setIncraProprietario(jTFIncraProprietario.getText());
         asso.setMunicipioProprietario(jTFMunicipioProprietario.getText());
@@ -1197,14 +1213,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jFTFDataAdmissaoFocusLost
 
     private void jBPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaActionPerformed
-
+        jdpa = new jDPesquisaAssociado(null, true);
         jdpa.setVisible(true);
-
-        dd = jdpa.getCodigo();
-
-        JOptionPane.showMessageDialog(null, "O numero escolhido foi" + dd);
-
-
     }//GEN-LAST:event_jBPesquisaActionPerformed
 
     private void validateData(JFormattedTextField data) {
@@ -1243,15 +1253,15 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private void populaCampos(Associado asso) {
 
         jTFMatricula.setText(asso.getMatricula());
-        jFTFExpedicaoDoc.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataExpedicao()));
+        jFTFExpedicaoDoc.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
         jTFMatriculaAnterior.setText(asso.getMatriculaAnterior());
-        jFTFDataAdmissao.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataAdmissao()));
+        jFTFDataAdmissao.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataAdmissao()));
         jTFNome.setText(asso.getNome());
         jTFApelido.setText(asso.getApelido());
         jCBSexo.setSelectedIndex(0);
         jTFFiliacao.setText(asso.getFiliacaoMae());
         jTFFiliacaoPai.setText(asso.getFiliacaoPai());
-        jFTFNascimento.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getNascimento()));
+        jFTFNascimento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getNascimento()));
         jTFNaturalidade.setText(asso.getNaturalidade());
         jCBEstadoCivil.setSelectedIndex(0);
         jTFConjuge.setText(asso.getConjuge());
@@ -1266,7 +1276,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jFTFCPF.setText(asso.getCpf());
         jTFRG.setText(asso.getRg());
         jTFOrgExpeditor.setText(asso.getOrgaoExpedidor());
-        jFTFDataExpedicao.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataExpedicao()));
+        jFTFDataExpedicao.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
         jTFCtps.setText(asso.getCtps());
         jTFSerie.setText(asso.getSerieCtps());
         jTFCertidaoNascimentoCasamento.setText(asso.getCertidaoNascimentoCasamento());
@@ -1277,9 +1287,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFEspecie.setText(asso.getEspecie());
         jTFNit.setText(asso.getNit());
         jTFSttr.setText(asso.getTransferidoSTTR());
-        jFTFDataTransferencia.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataTransferenciaSTTR()));
+        jFTFDataTransferencia.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataTransferenciaSTTR()));
         jTFPrimeiraMatricula.setText(asso.getPrimeiraMatricula());
-        jFTFDataRecadastramento.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataRecadastramento()));
+        jFTFDataRecadastramento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataRecadastramento()));
 
         jTFProfissao.setText(asso.getProfissao());
         jTFRegimeAtividade.setText(asso.getRegimeAtividade());
@@ -1289,7 +1299,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFEnderecoProfissao.setText(asso.getEnderecoProfissao());
         jTFMunicipioProfissao.setText(asso.getMunicipioProfissao());
         jCBUfProfissao.setSelectedIndex(0);
-        jFTFDataPropria.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataMoradiaProprietario()));
+        jFTFDataPropria.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataMoradiaProprietario()));
         jTFNomeProprietario.setText(asso.getNomeProprietario());
         jTFIncraProprietario.setText(asso.getIncraProprietario());
         jTFMunicipioProprietario.setText(asso.getMunicipioProprietario());
