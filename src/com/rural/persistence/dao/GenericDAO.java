@@ -10,21 +10,27 @@ public class GenericDAO {
 
 	public void inserir (Object entidade){
 		EntityManager em = getEntityManager();
-		em.getTransaction().begin();
+		if (!em.getTransaction().isActive()) {
+                    em.getTransaction().begin();
+                }
 		em.persist(entidade);
 		em.getTransaction().commit();
 	}
 	
 	public void alterar (Object entidade){
 		EntityManager em = getEntityManager();
-		em.getTransaction().begin();
+		if (!em.getTransaction().isActive()) {
+                    em.getTransaction().begin();
+                }
 		em.merge(entidade);
 		em.getTransaction().commit();
 	}
 	
 	public void deletar (Object entidade){
 		EntityManager em = getEntityManager();
-		em.getTransaction().begin();
+		if (!em.getTransaction().isActive()) {
+                    em.getTransaction().begin();
+                }
 		em.remove(entidade);
 		em.getTransaction().commit();
 	}
@@ -32,9 +38,12 @@ public class GenericDAO {
 	public void inserirLog(Object log){
 		EntityManager em = getEntityManager();
 		try {
-			em.getTransaction().begin();
-			em.persist(log);
-			em.getTransaction().commit();
+                    if (!em.getTransaction().isActive()) {
+                        em.getTransaction().begin();
+                    }
+                    
+                    em.persist(log);
+                    em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 		}
@@ -45,7 +54,9 @@ public class GenericDAO {
         
         public void inserirAlterar (Object entidade){
             EntityManager em = getEntityManager();
-            em.getTransaction().begin();
+            if (!em.getTransaction().isActive()) {
+                    em.getTransaction().begin();
+                }
                 
             try {
                 em.persist(entidade);
@@ -59,7 +70,9 @@ public class GenericDAO {
 	public <T> Object findById (int id, Class<T> objClass) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
 		EntityManager em = getEntityManager();
 		T obj = (T) Class.forName(objClass.getName()).newInstance();
-		em.getTransaction().begin();
+		if (!em.getTransaction().isActive()) {
+                    em.getTransaction().begin();
+                }
 		Query q = em.createQuery("Select o from "+ objClass.getName() +" as o " + "where o.id = :param");
 		q.setParameter("param", id);
 		obj = (T) q.getSingleResult();
