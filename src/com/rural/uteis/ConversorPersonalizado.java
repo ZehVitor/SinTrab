@@ -7,8 +7,11 @@ package com.rural.uteis;
 
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  *
@@ -16,9 +19,11 @@ import java.time.format.DateTimeFormatter;
  */
 public class ConversorPersonalizado {
 
-    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    static String formato = "dd/MM/yyyy";
+    static SimpleDateFormat PTBRDate = new SimpleDateFormat(formato);
+    static Date date;
 
-    public static LocalDate convertStringToLocalDate(String textoData) {
+    public static Date convertStringToDate(String textoData) throws ParseException {
         String aux = textoData;
         aux = aux.replaceAll("/", "");
         aux = aux.trim();
@@ -26,14 +31,14 @@ public class ConversorPersonalizado {
         if (aux.equals("")) {
             return null;
         }
-        return LocalDate.parse(textoData, dtf);
+        return ConversorPersonalizado.date = new SimpleDateFormat(formato).parse(textoData);
     }
 
-    public static String convertLocalDateToPTBRDate(LocalDate date) {
-        return date.format(dtf);
+    public static String convertDateToPTBRDate(Date date) {
+        return PTBRDate.format(date);
     }
 
-    public static String convertNumberToString(Long numero) {
+    public String convertNumberToString(Long numero) {
 
         if (numero.equals("")) {
             return null;

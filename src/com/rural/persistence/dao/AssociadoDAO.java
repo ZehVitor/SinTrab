@@ -6,6 +6,7 @@
 package com.rural.persistence.dao;
 
 import com.rural.model.Associado;
+import com.rural.uteis.ValidatorUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -48,15 +49,15 @@ public class AssociadoDAO extends GenericDAO {
                 String select = "Select a from Associado as a ";
                 String where = " where 1=1 ";
                 
-                if (!nome.isEmpty()) {
+                if (!ValidatorUtil.isNullOrEmpty(nome)) {
                     where += " AND a.nome = :nome ";
                 }
                 
-                if (!cpf.isEmpty()) {
+                if (!ValidatorUtil.isNullOrEmpty(cpf)) {
                     where += " AND a.cpf = :cpf ";
                 }
                 
-                if (!matricula.isEmpty()) {
+                if (!ValidatorUtil.isNullOrEmpty(matricula)) {
                     where += " AND a.matricula = :matricula ";
                 }
                 
@@ -64,15 +65,15 @@ public class AssociadoDAO extends GenericDAO {
                 
 		Query q = em.createQuery(select + where + orderBy);
 		
-                if (!nome.isEmpty()) {
+                if (!ValidatorUtil.isNullOrEmpty(nome)) {
                     q.setParameter("nome", nome);
                 }
                 
-                if (!cpf.isEmpty()) {
+                if (!ValidatorUtil.isNullOrEmpty(cpf)) {
                     q.setParameter("cpf", cpf);
                 }
                 
-                if (!matricula.isEmpty()) {
+                if (!ValidatorUtil.isNullOrEmpty(matricula)) {
                     q.setParameter("matricula", matricula);
                 }
                 
