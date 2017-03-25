@@ -26,13 +26,54 @@ public class AssociadoDAO extends GenericDAO {
                 String where = " where 1=1 ";
                 
                 if (!nomeAssociado.isEmpty()) {
-                    where += " AND a.nome = " + nomeAssociado;
+                    where += " AND a.nome = :nome ";
                 }
                 
 		Query q = em.createQuery(select + where);
 		
                 if (!nomeAssociado.isEmpty()) {
                     q.setParameter("nome", nomeAssociado);
+                }
+                
+		retorno = q.getResultList();
+		
+		return retorno;
+	}
+    
+    public List<Associado> findAssociadoByFiltros (String nome, String cpf, String matricula) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		EntityManager em = getEntityManager();
+		List<Associado> retorno = new ArrayList<Associado>();
+		em.getTransaction().begin();
+                
+                String select = "Select a from Associado as a ";
+                String where = " where 1=1 ";
+                
+                if (!nome.isEmpty()) {
+                    where += " AND a.nome = :nome ";
+                }
+                
+                if (!cpf.isEmpty()) {
+                    where += " AND a.cpf = :cpf ";
+                }
+                
+                if (!matricula.isEmpty()) {
+                    where += " AND a.matricula = :matricula ";
+                }
+                
+                String orderBy = " ORDER BY a.nome ";
+                
+		Query q = em.createQuery(select + where + orderBy);
+		
+                if (!nome.isEmpty()) {
+                    q.setParameter("nome", nome);
+                }
+                
+                if (!cpf.isEmpty()) {
+                    q.setParameter("cpf", cpf);
+                }
+                
+                if (!matricula.isEmpty()) {
+                    q.setParameter("matricula", matricula);
                 }
                 
 		retorno = q.getResultList();
