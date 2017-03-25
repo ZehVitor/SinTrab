@@ -20,7 +20,9 @@ public class AssociadoDAO extends GenericDAO {
     public List<Associado> findAssociadoByNome (String nomeAssociado) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
 		EntityManager em = getEntityManager();
 		List<Associado> retorno = new ArrayList<Associado>();
-		em.getTransaction().begin();
+		if (!em.getTransaction().isActive()) {
+                    em.getTransaction().begin();
+                }
                 
                 String select = "Select a from Associado as a ";
                 String where = " where 1=1 ";
@@ -43,7 +45,9 @@ public class AssociadoDAO extends GenericDAO {
     public List<Associado> findAssociadoByFiltros (String nome, String cpf, String matricula) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
 		EntityManager em = getEntityManager();
 		List<Associado> retorno = new ArrayList<Associado>();
-		em.getTransaction().begin();
+                if (!em.getTransaction().isActive()) {
+                    em.getTransaction().begin();
+                }
                 
                 String select = "Select a from Associado as a ";
                 String where = " where 1=1 ";
