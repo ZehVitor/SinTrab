@@ -88,7 +88,8 @@ public class Associado implements Serializable {
     private String transferidoSTTR;
     private LocalDate dataTransferenciaSTTR;
 
-    private String filiacao;
+    private String filiacaoMae;
+    private String filiacaoPai;
     private String matricula;
     private String matriculaAnterior;
     private String primeiraMatricula;
@@ -516,12 +517,12 @@ public class Associado implements Serializable {
         this.sexo = sexo;
     }
 
-    public String getFiliacao() {
-        return filiacao;
+    public String getFiliacaoMae() {
+        return filiacaoMae;
     }
 
-    public void setFiliacao(String filiacao) {
-        this.filiacao = filiacao;
+    public void setFiliacaoMae(String filiacaoMae) {
+        this.filiacaoMae = filiacaoMae;
     }
 
     public String getMatricula() {
@@ -557,11 +558,11 @@ public class Associado implements Serializable {
     }
 
     public LocalDate getNascimento() {
-        return dataNascimento;
+        return getDataNascimento();
     }
 
     public void setNascimento(LocalDate nascimento) {
-        this.dataNascimento = nascimento;
+        this.setDataNascimento(nascimento);
     }
 
     public String getNaturalidade() {
@@ -587,4 +588,33 @@ public class Associado implements Serializable {
     public void setConjuge(String conjuge) {
         this.conjuge = conjuge;
     }
+
+    /**
+     * @return the filiacaoPai
+     */
+    public String getFiliacaoPai() {
+        return filiacaoPai;
+    }
+
+    /**
+     * @param filiacaoPai the filiacaoPai to set
+     */
+    public void setFiliacaoPai(String filiacaoPai) {
+        this.filiacaoPai = filiacaoPai;
+    }
+
+    /**
+     * @return the dataNascimento
+     */
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    /**
+     * @param dataNascimento the dataNascimento to set
+     */
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
 }
