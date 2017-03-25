@@ -21,6 +21,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     public jIFAssociado() {
         initComponents();
         limparCampos();
+        jdpa = new jDPesquisaAssociado(null, true);
 
         try {
             setFormatos();
@@ -61,8 +62,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jCBUF = new javax.swing.JComboBox<>();
         jTFTelefone = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
         jTFEmail = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
@@ -153,12 +152,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jPDependentes = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBPesquisa = new javax.swing.JButton();
         jBSalvar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTFMatricula = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jFTTFExpedicao = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
         jTFMatriculaAnterior = new javax.swing.JTextField();
         jFTFDataAdmissao = new javax.swing.JFormattedTextField();
@@ -170,6 +168,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFApelido = new javax.swing.JTextField();
         jCBSexo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        jFTFExpedicaoDoc = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setTitle("Associado");
@@ -243,11 +242,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("Telefone");
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel19.setText("Telefone");
-
-        jTextField13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         jTFEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -278,7 +272,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                                 .addComponent(jLabel15)
-                                .addGap(0, 61, Short.MAX_VALUE))
+                                .addGap(0, 1, Short.MAX_VALUE))
                             .addComponent(jTFBairro)))
                     .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                         .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,6 +284,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel17)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jCBUF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
+                        .addComponent(jTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTFEmail))
                     .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                         .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -311,21 +309,15 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                 .addGap(42, 42, 42)
                                 .addComponent(jLabel12))
                             .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
-                                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel20)
-                            .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel18)
+                                .addGap(94, 94, 94)
+                                .addComponent(jLabel20)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPDadosPessoaisLayout.setVerticalGroup(
             jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPDadosPessoaisLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -372,21 +364,14 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addComponent(jTFMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCBUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPDocumentacao.addTab("Dados Pessoais", jPDadosPessoais);
@@ -525,7 +510,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel26)
-                                .addGap(0, 157, Short.MAX_VALUE))
+                                .addGap(0, 97, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTFSerie)
                                 .addContainerGap())))))
@@ -728,7 +713,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTFIncraProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4)))
-                        .addContainerGap(198, Short.MAX_VALUE))
+                        .addContainerGap(138, Short.MAX_VALUE))
                     .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                         .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
@@ -921,21 +906,30 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jPDependentes.setLayout(jPDependentesLayout);
         jPDependentesLayout.setHorizontalGroup(
             jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGap(0, 741, Short.MAX_VALUE)
         );
         jPDependentesLayout.setVerticalGroup(
             jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 421, Short.MAX_VALUE)
         );
 
         jPDocumentacao.addTab("Dependentes", jPDependentes);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Excluir");
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("jButton2");
 
-        jButton3.setText("jButton3");
+        jBPesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBPesquisa.setText("Pesquisa");
+        jBPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBPesquisaActionPerformed(evt);
+            }
+        });
 
+        jBSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBSalvar.setText("Salvar");
         jBSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -947,19 +941,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel1.setText("Matrícula");
 
         jTFMatricula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTFMatricula.setFocusable(false);
-        jTFMatricula.setPreferredSize(new java.awt.Dimension(6, 23));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Expedição");
-
-        jFTTFExpedicao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        jFTTFExpedicao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jFTTFExpedicao.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTTFExpedicaoFocusLost(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Matrícula Anterior");
@@ -999,70 +983,73 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jTFApelido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        jCBSexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jCBSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMININO" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Sexo");
 
+        jFTFExpedicaoDoc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPDocumentacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPDocumentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jFTFExpedicaoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFMatriculaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTFMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFTTFExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
+                                .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTFMatriculaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
+                                .addComponent(jLabel6)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jFTFDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6)
-                                        .addGap(0, 162, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jFTFDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTFApelido))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTFNome))
+                                .addComponent(jTFApelido))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addComponent(jLabel7)
+                                .addGap(53, 53, 53))
+                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jCBSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jBSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                                .addComponent(jCBSexo, 0, 1, Short.MAX_VALUE)))))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jBSalvar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBPesquisa)
+                .addGap(2, 2, 2)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -1074,12 +1061,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jFTTFExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTFMatriculaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFTFDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTFMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTFApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTFMatriculaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jFTFDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTFApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jFTFExpedicaoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1092,13 +1080,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPDocumentacao, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jPDocumentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalvar)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jBPesquisa)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -1115,7 +1103,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
 // <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
         asso.setMatricula(jTFMatricula.getText());
-        asso.setDataExpedicao(ConversorPersonalizado.convertStringToLocalDate(jFTTFExpedicao.getText()));
+        asso.setDataExpedicao(ConversorPersonalizado.convertStringToLocalDate(jFTFExpedicaoDoc.getText()));
         asso.setMatriculaAnterior(jTFMatriculaAnterior.getText());
         asso.setDataAdmissao(ConversorPersonalizado.convertStringToLocalDate(jFTFDataAdmissao.getText()));
         asso.setNome(jTFNome.getText());
@@ -1208,11 +1196,18 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         validateData(jFTFDataAdmissao);
     }//GEN-LAST:event_jFTFDataAdmissaoFocusLost
 
-    private void jFTTFExpedicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTTFExpedicaoFocusLost
-        validateData(jFTTFExpedicao);
-    }//GEN-LAST:event_jFTTFExpedicaoFocusLost
+    private void jBPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaActionPerformed
 
-    private void validateData(JFormattedTextField data){
+        jdpa.setVisible(true);
+
+        dd = jdpa.getCodigo();
+
+        JOptionPane.showMessageDialog(null, "O numero escolhido foi" + dd);
+
+
+    }//GEN-LAST:event_jBPesquisaActionPerformed
+
+    private void validateData(JFormattedTextField data) {
         String aux = data.getText();
         aux = aux.replaceAll("/", "");
         aux = aux.trim();
@@ -1224,7 +1219,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             }
         }
     }
-    
+
     private boolean validateCamposCadastro() {
         StringBuilder erros = new StringBuilder();
         if (jTFNome.getText().isEmpty()) {
@@ -1248,7 +1243,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private void populaCampos(Associado asso) {
 
         jTFMatricula.setText(asso.getMatricula());
-        jFTTFExpedicao.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataExpedicao()));
+        jFTFExpedicaoDoc.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataExpedicao()));
         jTFMatriculaAnterior.setText(asso.getMatriculaAnterior());
         jFTFDataAdmissao.setText(ConversorPersonalizado.convertLocalDateToPTBRDate(asso.getDataAdmissao()));
         jTFNome.setText(asso.getNome());
@@ -1302,7 +1297,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private void limparCampos() {
         jTFMatricula.setText("");
-        jFTTFExpedicao.setText("");
+        jFTFExpedicaoDoc.setText("");
         jTFMatriculaAnterior.setText("");
         jFTFDataAdmissao.setText("");
         jTFNome.setText("");
@@ -1359,6 +1354,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         formatos.getFormatoDataSimples().install(jFTFNascimento);
         formatos.getFormatoDataSimples().install(jFTFDataEmpregado);
         formatos.getFormatoDataSimples().install(jFTFDataExpedicao);
+        formatos.getFormatoDataSimples().install(jFTFExpedicaoDoc);
         formatos.getFormatoDataSimples().install(jFTFDataAdmissao);
         formatos.getFormatoDataSimples().install(jFTFDataPropria);
         formatos.getFormatoDataSimples().install(jFTFDataRecadastramento);
@@ -1368,10 +1364,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Variables declaration">
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBPesquisa;
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jCBEstadoCivil;
     private javax.swing.JComboBox<String> jCBSexo;
     private javax.swing.JComboBox<String> jCBUF;
@@ -1386,8 +1382,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField jFTFDataRecadastramento;
     private javax.swing.JFormattedTextField jFTFDataTerceiros;
     private javax.swing.JFormattedTextField jFTFDataTransferencia;
+    private javax.swing.JFormattedTextField jFTFExpedicaoDoc;
     private javax.swing.JFormattedTextField jFTFNascimento;
-    private javax.swing.JFormattedTextField jFTTFExpedicao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1398,7 +1394,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1493,7 +1488,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTFTelefone;
     private javax.swing.JTextField jTFTituloEleitor;
     private javax.swing.JTextField jTFZona;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField40;
@@ -1505,5 +1499,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     // </editor-fold>
     private Associado associado = new Associado();
     private Formatos formatos = new Formatos();
+    private jDPesquisaAssociado jdpa;
+    private Long dd = 0L;
 
 }
