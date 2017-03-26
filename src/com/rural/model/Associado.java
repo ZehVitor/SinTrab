@@ -104,6 +104,8 @@ public class Associado implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataExpedicao;
     @Temporal(TemporalType.DATE)
+    private Date dataExpedicaoRG;
+    @Temporal(TemporalType.DATE)
     private Date dataAdmissao;
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
@@ -119,484 +121,606 @@ public class Associado implements Serializable {
     private String telefone;
     private String email;
 
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public String getOrgaoExpedidor() {
-        return orgaoExpedidor;
-    }
-
-    public void setOrgaoExpedidor(String orgaoExpedidor) {
-        this.orgaoExpedidor = orgaoExpedidor;
-    }
-
-    public Date getExpedicaoDocumento() {
-        return expedicaoDocumento;
-    }
-
-    public void setExpedicaoDocumento(Date expedicaoDocumento) {
-        this.expedicaoDocumento = expedicaoDocumento;
-    }
-
-    public String getCertidaoNascimentoCasamento() {
-        return certidaoNascimentoCasamento;
-    }
-
-    public void setCertidaoNascimentoCasamento(String certidaoNascimentoCasamento) {
-        this.certidaoNascimentoCasamento = certidaoNascimentoCasamento;
-    }
-
-    public String getCtps() {
-        return ctps;
-    }
-
-    public void setCtps(String ctps) {
-        this.ctps = ctps;
-    }
-
-    public String getSerieCtps() {
-        return serieCtps;
-    }
-
-    public void setSerieCtps(String serieCtps) {
-        this.serieCtps = serieCtps;
-    }
-
-    public String getTituloEleitor() {
-        return tituloEleitor;
-    }
-
-    public void setTituloEleitor(String tituloEleitor) {
-        this.tituloEleitor = tituloEleitor;
-    }
-
-    public String getZonaEleitoral() {
-        return zonaEleitoral;
-    }
-
-    public void setZonaEleitoral(String zonaEleitoral) {
-        this.zonaEleitoral = zonaEleitoral;
-    }
-
-    public String getSecaoEleitoral() {
-        return secaoEleitoral;
-    }
-
-    public void setSecaoEleitoral(String secaoEleitoral) {
-        this.secaoEleitoral = secaoEleitoral;
-    }
-
-    public String getNumeroBeneficio() {
-        return numeroBeneficio;
-    }
-
-    public void setNumeroBeneficio(String numeroBeneficio) {
-        this.numeroBeneficio = numeroBeneficio;
-    }
-
-    public String getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(String especie) {
-        this.especie = especie;
-    }
-
-    public String getNit() {
-        return nit;
-    }
-
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getProfissao() {
-        return profissao;
-    }
-
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
-    }
-
-    public String getRegimeAtividade() {
-        return regimeAtividade;
-    }
-
-    public void setRegimeAtividade(String regimeAtividade) {
-        this.regimeAtividade = regimeAtividade;
-    }
-
-    public String getTamanhoPropriedade() {
-        return tamanhoPropriedade;
-    }
-
-    public void setTamanhoPropriedade(String tamanhoPropriedade) {
-        this.tamanhoPropriedade = tamanhoPropriedade;
-    }
-
-    public String getAreaUtilizada() {
-        return areaUtilizada;
-    }
-
-    public void setAreaUtilizada(String areaUtilizada) {
-        this.areaUtilizada = areaUtilizada;
-    }
-
-    public String getIncra() {
-        return incra;
-    }
-
-    public void setIncra(String incra) {
-        this.incra = incra;
-    }
-
-    public String getEnderecoProfissao() {
-        return enderecoProfissao;
-    }
-
-    public void setEnderecoProfissao(String enderecoProfissao) {
-        this.enderecoProfissao = enderecoProfissao;
-    }
-
-    public String getMunicipioProfissao() {
-        return municipioProfissao;
-    }
-
-    public void setMunicipioProfissao(String municipioProfissao) {
-        this.municipioProfissao = municipioProfissao;
-    }
-
-    public UF getUfProfissao() {
-        return ufProfissao;
-    }
-
-    public void setUfProfissao(UF ufProfissao) {
-        this.ufProfissao = ufProfissao;
-    }
-
-    public Date getDataMoradiaProfissao() {
-        return dataMoradiaProfissao;
-    }
-
-    public void setDataMoradiaProfissao(Date dataMoradiaProfissao) {
-        this.dataMoradiaProfissao = dataMoradiaProfissao;
-    }
-
-    public String getNomeProprietario() {
-        return nomeProprietario;
-    }
-
-    public void setNomeProprietario(String nomeProprietario) {
-        this.nomeProprietario = nomeProprietario;
-    }
-
-    public String getIncraProprietario() {
-        return incraProprietario;
-    }
-
-    public void setIncraProprietario(String incraProprietario) {
-        this.incraProprietario = incraProprietario;
-    }
-
-    public String getAreaUtilizadaProprietario() {
-        return areaUtilizadaProprietario;
-    }
-
-    public void setAreaUtilizadaProprietario(String areaUtilizadaProprietario) {
-        this.areaUtilizadaProprietario = areaUtilizadaProprietario;
-    }
-
-    public String getEnderecoProprietario() {
-        return enderecoProprietario;
-    }
-
-    public void setEnderecoProprietario(String enderecoProprietario) {
-        this.enderecoProprietario = enderecoProprietario;
-    }
-
-    public String getMunicipioProprietario() {
-        return municipioProprietario;
-    }
-
-    public void setMunicipioProprietario(String municipioProprietario) {
-        this.municipioProprietario = municipioProprietario;
-    }
-
-    public UF getUfProprietario() {
-        return ufProprietario;
-    }
-
-    public void setUfProprietario(UF ufProprietario) {
-        this.ufProprietario = ufProprietario;
-    }
-
-    public Date getDataMoradiaProprietario() {
-        return dataMoradiaProprietario;
-    }
-
-    public void setDataMoradiaProprietario(Date dataMoradiaProprietario) {
-        this.dataMoradiaProprietario = dataMoradiaProprietario;
-    }
-
-    public String getAssalariado() {
-        return assalariado;
-    }
-
-    public void setAssalariado(String assalariado) {
-        this.assalariado = assalariado;
-    }
-
-    public String getCargoAssalariado() {
-        return cargoAssalariado;
-    }
-
-    public void setCargoAssalariado(String cargoAssalariado) {
-        this.cargoAssalariado = cargoAssalariado;
-    }
-
-    public String getEnderecoAssalariado() {
-        return enderecoAssalariado;
-    }
-
-    public void setEnderecoAssalariado(String enderecoAssalariado) {
-        this.enderecoAssalariado = enderecoAssalariado;
-    }
-
-    public String getMunicipioAssalariado() {
-        return municipioAssalariado;
-    }
-
-    public void setMunicipioAssalariado(String municipioAssalariado) {
-        this.municipioAssalariado = municipioAssalariado;
-    }
-
-    public UF getUfAssalariado() {
-        return ufAssalariado;
-    }
-
-    public void setUfAssalariado(UF ufAssalariado) {
-        this.ufAssalariado = ufAssalariado;
-    }
-
-    public Date getDataMoradiaAssalariado() {
-        return dataMoradiaAssalariado;
-    }
-
-    public void setDataMoradiaAssalariado(Date dataMoradiaAssalariado) {
-        this.dataMoradiaAssalariado = dataMoradiaAssalariado;
-    }
-
-    public List<Dependente> getDependentes() {
-        return dependentes;
-    }
-
-    public void setDependentes(List<Dependente> dependentes) {
-        this.dependentes = dependentes;
-    }
-
-    public String getTransferidoSTTR() {
-        return transferidoSTTR;
-    }
-
-    public void setTransferidoSTTR(String transferidoSTTR) {
-        this.transferidoSTTR = transferidoSTTR;
-    }
-
-    public Date getDataTransferenciaSTTR() {
-        return dataTransferenciaSTTR;
-    }
-
-    public void setDataTransferenciaSTTR(Date dataTransferenciaSTTR) {
-        this.dataTransferenciaSTTR = dataTransferenciaSTTR;
-    }
-
-    public String getPrimeiraMatricula() {
-        return primeiraMatricula;
-    }
-
-    public void setPrimeiraMatricula(String primeiraMatricula) {
-        this.primeiraMatricula = primeiraMatricula;
-    }
-
-    public Date getDataRecadastramento() {
-        return dataRecadastramento;
-    }
-
-    public void setDataRecadastramento(Date dataRecadastramento) {
-        this.dataRecadastramento = dataRecadastramento;
-    }
-
-    public String getGrauInstrucao() {
-        return grauInstrucao;
-    }
-
-    public void setGrauInstrucao(String grauInstrucao) {
-        this.grauInstrucao = grauInstrucao;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public UF getUf() {
-        return uf;
-    }
-
-    public void setUf(UF uf) {
-        this.uf = uf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    /**
+     * @return the nome
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * @param nome the nome to set
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * @return the apelido
+     */
     public String getApelido() {
         return apelido;
     }
 
+    /**
+     * @param apelido the apelido to set
+     */
     public void setApelido(String apelido) {
         this.apelido = apelido;
     }
 
+    /**
+     * @return the sexo
+     */
     public Sexo getSexo() {
         return sexo;
     }
 
+    /**
+     * @param sexo the sexo to set
+     */
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    /**
+     * @return the rg
+     */
+    public String getRg() {
+        return rg;
+    }
+
+    /**
+     * @param rg the rg to set
+     */
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    /**
+     * @return the orgaoExpedidor
+     */
+    public String getOrgaoExpedidor() {
+        return orgaoExpedidor;
+    }
+
+    /**
+     * @param orgaoExpedidor the orgaoExpedidor to set
+     */
+    public void setOrgaoExpedidor(String orgaoExpedidor) {
+        this.orgaoExpedidor = orgaoExpedidor;
+    }
+
+    /**
+     * @return the expedicaoDocumento
+     */
+    public Date getExpedicaoDocumento() {
+        return expedicaoDocumento;
+    }
+
+    /**
+     * @param expedicaoDocumento the expedicaoDocumento to set
+     */
+    public void setExpedicaoDocumento(Date expedicaoDocumento) {
+        this.expedicaoDocumento = expedicaoDocumento;
+    }
+
+    /**
+     * @return the certidaoNascimentoCasamento
+     */
+    public String getCertidaoNascimentoCasamento() {
+        return certidaoNascimentoCasamento;
+    }
+
+    /**
+     * @param certidaoNascimentoCasamento the certidaoNascimentoCasamento to set
+     */
+    public void setCertidaoNascimentoCasamento(String certidaoNascimentoCasamento) {
+        this.certidaoNascimentoCasamento = certidaoNascimentoCasamento;
+    }
+
+    /**
+     * @return the ctps
+     */
+    public String getCtps() {
+        return ctps;
+    }
+
+    /**
+     * @param ctps the ctps to set
+     */
+    public void setCtps(String ctps) {
+        this.ctps = ctps;
+    }
+
+    /**
+     * @return the serieCtps
+     */
+    public String getSerieCtps() {
+        return serieCtps;
+    }
+
+    /**
+     * @param serieCtps the serieCtps to set
+     */
+    public void setSerieCtps(String serieCtps) {
+        this.serieCtps = serieCtps;
+    }
+
+    /**
+     * @return the tituloEleitor
+     */
+    public String getTituloEleitor() {
+        return tituloEleitor;
+    }
+
+    /**
+     * @param tituloEleitor the tituloEleitor to set
+     */
+    public void setTituloEleitor(String tituloEleitor) {
+        this.tituloEleitor = tituloEleitor;
+    }
+
+    /**
+     * @return the zonaEleitoral
+     */
+    public String getZonaEleitoral() {
+        return zonaEleitoral;
+    }
+
+    /**
+     * @param zonaEleitoral the zonaEleitoral to set
+     */
+    public void setZonaEleitoral(String zonaEleitoral) {
+        this.zonaEleitoral = zonaEleitoral;
+    }
+
+    /**
+     * @return the secaoEleitoral
+     */
+    public String getSecaoEleitoral() {
+        return secaoEleitoral;
+    }
+
+    /**
+     * @param secaoEleitoral the secaoEleitoral to set
+     */
+    public void setSecaoEleitoral(String secaoEleitoral) {
+        this.secaoEleitoral = secaoEleitoral;
+    }
+
+    /**
+     * @return the numeroBeneficio
+     */
+    public String getNumeroBeneficio() {
+        return numeroBeneficio;
+    }
+
+    /**
+     * @param numeroBeneficio the numeroBeneficio to set
+     */
+    public void setNumeroBeneficio(String numeroBeneficio) {
+        this.numeroBeneficio = numeroBeneficio;
+    }
+
+    /**
+     * @return the especie
+     */
+    public String getEspecie() {
+        return especie;
+    }
+
+    /**
+     * @param especie the especie to set
+     */
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    /**
+     * @return the nit
+     */
+    public String getNit() {
+        return nit;
+    }
+
+    /**
+     * @param nit the nit to set
+     */
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    /**
+     * @return the profissao
+     */
+    public String getProfissao() {
+        return profissao;
+    }
+
+    /**
+     * @param profissao the profissao to set
+     */
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    /**
+     * @return the regimeAtividade
+     */
+    public String getRegimeAtividade() {
+        return regimeAtividade;
+    }
+
+    /**
+     * @param regimeAtividade the regimeAtividade to set
+     */
+    public void setRegimeAtividade(String regimeAtividade) {
+        this.regimeAtividade = regimeAtividade;
+    }
+
+    /**
+     * @return the tamanhoPropriedade
+     */
+    public String getTamanhoPropriedade() {
+        return tamanhoPropriedade;
+    }
+
+    /**
+     * @param tamanhoPropriedade the tamanhoPropriedade to set
+     */
+    public void setTamanhoPropriedade(String tamanhoPropriedade) {
+        this.tamanhoPropriedade = tamanhoPropriedade;
+    }
+
+    /**
+     * @return the areaUtilizada
+     */
+    public String getAreaUtilizada() {
+        return areaUtilizada;
+    }
+
+    /**
+     * @param areaUtilizada the areaUtilizada to set
+     */
+    public void setAreaUtilizada(String areaUtilizada) {
+        this.areaUtilizada = areaUtilizada;
+    }
+
+    /**
+     * @return the incra
+     */
+    public String getIncra() {
+        return incra;
+    }
+
+    /**
+     * @param incra the incra to set
+     */
+    public void setIncra(String incra) {
+        this.incra = incra;
+    }
+
+    /**
+     * @return the enderecoProfissao
+     */
+    public String getEnderecoProfissao() {
+        return enderecoProfissao;
+    }
+
+    /**
+     * @param enderecoProfissao the enderecoProfissao to set
+     */
+    public void setEnderecoProfissao(String enderecoProfissao) {
+        this.enderecoProfissao = enderecoProfissao;
+    }
+
+    /**
+     * @return the municipioProfissao
+     */
+    public String getMunicipioProfissao() {
+        return municipioProfissao;
+    }
+
+    /**
+     * @param municipioProfissao the municipioProfissao to set
+     */
+    public void setMunicipioProfissao(String municipioProfissao) {
+        this.municipioProfissao = municipioProfissao;
+    }
+
+    /**
+     * @return the ufProfissao
+     */
+    public UF getUfProfissao() {
+        return ufProfissao;
+    }
+
+    /**
+     * @param ufProfissao the ufProfissao to set
+     */
+    public void setUfProfissao(UF ufProfissao) {
+        this.ufProfissao = ufProfissao;
+    }
+
+    /**
+     * @return the dataMoradiaProfissao
+     */
+    public Date getDataMoradiaProfissao() {
+        return dataMoradiaProfissao;
+    }
+
+    /**
+     * @param dataMoradiaProfissao the dataMoradiaProfissao to set
+     */
+    public void setDataMoradiaProfissao(Date dataMoradiaProfissao) {
+        this.dataMoradiaProfissao = dataMoradiaProfissao;
+    }
+
+    /**
+     * @return the nomeProprietario
+     */
+    public String getNomeProprietario() {
+        return nomeProprietario;
+    }
+
+    /**
+     * @param nomeProprietario the nomeProprietario to set
+     */
+    public void setNomeProprietario(String nomeProprietario) {
+        this.nomeProprietario = nomeProprietario;
+    }
+
+    /**
+     * @return the incraProprietario
+     */
+    public String getIncraProprietario() {
+        return incraProprietario;
+    }
+
+    /**
+     * @param incraProprietario the incraProprietario to set
+     */
+    public void setIncraProprietario(String incraProprietario) {
+        this.incraProprietario = incraProprietario;
+    }
+
+    /**
+     * @return the areaUtilizadaProprietario
+     */
+    public String getAreaUtilizadaProprietario() {
+        return areaUtilizadaProprietario;
+    }
+
+    /**
+     * @param areaUtilizadaProprietario the areaUtilizadaProprietario to set
+     */
+    public void setAreaUtilizadaProprietario(String areaUtilizadaProprietario) {
+        this.areaUtilizadaProprietario = areaUtilizadaProprietario;
+    }
+
+    /**
+     * @return the enderecoProprietario
+     */
+    public String getEnderecoProprietario() {
+        return enderecoProprietario;
+    }
+
+    /**
+     * @param enderecoProprietario the enderecoProprietario to set
+     */
+    public void setEnderecoProprietario(String enderecoProprietario) {
+        this.enderecoProprietario = enderecoProprietario;
+    }
+
+    /**
+     * @return the municipioProprietario
+     */
+    public String getMunicipioProprietario() {
+        return municipioProprietario;
+    }
+
+    /**
+     * @param municipioProprietario the municipioProprietario to set
+     */
+    public void setMunicipioProprietario(String municipioProprietario) {
+        this.municipioProprietario = municipioProprietario;
+    }
+
+    /**
+     * @return the ufProprietario
+     */
+    public UF getUfProprietario() {
+        return ufProprietario;
+    }
+
+    /**
+     * @param ufProprietario the ufProprietario to set
+     */
+    public void setUfProprietario(UF ufProprietario) {
+        this.ufProprietario = ufProprietario;
+    }
+
+    /**
+     * @return the dataMoradiaProprietario
+     */
+    public Date getDataMoradiaProprietario() {
+        return dataMoradiaProprietario;
+    }
+
+    /**
+     * @param dataMoradiaProprietario the dataMoradiaProprietario to set
+     */
+    public void setDataMoradiaProprietario(Date dataMoradiaProprietario) {
+        this.dataMoradiaProprietario = dataMoradiaProprietario;
+    }
+
+    /**
+     * @return the assalariado
+     */
+    public String getAssalariado() {
+        return assalariado;
+    }
+
+    /**
+     * @param assalariado the assalariado to set
+     */
+    public void setAssalariado(String assalariado) {
+        this.assalariado = assalariado;
+    }
+
+    /**
+     * @return the cargoAssalariado
+     */
+    public String getCargoAssalariado() {
+        return cargoAssalariado;
+    }
+
+    /**
+     * @param cargoAssalariado the cargoAssalariado to set
+     */
+    public void setCargoAssalariado(String cargoAssalariado) {
+        this.cargoAssalariado = cargoAssalariado;
+    }
+
+    /**
+     * @return the enderecoAssalariado
+     */
+    public String getEnderecoAssalariado() {
+        return enderecoAssalariado;
+    }
+
+    /**
+     * @param enderecoAssalariado the enderecoAssalariado to set
+     */
+    public void setEnderecoAssalariado(String enderecoAssalariado) {
+        this.enderecoAssalariado = enderecoAssalariado;
+    }
+
+    /**
+     * @return the municipioAssalariado
+     */
+    public String getMunicipioAssalariado() {
+        return municipioAssalariado;
+    }
+
+    /**
+     * @param municipioAssalariado the municipioAssalariado to set
+     */
+    public void setMunicipioAssalariado(String municipioAssalariado) {
+        this.municipioAssalariado = municipioAssalariado;
+    }
+
+    /**
+     * @return the ufAssalariado
+     */
+    public UF getUfAssalariado() {
+        return ufAssalariado;
+    }
+
+    /**
+     * @param ufAssalariado the ufAssalariado to set
+     */
+    public void setUfAssalariado(UF ufAssalariado) {
+        this.ufAssalariado = ufAssalariado;
+    }
+
+    /**
+     * @return the dataMoradiaAssalariado
+     */
+    public Date getDataMoradiaAssalariado() {
+        return dataMoradiaAssalariado;
+    }
+
+    /**
+     * @param dataMoradiaAssalariado the dataMoradiaAssalariado to set
+     */
+    public void setDataMoradiaAssalariado(Date dataMoradiaAssalariado) {
+        this.dataMoradiaAssalariado = dataMoradiaAssalariado;
+    }
+
+    /**
+     * @return the dependentes
+     */
+    public List<Dependente> getDependentes() {
+        return dependentes;
+    }
+
+    /**
+     * @param dependentes the dependentes to set
+     */
+    public void setDependentes(List<Dependente> dependentes) {
+        this.dependentes = dependentes;
+    }
+
+    /**
+     * @return the transferidoSTTR
+     */
+    public String getTransferidoSTTR() {
+        return transferidoSTTR;
+    }
+
+    /**
+     * @param transferidoSTTR the transferidoSTTR to set
+     */
+    public void setTransferidoSTTR(String transferidoSTTR) {
+        this.transferidoSTTR = transferidoSTTR;
+    }
+
+    /**
+     * @return the dataTransferenciaSTTR
+     */
+    public Date getDataTransferenciaSTTR() {
+        return dataTransferenciaSTTR;
+    }
+
+    /**
+     * @param dataTransferenciaSTTR the dataTransferenciaSTTR to set
+     */
+    public void setDataTransferenciaSTTR(Date dataTransferenciaSTTR) {
+        this.dataTransferenciaSTTR = dataTransferenciaSTTR;
+    }
+
+    /**
+     * @return the filiacaoMae
+     */
     public String getFiliacaoMae() {
         return filiacaoMae;
     }
 
+    /**
+     * @param filiacaoMae the filiacaoMae to set
+     */
     public void setFiliacaoMae(String filiacaoMae) {
         this.filiacaoMae = filiacaoMae;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public Date getDataExpedicao() {
-        return dataExpedicao;
-    }
-
-    public void setDataExpedicao(Date dataExpedicao) {
-        this.dataExpedicao = dataExpedicao;
-    }
-
-    public String getMatriculaAnterior() {
-        return matriculaAnterior;
-    }
-
-    public void setMatriculaAnterior(String matriculaAnterior) {
-        this.matriculaAnterior = matriculaAnterior;
-    }
-
-    public Date getDataAdmissao() {
-        return dataAdmissao;
-    }
-
-    public void setDataAdmissao(Date dataAdmissao) {
-        this.dataAdmissao = dataAdmissao;
-    }
-
-    public Date getNascimento() {
-        return getDataNascimento();
-    }
-
-    public void setNascimento(Date nascimento) {
-        this.setDataNascimento(nascimento);
-    }
-
-    public String getNaturalidade() {
-        return naturalidade;
-    }
-
-    public void setNaturalidade(String naturalidade) {
-        this.naturalidade = naturalidade;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
-    public String getConjuge() {
-        return conjuge;
-    }
-
-    public void setConjuge(String conjuge) {
-        this.conjuge = conjuge;
     }
 
     /**
@@ -614,6 +738,90 @@ public class Associado implements Serializable {
     }
 
     /**
+     * @return the matricula
+     */
+    public String getMatricula() {
+        return matricula;
+    }
+
+    /**
+     * @param matricula the matricula to set
+     */
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    /**
+     * @return the matriculaAnterior
+     */
+    public String getMatriculaAnterior() {
+        return matriculaAnterior;
+    }
+
+    /**
+     * @param matriculaAnterior the matriculaAnterior to set
+     */
+    public void setMatriculaAnterior(String matriculaAnterior) {
+        this.matriculaAnterior = matriculaAnterior;
+    }
+
+    /**
+     * @return the primeiraMatricula
+     */
+    public String getPrimeiraMatricula() {
+        return primeiraMatricula;
+    }
+
+    /**
+     * @param primeiraMatricula the primeiraMatricula to set
+     */
+    public void setPrimeiraMatricula(String primeiraMatricula) {
+        this.primeiraMatricula = primeiraMatricula;
+    }
+
+    /**
+     * @return the dataRecadastramento
+     */
+    public Date getDataRecadastramento() {
+        return dataRecadastramento;
+    }
+
+    /**
+     * @param dataRecadastramento the dataRecadastramento to set
+     */
+    public void setDataRecadastramento(Date dataRecadastramento) {
+        this.dataRecadastramento = dataRecadastramento;
+    }
+
+    /**
+     * @return the dataExpedicao
+     */
+    public Date getDataExpedicao() {
+        return dataExpedicao;
+    }
+
+    /**
+     * @param dataExpedicao the dataExpedicao to set
+     */
+    public void setDataExpedicao(Date dataExpedicao) {
+        this.dataExpedicao = dataExpedicao;
+    }
+
+    /**
+     * @return the dataAdmissao
+     */
+    public Date getDataAdmissao() {
+        return dataAdmissao;
+    }
+
+    /**
+     * @param dataAdmissao the dataAdmissao to set
+     */
+    public void setDataAdmissao(Date dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
+    }
+
+    /**
      * @return the dataNascimento
      */
     public Date getDataNascimento() {
@@ -625,6 +833,160 @@ public class Associado implements Serializable {
      */
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    /**
+     * @return the naturalidade
+     */
+    public String getNaturalidade() {
+        return naturalidade;
+    }
+
+    /**
+     * @param naturalidade the naturalidade to set
+     */
+    public void setNaturalidade(String naturalidade) {
+        this.naturalidade = naturalidade;
+    }
+
+    /**
+     * @return the estadoCivil
+     */
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    /**
+     * @param estadoCivil the estadoCivil to set
+     */
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    /**
+     * @return the conjuge
+     */
+    public String getConjuge() {
+        return conjuge;
+    }
+
+    /**
+     * @param conjuge the conjuge to set
+     */
+    public void setConjuge(String conjuge) {
+        this.conjuge = conjuge;
+    }
+
+    /**
+     * @return the grauInstrucao
+     */
+    public String getGrauInstrucao() {
+        return grauInstrucao;
+    }
+
+    /**
+     * @param grauInstrucao the grauInstrucao to set
+     */
+    public void setGrauInstrucao(String grauInstrucao) {
+        this.grauInstrucao = grauInstrucao;
+    }
+
+    /**
+     * @return the endereco
+     */
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    /**
+     * @return the bairro
+     */
+    public String getBairro() {
+        return bairro;
+    }
+
+    /**
+     * @param bairro the bairro to set
+     */
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    /**
+     * @return the cidade
+     */
+    public String getCidade() {
+        return cidade;
+    }
+
+    /**
+     * @param cidade the cidade to set
+     */
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    /**
+     * @return the uf
+     */
+    public UF getUf() {
+        return uf;
+    }
+
+    /**
+     * @param uf the uf to set
+     */
+    public void setUf(UF uf) {
+        this.uf = uf;
+    }
+
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the dataExpedicaoRG
+     */
+    public Date getDataExpedicaoRG() {
+        return dataExpedicaoRG;
+    }
+
+    /**
+     * @param dataExpedicaoRG the dataExpedicaoRG to set
+     */
+    public void setDataExpedicaoRG(Date dataExpedicaoRG) {
+        this.dataExpedicaoRG = dataExpedicaoRG;
     }
 
 }

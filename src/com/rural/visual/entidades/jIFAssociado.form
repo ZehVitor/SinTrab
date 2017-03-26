@@ -35,7 +35,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFTFExpedicaoDoc" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="jFTFExpedicaoCart" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -112,7 +112,7 @@
                                       <Component id="jTFMatriculaAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jFTFDataAdmissao" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTFApelido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jFTFExpedicaoDoc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jFTFExpedicaoCart" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -679,7 +679,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFTFDataExpedicao" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="jFTFDataExpedicaoRG" min="-2" pref="92" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -730,7 +730,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jTFOrgExpeditor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFTFDataExpedicao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFTFDataExpedicaoRG" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -842,9 +842,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTFOrgExpeditor">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFTFDataExpedicao">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDataExpedicaoRG">
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataExpedicaoFocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataExpedicaoRGFocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
@@ -1733,7 +1733,7 @@
         <Property name="text" type="java.lang.String" value="Sexo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFTFExpedicaoDoc">
+    <Component class="javax.swing.JFormattedTextField" name="jFTFExpedicaoCart">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>

@@ -74,7 +74,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFRG = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jTFOrgExpeditor = new javax.swing.JTextField();
-        jFTFDataExpedicao = new javax.swing.JFormattedTextField();
+        jFTFDataExpedicaoRG = new javax.swing.JFormattedTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -170,7 +170,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFApelido = new javax.swing.JTextField();
         jCBSexo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jFTFExpedicaoDoc = new javax.swing.JFormattedTextField();
+        jFTFExpedicaoCart = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setTitle("Associado");
@@ -384,9 +384,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jLabel23.setText("Org. Expeditor");
 
-        jFTFDataExpedicao.addFocusListener(new java.awt.event.FocusAdapter() {
+        jFTFDataExpedicaoRG.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFDataExpedicaoFocusLost(evt);
+                jFTFDataExpedicaoRGFocusLost(evt);
             }
         });
 
@@ -503,7 +503,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel24)
-                            .addComponent(jFTFDataExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFTFDataExpedicaoRG, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25)
@@ -541,7 +541,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTFOrgExpeditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFTFDataExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jFTFDataExpedicaoRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -991,7 +991,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Sexo");
 
-        jFTFExpedicaoDoc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jFTFExpedicaoCart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1008,7 +1008,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jFTFExpedicaoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFTFExpedicaoCart, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFMatriculaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1069,7 +1069,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                         .addComponent(jTFMatriculaAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jFTFDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTFApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jFTFExpedicaoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jFTFExpedicaoCart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1106,8 +1106,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 // <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
         asso.setMatricula(jTFMatricula.getText());
         try {
-            asso.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFExpedicaoDoc.getText()));
-            asso.setNascimento(ConversorPersonalizado.convertStringToDate(jFTFNascimento.getText()));
+            asso.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFExpedicaoCart.getText()));
+            asso.setDataNascimento(ConversorPersonalizado.convertStringToDate(jFTFNascimento.getText()));
             asso.setDataAdmissao(ConversorPersonalizado.convertStringToDate(jFTFDataAdmissao.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
@@ -1136,7 +1136,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setRg(jTFRG.getText());
         asso.setOrgaoExpedidor(jTFOrgExpeditor.getText());
         try {
-            asso.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFDataExpedicao.getText()));
+            asso.setDataExpedicaoRG(ConversorPersonalizado.convertStringToDate(jFTFDataExpedicaoRG.getText()));
             asso.setDataRecadastramento(ConversorPersonalizado.convertStringToDate(jFTFDataRecadastramento.getText()));
             asso.setDataTransferenciaSTTR(ConversorPersonalizado.convertStringToDate(jFTFDataTransferencia.getText()));
         } catch (ParseException ex) {
@@ -1180,9 +1180,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         limparCampos();
     }//GEN-LAST:event_jBSalvarActionPerformed
 
-    private void jFTFDataExpedicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataExpedicaoFocusLost
-        validateData(jFTFDataExpedicao);
-    }//GEN-LAST:event_jFTFDataExpedicaoFocusLost
+    private void jFTFDataExpedicaoRGFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataExpedicaoRGFocusLost
+        validateData(jFTFDataExpedicaoRG);
+    }//GEN-LAST:event_jFTFDataExpedicaoRGFocusLost
 
     private void jFTFDataTransferenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataTransferenciaFocusLost
         validateData(jFTFDataTransferencia);
@@ -1253,7 +1253,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private void populaCampos(Associado asso) {
 
         jTFMatricula.setText(asso.getMatricula());
-        jFTFExpedicaoDoc.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
+        jFTFExpedicaoCart.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
         jTFMatriculaAnterior.setText(asso.getMatriculaAnterior());
         jFTFDataAdmissao.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataAdmissao()));
         jTFNome.setText(asso.getNome());
@@ -1261,7 +1261,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jCBSexo.setSelectedIndex(0);
         jTFFiliacao.setText(asso.getFiliacaoMae());
         jTFFiliacaoPai.setText(asso.getFiliacaoPai());
-        jFTFNascimento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getNascimento()));
+        jFTFNascimento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataNascimento()));
         jTFNaturalidade.setText(asso.getNaturalidade());
         jCBEstadoCivil.setSelectedIndex(0);
         jTFConjuge.setText(asso.getConjuge());
@@ -1276,7 +1276,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jFTFCPF.setText(asso.getCpf());
         jTFRG.setText(asso.getRg());
         jTFOrgExpeditor.setText(asso.getOrgaoExpedidor());
-        jFTFDataExpedicao.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
+        jFTFDataExpedicaoRG.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
         jTFCtps.setText(asso.getCtps());
         jTFSerie.setText(asso.getSerieCtps());
         jTFCertidaoNascimentoCasamento.setText(asso.getCertidaoNascimentoCasamento());
@@ -1307,7 +1307,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private void limparCampos() {
         jTFMatricula.setText("");
-        jFTFExpedicaoDoc.setText("");
+        jFTFExpedicaoCart.setText("");
         jTFMatriculaAnterior.setText("");
         jFTFDataAdmissao.setText("");
         jTFNome.setText("");
@@ -1330,7 +1330,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jFTFCPF.setText("");
         jTFRG.setText("");
         jTFOrgExpeditor.setText("");
-        jFTFDataExpedicao.setText("");
+        jFTFDataExpedicaoRG.setText("");
         jTFCtps.setText("");
         jTFSerie.setText("");
         jTFCertidaoNascimentoCasamento.setText("");
@@ -1363,8 +1363,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         formatos.getFormatoCPF().install(jFTFCPF);
         formatos.getFormatoDataSimples().install(jFTFNascimento);
         formatos.getFormatoDataSimples().install(jFTFDataEmpregado);
-        formatos.getFormatoDataSimples().install(jFTFDataExpedicao);
-        formatos.getFormatoDataSimples().install(jFTFExpedicaoDoc);
+        formatos.getFormatoDataSimples().install(jFTFDataExpedicaoRG);
+        formatos.getFormatoDataSimples().install(jFTFExpedicaoCart);
         formatos.getFormatoDataSimples().install(jFTFDataAdmissao);
         formatos.getFormatoDataSimples().install(jFTFDataPropria);
         formatos.getFormatoDataSimples().install(jFTFDataRecadastramento);
@@ -1387,12 +1387,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField jFTFCPF;
     private javax.swing.JFormattedTextField jFTFDataAdmissao;
     private javax.swing.JFormattedTextField jFTFDataEmpregado;
-    private javax.swing.JFormattedTextField jFTFDataExpedicao;
+    private javax.swing.JFormattedTextField jFTFDataExpedicaoRG;
     private javax.swing.JFormattedTextField jFTFDataPropria;
     private javax.swing.JFormattedTextField jFTFDataRecadastramento;
     private javax.swing.JFormattedTextField jFTFDataTerceiros;
     private javax.swing.JFormattedTextField jFTFDataTransferencia;
-    private javax.swing.JFormattedTextField jFTFExpedicaoDoc;
+    private javax.swing.JFormattedTextField jFTFExpedicaoCart;
     private javax.swing.JFormattedTextField jFTFNascimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
