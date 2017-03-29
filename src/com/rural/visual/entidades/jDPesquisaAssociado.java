@@ -256,7 +256,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         for (Associado a : dao.findAssociadoByFiltros(null, null, null)) {
 
             modelo.addRow(new Object[]{
-                a.getMatricula(),
+                a.getId(),
                 a.getNome(),
                 a.getApelido()  
             });

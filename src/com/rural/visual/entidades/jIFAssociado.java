@@ -1104,7 +1104,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         GenericDAO dao = new GenericDAO();
 
 // <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
-        asso.setMatricula(jTFMatricula.getText());
+        //asso.setMatricula(jTFMatricula.getText());
         try {
             asso.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFExpedicaoCart.getText()));
             asso.setDataNascimento(ConversorPersonalizado.convertStringToDate(jFTFNascimento.getText()));
@@ -1252,7 +1252,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private void populaCampos(Associado asso) {
 
-        jTFMatricula.setText(asso.getMatricula());
+        
+        jTFMatricula.setText(String.valueOf(asso.getId()));
         jFTFExpedicaoCart.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
         jTFMatriculaAnterior.setText(asso.getMatriculaAnterior());
         jFTFDataAdmissao.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataAdmissao()));

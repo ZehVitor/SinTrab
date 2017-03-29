@@ -96,7 +96,6 @@ public class Associado implements Serializable {
 
     private String filiacaoMae;
     private String filiacaoPai;
-    private String matricula;
     private String matriculaAnterior;
     private String primeiraMatricula;
     @Temporal(TemporalType.DATE)
@@ -735,20 +734,6 @@ public class Associado implements Serializable {
      */
     public void setFiliacaoPai(String filiacaoPai) {
         this.filiacaoPai = filiacaoPai;
-    }
-
-    /**
-     * @return the matricula
-     */
-    public String getMatricula() {
-        return matricula;
-    }
-
-    /**
-     * @param matricula the matricula to set
-     */
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
     }
 
     /**
