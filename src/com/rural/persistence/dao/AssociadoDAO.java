@@ -9,6 +9,8 @@ import com.rural.model.Associado;
 import com.rural.uteis.ValidatorUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -85,4 +87,20 @@ public class AssociadoDAO extends GenericDAO {
 		
 		return retorno;
 	}
+    
+    /** </summary>
+    * Método para buscar um ID, que também é utilizado como matrícula
+    * </summary>
+    */
+    public Associado findById(int id){
+       Associado as = null;
+        
+       try {
+            as = (Associado) super.findById(id, Associado.class);
+        } catch (Exception ex) {
+            System.out.println("Erro ao procurar o ID");
+        }
+       
+        return as;
+    }
 }
