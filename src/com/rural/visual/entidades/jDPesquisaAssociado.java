@@ -10,6 +10,7 @@ import com.rural.persistence.dao.AssociadoDAO;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -114,6 +115,11 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
                 "Matrícula", "Nome", "Apelido"
             }
         ));
+        jTAssociados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTAssociadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTAssociados);
 
         jBCancelar.setText("Cancelar");
@@ -169,6 +175,22 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTAssociadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTAssociadosMouseClicked
+        int linha = -1;
+        
+        linha = jTAssociados.getSelectedRow();
+        
+        if(linha >=0){
+            Long id = Long.parseLong((String) jTAssociados.getValueAt(linha, 0));
+            //associado = dao.findAssociadoByFiltros(null, null, String.valueOf(id));
+            
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_jTAssociadosMouseClicked
 
     /**
      * @param args the command line arguments
