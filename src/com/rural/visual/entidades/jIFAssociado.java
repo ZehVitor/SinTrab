@@ -350,58 +350,107 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jPDocumentacao.addTab("Dados Pessoais", jPDadosPessoais);
 
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel21.setText("CPF");
 
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel22.setText("RG");
 
+        jTFRG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel23.setText("Org. Expeditor");
 
+        jTFOrgExpeditor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jFTFDataExpedicaoRG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jFTFDataExpedicaoRG.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFTFDataExpedicaoRGFocusLost(evt);
             }
         });
 
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("Data Expedição");
 
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setText("CTPS");
 
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel26.setText("Série");
 
+        jTFSerie.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTFCtps.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel27.setText("Certidão de Nascimento ou Casamento (Livro/Folha)");
 
+        jTFCertidaoNascimentoCasamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jFTFCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel28.setText("Título de Eleitor");
 
+        jTFTituloEleitor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel29.setText("Zona");
 
+        jTFZona.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel30.setText("Seção");
 
+        jTFSecao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel31.setText("Número do Benefício");
 
+        jTFNumeroBeneficio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel32.setText("Espécie");
 
+        jTFEspecie.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel33.setText("NIT");
 
+        jTFNit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTFSttr.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("Transferência do STTR");
 
+        jFTFDataTransferencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jFTFDataTransferencia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFTFDataTransferenciaFocusLost(evt);
             }
         });
 
+        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel35.setText("Data de Transferência");
 
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel36.setText("Em caso de recadastramento (Conforme Assembléia de Classe)");
 
+        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel37.setText("Primeira Matrícula");
 
+        jTFPrimeiraMatricula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jFTFDataRecadastramento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jFTFDataRecadastramento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFTFDataRecadastramentoFocusLost(evt);
             }
         });
 
+        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel38.setText("Data do Recadastramento");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -429,24 +478,26 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addComponent(jLabel34))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel33)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTFNit)
-                                .addGap(316, 316, 316))))
+                                .addGap(316, 316, 316))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jFTFDataTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jFTFDataTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel37)
-                                        .addComponent(jTFPrimeiraMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jFTFDataRecadastramento))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jTFPrimeiraMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jFTFDataRecadastramento)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel28)
@@ -484,7 +535,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel26)
-                                .addGap(0, 97, Short.MAX_VALUE))
+                                .addGap(0, 88, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTFSerie)
                                 .addContainerGap())))))
@@ -583,31 +634,56 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jPDocumentacao.addTab("Documentação", jPanel2);
 
+        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel39.setText("Profissão");
 
+        jTFProfissao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel40.setText("Regime de Atividade");
 
+        jTFRegimeAtividade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel41.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel41.setText("Tamanho Propriedade (Própria)");
 
+        jTFTamanhoProrpiedade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel42.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel42.setText("Área Utilizada");
 
+        jTFAreaUtilizada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel43.setText("INCRA");
 
+        jTFIncra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTFEnderecoProfissao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel44.setText("Endereço de trabalho");
 
+        jCBUfProfissao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jCBUfProfissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RN", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
+        jLabel45.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel45.setText("UF");
 
+        jLabel46.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel46.setText("Desde");
 
+        jFTFDataPropria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jFTFDataPropria.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFTFDataPropriaFocusLost(evt);
             }
         });
 
+        jLabel47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel47.setText("Município");
+
+        jTFMunicipioProfissao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPDadosProfissionaisLayout = new javax.swing.GroupLayout(jPDadosProfissionais);
         jPDadosProfissionais.setLayout(jPDadosProfissionaisLayout);
@@ -648,7 +724,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addComponent(jCBUfProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jFTFDataPropria, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 111, Short.MAX_VALUE))
+                        .addGap(0, 104, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPDadosProfissionaisLayout.createSequentialGroup()
                         .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFProfissao)
@@ -700,7 +776,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jTFMunicipioProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCBUfProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFTFDataPropria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
 
         jPDocumentacao.addTab("Dados Profissionais", jPDadosProfissionais);
