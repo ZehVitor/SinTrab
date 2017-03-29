@@ -45,7 +45,7 @@ public class AssociadoDAO extends GenericDAO {
 		return retorno;
 	}
     
-    public List<Associado> findAssociadoByFiltros (String nome, String cpf, String matricula) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+    public List<Associado> findAssociadoByFiltros (String nome, String cpf, Integer id) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
 		EntityManager em = getEntityManager();
 		List<Associado> retorno = new ArrayList<Associado>();
                 if (!em.getTransaction().isActive()) {
@@ -63,8 +63,8 @@ public class AssociadoDAO extends GenericDAO {
                     where += " AND a.cpf = :cpf ";
                 }
                 
-                if (!ValidatorUtil.isNullOrEmpty(matricula)) {
-                    where += " AND a.matricula = :matricula ";
+                if (id != null && id > 0) {
+                    where += " AND a.matricula = :id ";
                 }
                 
                 String orderBy = " ORDER BY a.nome ";
@@ -79,8 +79,8 @@ public class AssociadoDAO extends GenericDAO {
                     q.setParameter("cpf", cpf);
                 }
                 
-                if (!ValidatorUtil.isNullOrEmpty(matricula)) {
-                    q.setParameter("matricula", matricula);
+                if (id != null && id > 0) {
+                    q.setParameter("id", id);
                 }
                 
 		retorno = q.getResultList();
