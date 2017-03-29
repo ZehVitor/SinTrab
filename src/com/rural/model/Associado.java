@@ -54,38 +54,22 @@ public class Associado implements Serializable {
     private String numeroBeneficio;
     private String especie;
     private String nit;
+   
+    
     private String profissao;
     private String regimeAtividade;
-
+    private String nomeProprietario;
     private String tamanhoPropriedade;
     private String areaUtilizada;
     private String incra;
-    private String enderecoProfissao;
-    private String municipioProfissao;
+    private String enderecoPropriedade;
+    private String municipioPropriedade;
     @Enumerated(EnumType.STRING)
-    private UF ufProfissao;
+    private UF ufPropriedade;
     @Temporal(TemporalType.DATE)
-    private Date dataMoradiaProfissao;
-
-    private String nomeProprietario;
-    private String incraProprietario;
-    private String areaUtilizadaProprietario;
-    private String enderecoProprietario;
-    private String municipioProprietario;
-    @Enumerated(EnumType.STRING)
-    private UF ufProprietario;
-    @Temporal(TemporalType.DATE)
-    private Date dataMoradiaProprietario;
-
-    private String assalariado;
-    private String cargoAssalariado;
-
-    private String enderecoAssalariado;
-    private String municipioAssalariado;
-    @Enumerated(EnumType.STRING)
-    private UF ufAssalariado;
-    @Temporal(TemporalType.DATE)
-    private Date dataMoradiaAssalariado;
+    private Date dataPropriedade;
+    private String empresaPropriedade;
+    private String cargoPropriedade;
 
     @OneToMany(mappedBy = "associado")
     private List<Dependente> dependentes;
@@ -429,59 +413,59 @@ public class Associado implements Serializable {
     }
 
     /**
-     * @return the enderecoProfissao
+     * @return the enderecoPropriedade
      */
-    public String getEnderecoProfissao() {
-        return enderecoProfissao;
+    public String getEnderecoPropriedade() {
+        return enderecoPropriedade;
     }
 
     /**
-     * @param enderecoProfissao the enderecoProfissao to set
+     * @param enderecoPropriedade the enderecoPropriedade to set
      */
-    public void setEnderecoProfissao(String enderecoProfissao) {
-        this.enderecoProfissao = enderecoProfissao;
+    public void setEnderecoPropriedade(String enderecoPropriedade) {
+        this.enderecoPropriedade = enderecoPropriedade;
     }
 
     /**
-     * @return the municipioProfissao
+     * @return the municipioPropriedade
      */
-    public String getMunicipioProfissao() {
-        return municipioProfissao;
+    public String getMunicipioPropriedade() {
+        return municipioPropriedade;
     }
 
     /**
-     * @param municipioProfissao the municipioProfissao to set
+     * @param municipioPropriedade the municipioPropriedade to set
      */
-    public void setMunicipioProfissao(String municipioProfissao) {
-        this.municipioProfissao = municipioProfissao;
+    public void setMunicipioPropriedade(String municipioPropriedade) {
+        this.municipioPropriedade = municipioPropriedade;
     }
 
     /**
-     * @return the ufProfissao
+     * @return the ufPropriedade
      */
-    public UF getUfProfissao() {
-        return ufProfissao;
+    public UF getUfPropriedade() {
+        return ufPropriedade;
     }
 
     /**
-     * @param ufProfissao the ufProfissao to set
+     * @param ufPropriedade the ufPropriedade to set
      */
-    public void setUfProfissao(UF ufProfissao) {
-        this.ufProfissao = ufProfissao;
+    public void setUfPropriedade(UF ufPropriedade) {
+        this.ufPropriedade = ufPropriedade;
     }
 
     /**
-     * @return the dataMoradiaProfissao
+     * @return the dataPropriedade
      */
-    public Date getDataMoradiaProfissao() {
-        return dataMoradiaProfissao;
+    public Date getDataPropriedade() {
+        return dataPropriedade;
     }
 
     /**
-     * @param dataMoradiaProfissao the dataMoradiaProfissao to set
+     * @param dataPropriedade the dataPropriedade to set
      */
-    public void setDataMoradiaProfissao(Date dataMoradiaProfissao) {
-        this.dataMoradiaProfissao = dataMoradiaProfissao;
+    public void setDataPropriedade(Date dataPropriedade) {
+        this.dataPropriedade = dataPropriedade;
     }
 
     /**
@@ -498,172 +482,33 @@ public class Associado implements Serializable {
         this.nomeProprietario = nomeProprietario;
     }
 
+   
     /**
-     * @return the incraProprietario
+     * @return the empresaPropriedade
      */
-    public String getIncraProprietario() {
-        return incraProprietario;
+    public String getEmpresaPropriedade() {
+        return empresaPropriedade;
     }
 
     /**
-     * @param incraProprietario the incraProprietario to set
+     * @param empresaPropriedade the empresaPropriedade to set
      */
-    public void setIncraProprietario(String incraProprietario) {
-        this.incraProprietario = incraProprietario;
+    public void setEmpresaPropriedade(String empresaPropriedade) {
+        this.empresaPropriedade = empresaPropriedade;
     }
 
     /**
-     * @return the areaUtilizadaProprietario
+     * @return the cargoPropriedade
      */
-    public String getAreaUtilizadaProprietario() {
-        return areaUtilizadaProprietario;
+    public String getCargoPropriedade() {
+        return cargoPropriedade;
     }
 
     /**
-     * @param areaUtilizadaProprietario the areaUtilizadaProprietario to set
+     * @param cargoPropriedade the cargoPropriedade to set
      */
-    public void setAreaUtilizadaProprietario(String areaUtilizadaProprietario) {
-        this.areaUtilizadaProprietario = areaUtilizadaProprietario;
-    }
-
-    /**
-     * @return the enderecoProprietario
-     */
-    public String getEnderecoProprietario() {
-        return enderecoProprietario;
-    }
-
-    /**
-     * @param enderecoProprietario the enderecoProprietario to set
-     */
-    public void setEnderecoProprietario(String enderecoProprietario) {
-        this.enderecoProprietario = enderecoProprietario;
-    }
-
-    /**
-     * @return the municipioProprietario
-     */
-    public String getMunicipioProprietario() {
-        return municipioProprietario;
-    }
-
-    /**
-     * @param municipioProprietario the municipioProprietario to set
-     */
-    public void setMunicipioProprietario(String municipioProprietario) {
-        this.municipioProprietario = municipioProprietario;
-    }
-
-    /**
-     * @return the ufProprietario
-     */
-    public UF getUfProprietario() {
-        return ufProprietario;
-    }
-
-    /**
-     * @param ufProprietario the ufProprietario to set
-     */
-    public void setUfProprietario(UF ufProprietario) {
-        this.ufProprietario = ufProprietario;
-    }
-
-    /**
-     * @return the dataMoradiaProprietario
-     */
-    public Date getDataMoradiaProprietario() {
-        return dataMoradiaProprietario;
-    }
-
-    /**
-     * @param dataMoradiaProprietario the dataMoradiaProprietario to set
-     */
-    public void setDataMoradiaProprietario(Date dataMoradiaProprietario) {
-        this.dataMoradiaProprietario = dataMoradiaProprietario;
-    }
-
-    /**
-     * @return the assalariado
-     */
-    public String getAssalariado() {
-        return assalariado;
-    }
-
-    /**
-     * @param assalariado the assalariado to set
-     */
-    public void setAssalariado(String assalariado) {
-        this.assalariado = assalariado;
-    }
-
-    /**
-     * @return the cargoAssalariado
-     */
-    public String getCargoAssalariado() {
-        return cargoAssalariado;
-    }
-
-    /**
-     * @param cargoAssalariado the cargoAssalariado to set
-     */
-    public void setCargoAssalariado(String cargoAssalariado) {
-        this.cargoAssalariado = cargoAssalariado;
-    }
-
-    /**
-     * @return the enderecoAssalariado
-     */
-    public String getEnderecoAssalariado() {
-        return enderecoAssalariado;
-    }
-
-    /**
-     * @param enderecoAssalariado the enderecoAssalariado to set
-     */
-    public void setEnderecoAssalariado(String enderecoAssalariado) {
-        this.enderecoAssalariado = enderecoAssalariado;
-    }
-
-    /**
-     * @return the municipioAssalariado
-     */
-    public String getMunicipioAssalariado() {
-        return municipioAssalariado;
-    }
-
-    /**
-     * @param municipioAssalariado the municipioAssalariado to set
-     */
-    public void setMunicipioAssalariado(String municipioAssalariado) {
-        this.municipioAssalariado = municipioAssalariado;
-    }
-
-    /**
-     * @return the ufAssalariado
-     */
-    public UF getUfAssalariado() {
-        return ufAssalariado;
-    }
-
-    /**
-     * @param ufAssalariado the ufAssalariado to set
-     */
-    public void setUfAssalariado(UF ufAssalariado) {
-        this.ufAssalariado = ufAssalariado;
-    }
-
-    /**
-     * @return the dataMoradiaAssalariado
-     */
-    public Date getDataMoradiaAssalariado() {
-        return dataMoradiaAssalariado;
-    }
-
-    /**
-     * @param dataMoradiaAssalariado the dataMoradiaAssalariado to set
-     */
-    public void setDataMoradiaAssalariado(Date dataMoradiaAssalariado) {
-        this.dataMoradiaAssalariado = dataMoradiaAssalariado;
+    public void setCargoPropriedade(String cargoPropriedade) {
+        this.cargoPropriedade = cargoPropriedade;
     }
 
     /**
