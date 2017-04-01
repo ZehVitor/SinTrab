@@ -5,6 +5,8 @@
  */
 package com.rural.model;
 
+import com.rural.enums.EstadoCivil;
+import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
 import java.io.Serializable;
@@ -42,8 +44,6 @@ public class Associado implements Serializable {
     private String cpf;
     private String rg;
     private String orgaoExpedidor;
-    @Temporal(TemporalType.DATE)
-    private Date expedicaoDocumento;
     private String certidaoNascimentoCasamento;
 
     private String ctps;
@@ -52,12 +52,12 @@ public class Associado implements Serializable {
     private String zonaEleitoral;
     private String secaoEleitoral;
     private String numeroBeneficio;
-    private String especie;
+    private String especieBeneficio;
     private String nit;
-   
-    
+
     private String profissao;
-    private String regimeAtividade;
+    @Enumerated(EnumType.STRING)
+    private RegimeAtividade regimeAtividade;
     private String nomeProprietario;
     private String tamanhoPropriedade;
     private String areaUtilizada;
@@ -81,7 +81,6 @@ public class Associado implements Serializable {
     private String filiacaoMae;
     private String filiacaoPai;
     private String matriculaAnterior;
-    private String primeiraMatricula;
     @Temporal(TemporalType.DATE)
     private Date dataRecadastramento;
     @Temporal(TemporalType.DATE)
@@ -93,7 +92,8 @@ public class Associado implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     private String naturalidade;
-    private String estadoCivil;
+    @Enumerated(EnumType.STRING)
+    private EstadoCivil estadoCivil;
     private String conjuge;
     private String grauInstrucao;
     private String endereco;
@@ -203,20 +203,6 @@ public class Associado implements Serializable {
     }
 
     /**
-     * @return the expedicaoDocumento
-     */
-    public Date getExpedicaoDocumento() {
-        return expedicaoDocumento;
-    }
-
-    /**
-     * @param expedicaoDocumento the expedicaoDocumento to set
-     */
-    public void setExpedicaoDocumento(Date expedicaoDocumento) {
-        this.expedicaoDocumento = expedicaoDocumento;
-    }
-
-    /**
      * @return the certidaoNascimentoCasamento
      */
     public String getCertidaoNascimentoCasamento() {
@@ -315,17 +301,17 @@ public class Associado implements Serializable {
     }
 
     /**
-     * @return the especie
+     * @return the especieBeneficio
      */
-    public String getEspecie() {
-        return especie;
+    public String getEspecieBeneficio() {
+        return especieBeneficio;
     }
 
     /**
-     * @param especie the especie to set
+     * @param especieBeneficio the especieBeneficio to set
      */
-    public void setEspecie(String especie) {
-        this.especie = especie;
+    public void setEspecieBeneficio(String especieBeneficio) {
+        this.especieBeneficio = especieBeneficio;
     }
 
     /**
@@ -354,20 +340,6 @@ public class Associado implements Serializable {
      */
     public void setProfissao(String profissao) {
         this.profissao = profissao;
-    }
-
-    /**
-     * @return the regimeAtividade
-     */
-    public String getRegimeAtividade() {
-        return regimeAtividade;
-    }
-
-    /**
-     * @param regimeAtividade the regimeAtividade to set
-     */
-    public void setRegimeAtividade(String regimeAtividade) {
-        this.regimeAtividade = regimeAtividade;
     }
 
     /**
@@ -482,7 +454,6 @@ public class Associado implements Serializable {
         this.nomeProprietario = nomeProprietario;
     }
 
-   
     /**
      * @return the empresaPropriedade
      */
@@ -596,20 +567,6 @@ public class Associado implements Serializable {
     }
 
     /**
-     * @return the primeiraMatricula
-     */
-    public String getPrimeiraMatricula() {
-        return primeiraMatricula;
-    }
-
-    /**
-     * @param primeiraMatricula the primeiraMatricula to set
-     */
-    public void setPrimeiraMatricula(String primeiraMatricula) {
-        this.primeiraMatricula = primeiraMatricula;
-    }
-
-    /**
      * @return the dataRecadastramento
      */
     public Date getDataRecadastramento() {
@@ -682,14 +639,14 @@ public class Associado implements Serializable {
     /**
      * @return the estadoCivil
      */
-    public String getEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
     /**
      * @param estadoCivil the estadoCivil to set
      */
-    public void setEstadoCivil(String estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
@@ -817,6 +774,20 @@ public class Associado implements Serializable {
      */
     public void setDataExpedicaoRG(Date dataExpedicaoRG) {
         this.dataExpedicaoRG = dataExpedicaoRG;
+    }
+
+    /**
+     * @return the regimeAtividade
+     */
+    public RegimeAtividade getRegimeAtividade() {
+        return regimeAtividade;
+    }
+
+    /**
+     * @param regimeAtividade the regimeAtividade to set
+     */
+    public void setRegimeAtividade(RegimeAtividade regimeAtividade) {
+        this.regimeAtividade = regimeAtividade;
     }
 
 }
