@@ -17,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -33,6 +35,7 @@ public class Dependente implements Serializable {
 
     private String nome;
     private String parentesco;
+    @Temporal(TemporalType.DATE)
     private Date nascimento;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
