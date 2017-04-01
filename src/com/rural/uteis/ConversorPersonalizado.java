@@ -5,6 +5,7 @@
  */
 package com.rural.uteis;
 
+import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
 import java.text.ParseException;
@@ -75,6 +76,14 @@ public class ConversorPersonalizado {
         }
         
         return UF.valueOf(texto);
+    }
+    
+    public static RegimeAtividade convertStringToRegimeAtividade(String texto) {
+        if (ValidatorUtil.isNullOrEmpty(texto)) {
+            return null;
+        }
+        
+        return RegimeAtividade.valueOf(texto);
     }
 
 }
