@@ -123,8 +123,18 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTAssociados);
 
         jBCancelar.setText("Cancelar");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
 
         jBSelecionar.setText("Selecionar");
+        jBSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSelecionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,16 +192,24 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         linha = jTAssociados.getSelectedRow();
         
         if(linha >=0){
-            Long id = Long.parseLong((String) jTAssociados.getValueAt(linha, 0));
-            //associado = dao.findAssociadoByFiltros(null, null, String.valueOf(id));
-            
-            
+            int id = (int) jTAssociados.getValueAt(linha, 0);
+            associado = dao.findById(id);
         }
-        
-        
-        
     }//GEN-LAST:event_jTAssociadosMouseClicked
 
+    private void jBSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSelecionarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBSelecionarActionPerformed
+
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+        associado = null;
+        this.dispose();
+    }//GEN-LAST:event_jBCancelarActionPerformed
+
+    public Associado getAssociado(){
+        return this.associado;
+    }
+    
     /**
      * @param args the command line arguments
      */

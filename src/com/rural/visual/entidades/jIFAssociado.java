@@ -246,7 +246,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                                 .addComponent(jLabel15)
-                                .addGap(0, 1, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jTFBairro)))
                     .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                         .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -821,7 +821,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Matrícula");
 
+        jTFMatricula.setEditable(false);
         jTFMatricula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTFMatricula.setFocusable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Expedição");
@@ -979,7 +981,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             return;
         }
 
-        Associado asso = new Associado();
+        Associado asso = associado;
         GenericDAO dao = new GenericDAO();
 
 // <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
@@ -1053,8 +1055,15 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
       
 //  </editor-fold>
 
-        dao.inserirAlterar(asso);
-        JOptionPane.showMessageDialog(rootPane, asso.getNome().toUpperCase() + " cadastrado com sucesso!");
+        if (asso.getId() <= 0) {
+            dao.inserirAlterar(asso);
+            JOptionPane.showMessageDialog(rootPane, asso.getNome().toUpperCase() + " cadastrado com sucesso!");
+        }
+        else {
+            dao.alterar(asso);
+            JOptionPane.showMessageDialog(rootPane, asso.getNome().toUpperCase() + " alterado com sucesso!");
+        }
+        
         limparCampos();
     }//GEN-LAST:event_jBSalvarActionPerformed
 
@@ -1085,6 +1094,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private void jBPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaActionPerformed
         jdpa = new jDPesquisaAssociado(null, true);
         jdpa.setVisible(true);
+        if (jdpa.getAssociado() == null) {
+            return;
+        }
+        
+        setAssociado(jdpa.getAssociado());
+        populaCampos(associado);
     }//GEN-LAST:event_jBPesquisaActionPerformed
 
     private void validateData(JFormattedTextField data) {
@@ -1102,14 +1117,14 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private boolean validateCamposCadastro() {
         StringBuilder erros = new StringBuilder();
-        if (jTFNome.getText().isEmpty()) {
+        if (ValidatorUtil.isNullOrEmpty(jTFNome.getText())) {
             erros.append("O Nome não foi preenchido.\n");
         }
-        if (jFTFCPF.getText().isEmpty()) {
+        
+        String cpf = jFTFCPF.getText().replace(".", "").replace("-", "").trim();
+        
+        if (ValidatorUtil.isNullOrEmpty(cpf)) {
             erros.append("O CPF não foi preenchido.\n");
-        }
-        if (jTFMatricula.getText().isEmpty()) {
-            erros.append("A Matrícula não foi preenchida.\n");
         }
 
         if (erros.length() > 0) {
@@ -1122,7 +1137,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private void populaCampos(Associado asso) {
 
-        
         jTFMatricula.setText(String.valueOf(asso.getId()));
         jFTFExpedicaoCart.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataExpedicao()));
         jTFMatriculaAnterior.setText(asso.getMatriculaAnterior());
@@ -1215,6 +1229,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         formatos.getFormatoDataSimples().install(jFTFDataPropria);
         formatos.getFormatoDataSimples().install(jFTFDataRecadastramento);
         formatos.getFormatoDataSimples().install(jFTFDataTransferencia);
+    }
+    
+    private void setAssociado(Associado asso){
+        this.associado = asso;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Variables declaration">

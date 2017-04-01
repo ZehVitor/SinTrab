@@ -24,6 +24,10 @@ public class ConversorPersonalizado {
     static Date date;
 
     public static Date convertStringToDate(String textoData) throws ParseException {
+        if (textoData == null) {
+            return null;
+        }
+        
         String aux = textoData;
         aux = aux.replaceAll("/", "");
         aux = aux.trim();
@@ -35,12 +39,15 @@ public class ConversorPersonalizado {
     }
 
     public static String convertDateToPTBRDate(Date date) {
+        if (date == null) {
+            return null;
+        }
         return PTBRDate.format(date);
     }
 
     public String convertNumberToString(Long numero) {
 
-        if (numero.equals("")) {
+        if (numero == null || numero.equals("")) {
             return null;
         }
 
@@ -48,14 +55,25 @@ public class ConversorPersonalizado {
     }
 
     public static String convertNumberToString(Integer numero) {
+        if (numero == null || numero == 0) {
+            return "";
+        }
+        
         return String.valueOf(numero);
     }
 
     public static Sexo convertStringToSexo(String texto) {
+        if (ValidatorUtil.isNullOrEmpty(texto)) {
+            return null;
+        }
         return Sexo.valueOf(texto);
     }
 
     public static UF convertStringToUF(String texto) {
+        if (ValidatorUtil.isNullOrEmpty(texto)) {
+            return null;
+        }
+        
         return UF.valueOf(texto);
     }
 
