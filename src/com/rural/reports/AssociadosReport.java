@@ -28,7 +28,7 @@ public class AssociadosReport {
         Connection conn = null;
 
         try {
-            path = "C:/Users/JoseVitor/Documents/NetBeansProjects/SinTrab/" + nomeRelatorio + ".jasper";
+            path = System.getProperty("user.dir") + "\\" + nomeRelatorio + ".jasper";
 
             String dbUrl = "jdbc:mysql://localhost:3306/treino";
             String dbDriver = "com.mysql.jdbc.Driver";
