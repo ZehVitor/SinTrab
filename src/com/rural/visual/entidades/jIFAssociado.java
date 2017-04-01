@@ -1135,7 +1135,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private void jBCarteiraReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCarteiraReportActionPerformed
         Map<String, Object> filtro = new HashMap<String, Object>();
-        AssociadosReport.buildRelatorio("AssociadosReport", "Teste", filtro);
+        if (associado == null || associado.getId() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Realize a busca de um associado antes.");
+            return;
+        }
+        
+        filtro.put("Id", associado.getId());
+        AssociadosReport.buildRelatorio("CarteiraAss", "Teste", filtro);
     }//GEN-LAST:event_jBCarteiraReportActionPerformed
 
     private void validateData(JFormattedTextField data) {

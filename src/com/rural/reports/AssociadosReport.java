@@ -54,7 +54,7 @@ public class AssociadosReport {
                 return;
             }
             
-            JasperPrint jprint = (JasperPrint) JasperFillManager.fillReport(path, filtro, conn);
+                JasperPrint jprint = (JasperPrint) JasperFillManager.fillReport(path, filtro, conn);
             JasperViewer viewer = new JasperViewer(jprint, false);
             viewer.setVisible(true);
             viewer.setExtendedState(Frame.MAXIMIZED_BOTH);
