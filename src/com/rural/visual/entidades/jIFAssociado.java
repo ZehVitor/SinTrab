@@ -1151,18 +1151,18 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jFTFDataAdmissao.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataAdmissao()));
         jTFNome.setText(asso.getNome());
         jTFApelido.setText(asso.getApelido());
-        jCBSexo.setSelectedIndex(0);
+        jCBSexo.setSelectedItem(asso.getSexo().toString());
         jTFFiliacao.setText(asso.getFiliacaoMae());
         jTFFiliacaoPai.setText(asso.getFiliacaoPai());
         jFTFNascimento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataNascimento()));
         jTFNaturalidade.setText(asso.getNaturalidade());
-        jCBEstadoCivil.setSelectedIndex(0);
+        jCBEstadoCivil.setSelectedItem(asso.getEstadoCivil().toString());
         jTFConjuge.setText(asso.getConjuge());
         jTFGrauInstrucao.setText(asso.getGrauInstrucao());
         jTFEnderecoResidencial.setText(asso.getEndereco());
         jTFBairro.setText(asso.getBairro());
         jTFMunicipio.setText(asso.getCidade());
-        jCBUF.setSelectedIndex(0);
+        jCBUF.setSelectedItem(asso.getUf().toString());
         jTFTelefone.setText(asso.getTelefone());
         jTFEmail.setText(asso.getEmail());
 
@@ -1182,6 +1182,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFSttr.setText(asso.getTransferidoSTTR());
         jFTFDataTransferencia.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataTransferenciaSTTR()));
         jFTFDataRecadastramento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataRecadastramento()));
+        
+        
 
     }
 
