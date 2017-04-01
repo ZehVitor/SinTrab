@@ -2,10 +2,13 @@ package com.rural.visual.entidades;
 
 import com.rural.model.Associado;
 import com.rural.persistence.dao.GenericDAO;
+import com.rural.reports.AssociadosReport;
 import com.rural.uteis.ConversorPersonalizado;
 import com.rural.uteis.Formatos;
 import com.rural.uteis.ValidatorUtil;
 import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
@@ -24,7 +27,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         initComponents();
         limparCampos();
         
-
         try {
             setFormatos();
         } catch (Exception e) {
@@ -124,7 +126,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFProfissao1 = new javax.swing.JTextField();
         jPDependentes = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBCarteiraReport = new javax.swing.JButton();
         jBPesquisa = new javax.swing.JButton();
         jBSalvar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -799,8 +801,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Excluir");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("jButton2");
+        jBCarteiraReport.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBCarteiraReport.setText("Carteira");
+        jBCarteiraReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCarteiraReportActionPerformed(evt);
+            }
+        });
 
         jBPesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBPesquisa.setText("Pesquisa");
@@ -934,7 +941,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBPesquisa)
                 .addGap(2, 2, 2)
-                .addComponent(jButton2)
+                .addComponent(jBCarteiraReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1))
         );
@@ -977,7 +984,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalvar)
                     .addComponent(jBPesquisa)
-                    .addComponent(jButton2)
+                    .addComponent(jBCarteiraReport)
                     .addComponent(jButton1))
                 .addContainerGap())
         );
@@ -1109,6 +1116,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         setAssociado(jdpa.getAssociado());
         populaCampos(associado);
     }//GEN-LAST:event_jBPesquisaActionPerformed
+
+    private void jBCarteiraReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCarteiraReportActionPerformed
+        Map<String, Object> filtro = new HashMap<String, Object>();
+        AssociadosReport.buildRelatorio("AssociadosReport", "Teste", filtro);
+    }//GEN-LAST:event_jBCarteiraReportActionPerformed
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
@@ -1249,10 +1261,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Variables declaration">
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBCarteiraReport;
     private javax.swing.JButton jBPesquisa;
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCBEstadoCivil;
     private javax.swing.JComboBox<String> jCBRegimeAtividade;
     private javax.swing.JComboBox<String> jCBSexo;
