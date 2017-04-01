@@ -7,10 +7,15 @@ package com.rural.visual.entidades;
 
 import com.rural.model.Associado;
 import com.rural.persistence.dao.AssociadoDAO;
+import com.rural.uteis.ValidatorUtil;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JToggleButton;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -71,9 +76,12 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
 
         jLabel1.setText("Pesquisa associados");
 
-        jTFValorFiltro.setText("jTextField1");
-
         jBFiltrar.setText("Filtrar");
+        jBFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFiltrarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtros de Pesquisa"));
 
@@ -206,6 +214,60 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jBCancelarActionPerformed
 
+    private void jBFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFiltrarActionPerformed
+        String filtroSelecionado = jRBCodigo.isSelected() ? "Código" :
+                                   jRBNome.isSelected() ? "Nome" :
+                                   jRBCPF.isSelected() ? "CPF" : "Não reconhecido";
+        List<Associado> associados = new ArrayList<Associado>();
+        
+        switch(filtroSelecionado){
+            case "Nome":
+                try {
+                    associados = dao.findAssociadoByFiltros(jTFValorFiltro.getText(), null, null);
+                } catch (Exception ex) {
+                    Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                break;
+                
+            case "CPF":
+                try {
+                    associados = dao.findAssociadoByFiltros(null, jTFValorFiltro.getText(), null);
+                } catch (Exception ex) {
+                    Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                break;
+                
+            case "Código":
+                try {
+                    if (ValidatorUtil.isNullOrEmpty(jTFValorFiltro.getText())) {
+                        associados = dao.findAssociadoByFiltros(null, null, null);
+                    }
+                    else {
+                        associados = dao.findAssociadoByFiltros(null, null, Integer.parseInt(jTFValorFiltro.getText()));
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(rootPane, "Apenas números são permitidos para o código.");
+                } catch (Exception ex) {
+                    Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                break;
+                
+            default:
+                try {
+                    readJTable();
+                } catch (Exception ex) {
+                    Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        
+        if (associados != null && associados.size() > 0) {
+            preencherTabela(associados);
+        }
+    }//GEN-LAST:event_jBFiltrarActionPerformed
+
     public Associado getAssociado(){
         return this.associado;
     }
@@ -283,6 +345,28 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         
     }
 
+    private void preencherTabela(Collection<Associado> associados){
+        limparTabela();
+        DefaultTableModel modelo = (DefaultTableModel) jTAssociados.getModel();
+        dao = new AssociadoDAO();
+
+        associados.forEach((a) -> {
+            modelo.addRow(new Object[]{
+                a.getId(),
+                a.getNome(),
+                a.getApelido()  
+            });
+        });
+    }
+    
+    private void limparTabela(){
+        DefaultTableModel modelo = (DefaultTableModel) jTAssociados.getModel();
+        
+        while (modelo.getRowCount() > 0){
+            modelo.removeRow(modelo.getRowCount() - 1);
+        }
+    }
+    
     private Associado associado;
     private AssociadoDAO dao;
     private ArrayList<Associado> AssociadoList = new ArrayList();

@@ -56,33 +56,20 @@ public class AssociadoDAO extends GenericDAO {
                 String where = " where 1=1 ";
                 
                 if (!ValidatorUtil.isNullOrEmpty(nome)) {
-                    where += " AND a.nome = :nome ";
+                    where += " AND a.nome LIKE '"+nome+"%' ";
                 }
                 
                 if (!ValidatorUtil.isNullOrEmpty(cpf)) {
-                    where += " AND a.cpf = :cpf ";
+                    where += " AND a.cpf LIKE '"+cpf+"%' ";
                 }
                 
                 if (id != null && id > 0) {
-                    where += " AND a.matricula = :id ";
+                    where += " AND a.id = " + id;
                 }
                 
-                String orderBy = " ORDER BY a.nome ";
+                String orderBy = " ORDER BY a.id ";
                 
 		Query q = em.createQuery(select + where + orderBy);
-		
-                if (!ValidatorUtil.isNullOrEmpty(nome)) {
-                    q.setParameter("nome", nome);
-                }
-                
-                if (!ValidatorUtil.isNullOrEmpty(cpf)) {
-                    q.setParameter("cpf", cpf);
-                }
-                
-                if (id != null && id > 0) {
-                    q.setParameter("id", id);
-                }
-                
 		retorno = q.getResultList();
 		
 		return retorno;
