@@ -103,12 +103,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel35 = new javax.swing.JLabel();
         jFTFExpedicaoCart = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
+        jPDependentes = new javax.swing.JPanel();
         jPDadosProfissionais = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jTFProfissao = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jTFTamanhoProrpiedade = new javax.swing.JTextField();
+        jTFTamanhoPropriedade = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
         jTFAreaUtilizada = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
@@ -123,8 +124,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFMunicipioProfissao = new javax.swing.JTextField();
         jCBRegimeAtividade = new javax.swing.JComboBox<>();
         jLabel48 = new javax.swing.JLabel();
-        jTFProfissao1 = new javax.swing.JTextField();
-        jPDependentes = new javax.swing.JPanel();
+        jTFNomeProprietario = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
+        jTFEmpresaPropriedade = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jBCarteiraReport = new javax.swing.JButton();
         jBPesquisa = new javax.swing.JButton();
@@ -614,6 +616,21 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jPDocumentacao.addTab("Documentação", jPanel2);
 
+        jPDependentes.setPreferredSize(new java.awt.Dimension(200, 550));
+
+        javax.swing.GroupLayout jPDependentesLayout = new javax.swing.GroupLayout(jPDependentes);
+        jPDependentes.setLayout(jPDependentesLayout);
+        jPDependentesLayout.setHorizontalGroup(
+            jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 741, Short.MAX_VALUE)
+        );
+        jPDependentesLayout.setVerticalGroup(
+            jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 421, Short.MAX_VALUE)
+        );
+
+        jPDocumentacao.addTab("Dependentes", jPDependentes);
+
         jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel39.setText("Profissão");
 
@@ -625,7 +642,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel41.setText("Tamanho Propriedade");
 
-        jTFTamanhoProrpiedade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTFTamanhoPropriedade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel42.setText("Área Utilizada");
@@ -669,7 +686,12 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel48.setText("Nome Proprietário");
 
-        jTFProfissao1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTFNomeProprietario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel49.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel49.setText("Empresa");
+
+        jTFEmpresaPropriedade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPDadosProfissionaisLayout = new javax.swing.GroupLayout(jPDadosProfissionais);
         jPDadosProfissionais.setLayout(jPDadosProfissionaisLayout);
@@ -683,7 +705,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                                 .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel41)
-                                    .addComponent(jTFTamanhoProrpiedade, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTFTamanhoPropriedade, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(5, 5, 5)
                                 .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel42)
@@ -710,9 +732,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                         .addComponent(jLabel48)
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
+                        .addComponent(jLabel49)
+                        .addGap(611, 611, 611))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPDadosProfissionaisLayout.createSequentialGroup()
                         .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTFProfissao1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFEmpresaPropriedade, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFNomeProprietario, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFEnderecoProfissao, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPDadosProfissionaisLayout.createSequentialGroup()
                                 .addComponent(jLabel44)
@@ -751,7 +777,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                         .addComponent(jLabel41)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFTamanhoProrpiedade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTFTamanhoPropriedade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                         .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -763,7 +789,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel48)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFProfissao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTFNomeProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFEmpresaPropriedade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel44)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -778,25 +808,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jTFMunicipioProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCBUfProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFTFDataPropria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jPDocumentacao.addTab("Dados Profissionais", jPDadosProfissionais);
-
-        jPDependentes.setPreferredSize(new java.awt.Dimension(200, 550));
-
-        javax.swing.GroupLayout jPDependentesLayout = new javax.swing.GroupLayout(jPDependentes);
-        jPDependentes.setLayout(jPDependentesLayout);
-        jPDependentesLayout.setHorizontalGroup(
-            jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 741, Short.MAX_VALUE)
-        );
-        jPDependentesLayout.setVerticalGroup(
-            jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 421, Short.MAX_VALUE)
-        );
-
-        jPDocumentacao.addTab("Dependentes", jPDependentes);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Excluir");
@@ -1054,8 +1069,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Dados Profissionais">
         asso.setProfissao(jTFProfissao.getText());
+        asso.setEmpresaPropriedade(jTFEmpresaPropriedade.getText());
         asso.setRegimeAtividade(ConversorPersonalizado.convertStringToRegimeAtividade(jCBRegimeAtividade.getSelectedItem().toString()));
-        asso.setTamanhoPropriedade(jTFTamanhoProrpiedade.getText());
+        asso.setTamanhoPropriedade(jTFTamanhoPropriedade.getText());
         asso.setAreaUtilizada(jTFAreaUtilizada.getText());
         asso.setIncra(jTFIncra.getText());
         asso.setEnderecoPropriedade(jTFEnderecoProfissao.getText());
@@ -1178,10 +1194,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFTelefone.setText(asso.getTelefone());
         jTFEmail.setText(asso.getEmail());
         
-        jCBRegimeAtividade.setSelectedItem(ConversorPersonalizado.convertStringToRegimeAtividade(asso.getRegimeAtividade().toString()));
-        jCBUfProfissao.setSelectedItem(ConversorPersonalizado.convertStringToUF(asso.getUfPropriedade().toString()));
+        jCBRegimeAtividade.setSelectedItem(asso.getRegimeAtividade().toString());
+        jCBUfProfissao.setSelectedItem(asso.getUfPropriedade().toString());
         
-
         jFTFCPF.setText(asso.getCpf());
         jTFRG.setText(asso.getRg());
         jTFOrgExpeditor.setText(asso.getOrgaoExpedidor());
@@ -1199,7 +1214,18 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jFTFDataTransferencia.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataTransferenciaSTTR()));
         jFTFDataRecadastramento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataRecadastramento()));
         
-        
+        jCBUfProfissao.setSelectedItem(ConversorPersonalizado.convertStringToUF(asso.getUfPropriedade().toString()));
+        jCBRegimeAtividade.setSelectedItem(ConversorPersonalizado.convertStringToRegimeAtividade(asso.getRegimeAtividade().toString()));
+        jTFProfissao.setText(asso.getProfissao());
+        jTFTamanhoPropriedade.setText(asso.getTamanhoPropriedade());
+        jTFAreaUtilizada.setText(asso.getAreaUtilizada());
+        jTFIncra.setText(asso.getIncra());
+        jTFNomeProprietario.setText(asso.getNomeProprietario());
+        jTFEnderecoProfissao.setText(asso.getEnderecoPropriedade());
+        jTFMunicipioProfissao.setText(asso.getMunicipioPropriedade());
+        jFTFDataPropria.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataPropriedade()));
+        jTFEmpresaPropriedade.setText(asso.getEmpresaPropriedade());
+       
 
     }
 
@@ -1241,7 +1267,19 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFSttr.setText("");
         jFTFDataTransferencia.setText("");
         jFTFDataRecadastramento.setText("");
-
+        
+        jCBUfProfissao.setSelectedIndex(0);
+        jCBRegimeAtividade.setSelectedIndex(0);
+        jTFProfissao.setText("");
+        jTFTamanhoPropriedade.setText("");
+        jTFAreaUtilizada.setText("");
+        jTFIncra.setText("");
+        jTFNomeProprietario.setText("");
+        jTFEnderecoProfissao.setText("");
+        jTFMunicipioProfissao.setText("");
+        jFTFDataPropria.setText("");
+         jTFEmpresaPropriedade.setText("");
+        
     }
 
     private void setFormatos() throws ParseException {
@@ -1318,6 +1356,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel62;
@@ -1337,6 +1376,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTFConjuge;
     private javax.swing.JTextField jTFCtps;
     private javax.swing.JTextField jTFEmail;
+    private javax.swing.JTextField jTFEmpresaPropriedade;
     private javax.swing.JTextField jTFEnderecoProfissao;
     private javax.swing.JTextField jTFEnderecoResidencial;
     private javax.swing.JTextField jTFEspecie;
@@ -1351,15 +1391,15 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTFNaturalidade;
     private javax.swing.JTextField jTFNit;
     private javax.swing.JTextField jTFNome;
+    private javax.swing.JTextField jTFNomeProprietario;
     private javax.swing.JTextField jTFNumeroBeneficio;
     private javax.swing.JTextField jTFOrgExpeditor;
     private javax.swing.JTextField jTFProfissao;
-    private javax.swing.JTextField jTFProfissao1;
     private javax.swing.JTextField jTFRG;
     private javax.swing.JTextField jTFSecao;
     private javax.swing.JTextField jTFSerie;
     private javax.swing.JTextField jTFSttr;
-    private javax.swing.JTextField jTFTamanhoProrpiedade;
+    private javax.swing.JTextField jTFTamanhoPropriedade;
     private javax.swing.JTextField jTFTelefone;
     private javax.swing.JTextField jTFTituloEleitor;
     private javax.swing.JTextField jTFZona;
