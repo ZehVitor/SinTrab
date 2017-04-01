@@ -236,10 +236,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jTFFiliacaoPai)
                     .addComponent(jTFFiliacao, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jCBEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFConjuge))
-                    .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                         .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFEnderecoResidencial, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))
@@ -280,13 +276,17 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel13)
                                     .addComponent(jTFGrauInstrucao, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel12))
-                            .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addGap(94, 94, 94)
-                                .addComponent(jLabel20)))
+                                .addComponent(jLabel20))
+                            .addGroup(jPDadosPessoaisLayout.createSequentialGroup()
+                                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jCBEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jTFConjuge, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1010,7 +1010,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setFiliacaoMae(jTFFiliacao.getText());
         asso.setFiliacaoPai(jTFFiliacaoPai.getText());
         asso.setNaturalidade(jTFNaturalidade.getText());
-        asso.setEstadoCivil(jCBEstadoCivil.getSelectedItem().toString());
+        asso.setEstadoCivil(ConversorPersonalizado.convertStringToEstadoCivil(jCBEstadoCivil.getSelectedItem().toString()));
         asso.setConjuge(jTFConjuge.getText());
         asso.setGrauInstrucao(jTFGrauInstrucao.getText());
         asso.setEndereco(jTFEnderecoResidencial.getText());
@@ -1165,6 +1165,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jCBUF.setSelectedItem(asso.getUf().toString());
         jTFTelefone.setText(asso.getTelefone());
         jTFEmail.setText(asso.getEmail());
+        
+        jCBRegimeAtividade.setSelectedItem(ConversorPersonalizado.convertStringToRegimeAtividade(asso.getRegimeAtividade().toString()));
+        jCBUfProfissao.setSelectedItem(ConversorPersonalizado.convertStringToUF(asso.getUfPropriedade().toString()));
+        
 
         jFTFCPF.setText(asso.getCpf());
         jTFRG.setText(asso.getRg());

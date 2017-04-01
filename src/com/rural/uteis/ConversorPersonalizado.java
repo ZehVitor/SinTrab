@@ -5,13 +5,12 @@
  */
 package com.rural.uteis;
 
+import com.rural.enums.EstadoCivil;
 import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -28,7 +27,7 @@ public class ConversorPersonalizado {
         if (textoData == null) {
             return null;
         }
-        
+
         String aux = textoData;
         aux = aux.replaceAll("/", "");
         aux = aux.trim();
@@ -59,7 +58,7 @@ public class ConversorPersonalizado {
         if (numero == null || numero == 0) {
             return "";
         }
-        
+
         return String.valueOf(numero);
     }
 
@@ -74,16 +73,24 @@ public class ConversorPersonalizado {
         if (ValidatorUtil.isNullOrEmpty(texto)) {
             return null;
         }
-        
+
         return UF.valueOf(texto);
     }
-    
+
     public static RegimeAtividade convertStringToRegimeAtividade(String texto) {
         if (ValidatorUtil.isNullOrEmpty(texto)) {
             return null;
         }
-        
+
         return RegimeAtividade.valueOf(texto);
+    }
+
+    public static EstadoCivil convertStringToEstadoCivil(String texto) {
+        if (ValidatorUtil.isNullOrEmpty(texto)) {
+            return null;
+        }
+
+        return EstadoCivil.valueOf(texto);
     }
 
 }

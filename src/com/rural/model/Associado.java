@@ -5,6 +5,7 @@
  */
 package com.rural.model;
 
+import com.rural.enums.EstadoCivil;
 import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
@@ -91,7 +92,8 @@ public class Associado implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     private String naturalidade;
-    private String estadoCivil;
+    @Enumerated(EnumType.STRING)
+    private EstadoCivil estadoCivil;
     private String conjuge;
     private String grauInstrucao;
     private String endereco;
@@ -637,14 +639,14 @@ public class Associado implements Serializable {
     /**
      * @return the estadoCivil
      */
-    public String getEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
     /**
      * @param estadoCivil the estadoCivil to set
      */
-    public void setEstadoCivil(String estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
