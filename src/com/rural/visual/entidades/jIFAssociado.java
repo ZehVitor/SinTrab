@@ -1264,7 +1264,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 GenericDAO dao = new GenericDAO();
                 
                 if (opcao == 0) { // 0 = primeira opção (SIM). 1 = segunda opção (NÃO)
-                    dao.deletar(associado);                    
+                    dao.deletar(associado);  
+                     limparCampos();
+                     associado = new Associado();
                 }
             }    
         } catch (Exception e) {
