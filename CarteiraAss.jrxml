@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-04-05T05:18:13 -->
+<!-- 2017-04-06T03:02:14 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CarteiraAss" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4fa522f0-28f8-4f27-a261-17033ed04d5b">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL-Treino"/>
@@ -38,6 +38,9 @@ WHERE
 	<field name="filiacaoPai" class="java.lang.String"/>
 	<field name="filiacaoMae" class="java.lang.String"/>
 	<field name="rg" class="java.lang.String"/>
+	<field name="dataExpedicaoRG" class="java.sql.Date"/>
+	<field name="certidaoNascimentoCasamento" class="java.lang.String"/>
+	<field name="tituloEleitor" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -244,14 +247,14 @@ $F{matriculaAnterior} == ""  ? "________________"  :  $F{matriculaAnterior}]]></
 				<text><![CDATA[Estado Civil:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="290" y="102" width="155" height="13" uuid="704ca946-e6b1-4566-818d-20890ebf8469"/>
+				<reportElement x="290" y="97" width="155" height="13" uuid="704ca946-e6b1-4566-818d-20890ebf8469"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[Título de Eleitor (Nº de Inscrição/Zona/Seção):]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="474" y="102" width="79" height="13" uuid="a912f7d3-3a82-40ae-9ace-97ed54c0fc9b"/>
+				<reportElement x="474" y="97" width="79" height="13" uuid="a912f7d3-3a82-40ae-9ace-97ed54c0fc9b"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
@@ -300,25 +303,46 @@ $F{matriculaAnterior} == ""  ? "________________"  :  $F{matriculaAnterior}]]></
 				<textFieldExpression><![CDATA[$F{estadoCivil}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="474" y="112" width="78" height="10" uuid="542167c3-0eb7-4f2c-9a97-64f03ac431fe"/>
+				<reportElement x="474" y="105" width="78" height="10" uuid="542167c3-0eb7-4f2c-9a97-64f03ac431fe"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="290" y="128" width="155" height="9" uuid="61c483c8-27a3-48a1-8e0f-a0f6e555b8f6"/>
+				<reportElement x="290" y="128" width="184" height="9" uuid="61c483c8-27a3-48a1-8e0f-a0f6e555b8f6"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{filiacaoPai}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="290" y="147" width="155" height="12" uuid="50fb6fec-934e-4df1-97d2-0ba865af90fa"/>
+				<reportElement x="290" y="147" width="184" height="12" uuid="50fb6fec-934e-4df1-97d2-0ba865af90fa"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{filiacaoMae}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="105" width="154" height="10" uuid="b5d47158-21d6-4955-91cf-cbd936fb8831"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tituloEleitor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="167" width="78" height="12" uuid="40c3f599-df26-42d2-b1fa-5c73dadfdc14"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataExpedicaoRG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="167" width="164" height="10" uuid="9866dcf0-f13e-44fb-887f-54a4c1a541d6"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{certidaoNascimentoCasamento}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
