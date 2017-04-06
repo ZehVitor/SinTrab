@@ -8,6 +8,8 @@ package com.rural.visual.entidades;
 import com.rural.model.Associado;
 import com.rural.persistence.dao.AssociadoDAO;
 import com.rural.uteis.ValidatorUtil;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -126,6 +128,11 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         jTAssociados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTAssociadosMouseClicked(evt);
+            }
+        });
+        jTAssociados.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTAssociadosKeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(jTAssociados);
@@ -268,6 +275,16 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jBFiltrarActionPerformed
 
+    private void jTAssociadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTAssociadosKeyPressed
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            jBSelecionar.doClick();
+        }
+        else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE){
+            jBCancelar.doClick();
+            setVisible(false); 
+        }
+    }//GEN-LAST:event_jTAssociadosKeyPressed
+
     public Associado getAssociado(){
         return this.associado;
     }
@@ -343,6 +360,10 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
 
         }
         
+        jTAssociados.requestFocus();
+        jTAssociados.setDragEnabled(false);
+        jTAssociados.setColumnSelectionAllowed(false);
+        jTAssociados.setDefaultEditor(Object.class, null);
     }
 
     private void preencherTabela(Collection<Associado> associados){
@@ -367,7 +388,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         }
     }
     
-    private Associado associado;
+    private static Associado associado;
     private AssociadoDAO dao;
     private ArrayList<Associado> AssociadoList = new ArrayList();
 

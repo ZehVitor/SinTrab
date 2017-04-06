@@ -137,7 +137,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jBExcluir = new javax.swing.JButton();
         jBCarteiraReport = new javax.swing.JButton();
         jBPesquisa = new javax.swing.JButton();
         jBSalvar = new javax.swing.JButton();
@@ -156,6 +156,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jFTFDataRecadastramento = new javax.swing.JFormattedTextField();
         jLabel38 = new javax.swing.JLabel();
+        jBNovo = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Associado");
@@ -803,7 +804,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jTFMunicipioProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCBUfProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFTFDataPropria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jPDocumentacao.addTab("Dados Profissionais", jPDadosProfissionais);
@@ -902,8 +903,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jPDocumentacao.addTab("Dependentes", jPDependentes);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Excluir");
+        jBExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBExcluir.setText("Excluir");
+        jBExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBExcluirActionPerformed(evt);
+            }
+        });
 
         jBCarteiraReport.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBCarteiraReport.setText("Carteira");
@@ -990,19 +996,28 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel38.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel38.setText("Data Recad.");
 
+        jBNovo.setText("Novo");
+        jBNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNovoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jBNovo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBSalvar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBPesquisa)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBCarteiraReport)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBExcluir))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1089,7 +1104,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jBSalvar)
                     .addComponent(jBPesquisa)
                     .addComponent(jBCarteiraReport)
-                    .addComponent(jButton1))
+                    .addComponent(jBExcluir)
+                    .addComponent(jBNovo))
                 .addContainerGap())
         );
 
@@ -1164,6 +1180,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         asso.setAreaUtilizada(jTFAreaUtilizada.getText());
         asso.setIncra(jTFIncra.getText());
         asso.setEnderecoPropriedade(jTFEnderecoProfissao.getText());
+        asso.setNomeProprietario(jTFNomeProprietario.getText());
         asso.setMunicipioPropriedade(jTFMunicipioProfissao.getText());
         asso.setUfPropriedade(ConversorPersonalizado.convertStringToUF(jCBUfProfissao.getSelectedItem().toString()));
         try {
@@ -1236,6 +1253,29 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
+        try {
+            if (associado != null && associado.getId() > 0) {
+                int opcao = JOptionPane.showConfirmDialog(rootPane, 
+                        "Tem certeza que deseja excluir o associado " +
+                        associado.getNome().toUpperCase() + " - " +
+                        associado.getApelido().toUpperCase() + "?", "Exclusão de associado", JOptionPane.YES_NO_OPTION);
+                GenericDAO dao = new GenericDAO();
+                
+                if (opcao == 0) { // 0 = primeira opção (SIM). 1 = segunda opção (NÃO)
+                    dao.deletar(associado);                    
+                }
+            }    
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível excluir o associado selecionado.\nMotivo: " + e.getMessage());
+        }
+        
+    }//GEN-LAST:event_jBExcluirActionPerformed
+
+    private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
+        limparCampos();
+    }//GEN-LAST:event_jBNovoActionPerformed
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
@@ -1399,9 +1439,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Variables declaration">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCarteiraReport;
+    private javax.swing.JButton jBExcluir;
+    private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBPesquisa;
     private javax.swing.JButton jBSalvar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jCBEstadoCivil;
