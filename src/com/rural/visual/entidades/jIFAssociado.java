@@ -830,6 +830,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1227,6 +1232,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         filtro.put("Id", associado.getId());
         AssociadosReport.buildRelatorio("CarteiraAss", "Teste", filtro);
     }//GEN-LAST:event_jBCarteiraReportActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
