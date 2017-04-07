@@ -203,10 +203,10 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
 
     private void jTAssociadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTAssociadosMouseClicked
         int linha = -1;
-        
+
         linha = jTAssociados.getSelectedRow();
-        
-        if(linha >=0){
+
+        if (linha >= 0) {
             int id = (int) jTAssociados.getValueAt(linha, 0);
             associado = dao.findById(id);
         }
@@ -222,36 +222,35 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
     }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jBFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFiltrarActionPerformed
-        String filtroSelecionado = jRBCodigo.isSelected() ? "Código" :
-                                   jRBNome.isSelected() ? "Nome" :
-                                   jRBCPF.isSelected() ? "CPF" : "Não reconhecido";
+        String filtroSelecionado = jRBCodigo.isSelected() ? "Código"
+                : jRBNome.isSelected() ? "Nome"
+                : jRBCPF.isSelected() ? "CPF" : "Não reconhecido";
         List<Associado> associados = new ArrayList<Associado>();
-        
-        switch(filtroSelecionado){
+
+        switch (filtroSelecionado) {
             case "Nome":
                 try {
                     associados = dao.findAssociadoByFiltros(jTFValorFiltro.getText(), null, null);
                 } catch (Exception ex) {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 break;
-                
+
             case "CPF":
                 try {
                     associados = dao.findAssociadoByFiltros(null, jTFValorFiltro.getText(), null);
                 } catch (Exception ex) {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 break;
-                
+
             case "Código":
                 try {
                     if (ValidatorUtil.isNullOrEmpty(jTFValorFiltro.getText())) {
                         associados = dao.findAssociadoByFiltros(null, null, null);
-                    }
-                    else {
+                    } else {
                         associados = dao.findAssociadoByFiltros(null, null, Integer.parseInt(jTFValorFiltro.getText()));
                     }
                 } catch (NumberFormatException ex) {
@@ -259,9 +258,9 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
                 } catch (Exception ex) {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 break;
-                
+
             default:
                 try {
                     readJTable();
@@ -269,26 +268,25 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
-        
+
         if (associados != null && associados.size() > 0) {
             preencherTabela(associados);
         }
     }//GEN-LAST:event_jBFiltrarActionPerformed
 
     private void jTAssociadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTAssociadosKeyPressed
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jBSelecionar.doClick();
-        }
-        else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE){
+        } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             jBCancelar.doClick();
-            setVisible(false); 
+            setVisible(false);
         }
     }//GEN-LAST:event_jTAssociadosKeyPressed
 
-    public Associado getAssociado(){
+    public Associado getAssociado() {
         return this.associado;
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -355,18 +353,18 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),
-                a.getApelido()  
+                a.getApelido()
             });
 
         }
-        
+
         jTAssociados.requestFocus();
         jTAssociados.setDragEnabled(false);
         jTAssociados.setColumnSelectionAllowed(false);
         jTAssociados.setDefaultEditor(Object.class, null);
     }
 
-    private void preencherTabela(Collection<Associado> associados){
+    private void preencherTabela(Collection<Associado> associados) {
         limparTabela();
         DefaultTableModel modelo = (DefaultTableModel) jTAssociados.getModel();
         dao = new AssociadoDAO();
@@ -375,19 +373,19 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),
-                a.getApelido()  
+                a.getApelido()
             });
         });
     }
-    
-    private void limparTabela(){
+
+    private void limparTabela() {
         DefaultTableModel modelo = (DefaultTableModel) jTAssociados.getModel();
-        
-        while (modelo.getRowCount() > 0){
+
+        while (modelo.getRowCount() > 0) {
             modelo.removeRow(modelo.getRowCount() - 1);
         }
     }
-    
+
     private static Associado associado;
     private AssociadoDAO dao;
     private ArrayList<Associado> AssociadoList = new ArrayList();

@@ -1117,74 +1117,76 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             return;
         }
 
-        Associado asso = associado;
         GenericDAO dao = new GenericDAO();
+        if (associado == null) {
+            associado = new Associado();
+        }
 
 // <editor-fold defaultstate="collapsed" desc="Dados Pessoais">
         //asso.setMatricula(jTFMatricula.getText());
         try {
-            asso.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFExpedicaoCart.getText()));
-            asso.setDataNascimento(ConversorPersonalizado.convertStringToDate(jFTFNascimento.getText()));
-            asso.setDataAdmissao(ConversorPersonalizado.convertStringToDate(jFTFDataAdmissao.getText()));
+            associado.setDataExpedicao(ConversorPersonalizado.convertStringToDate(jFTFExpedicaoCart.getText()));
+            associado.setDataNascimento(ConversorPersonalizado.convertStringToDate(jFTFNascimento.getText()));
+            associado.setDataAdmissao(ConversorPersonalizado.convertStringToDate(jFTFDataAdmissao.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        asso.setMatriculaAnterior(jTFMatriculaAnterior.getText());
-        asso.setNome(jTFNome.getText());
-        asso.setApelido(jTFApelido.getText());
-        asso.setSexo(ConversorPersonalizado.convertStringToSexo(jCBSexo.getSelectedItem().toString())); // usar enum
-        asso.setFiliacaoMae(jTFFiliacao.getText());
-        asso.setFiliacaoPai(jTFFiliacaoPai.getText());
-        asso.setNaturalidade(jTFNaturalidade.getText());
-        asso.setEstadoCivil(ConversorPersonalizado.convertStringToEstadoCivil(jCBEstadoCivil.getSelectedItem().toString()));
-        asso.setConjuge(jTFConjuge.getText());
-        asso.setGrauInstrucao(jTFGrauInstrucao.getText());
-        asso.setEndereco(jTFEnderecoResidencial.getText());
-        asso.setBairro(jTFBairro.getText());
-        asso.setCidade(jTFMunicipio.getText());
-        asso.setUf(ConversorPersonalizado.convertStringToUF(jCBUF.getSelectedItem().toString()));
-        asso.setTelefone(jTFTelefone.getText());
-        asso.setEmail(jTFEmail.getText());
+        associado.setMatriculaAnterior(jTFMatriculaAnterior.getText());
+        associado.setNome(jTFNome.getText());
+        associado.setApelido(jTFApelido.getText());
+        associado.setSexo(ConversorPersonalizado.convertStringToSexo(jCBSexo.getSelectedItem().toString())); // usar enum
+        associado.setFiliacaoMae(jTFFiliacao.getText());
+        associado.setFiliacaoPai(jTFFiliacaoPai.getText());
+        associado.setNaturalidade(jTFNaturalidade.getText());
+        associado.setEstadoCivil(ConversorPersonalizado.convertStringToEstadoCivil(jCBEstadoCivil.getSelectedItem().toString()));
+        associado.setConjuge(jTFConjuge.getText());
+        associado.setGrauInstrucao(jTFGrauInstrucao.getText());
+        associado.setEndereco(jTFEnderecoResidencial.getText());
+        associado.setBairro(jTFBairro.getText());
+        associado.setCidade(jTFMunicipio.getText());
+        associado.setUf(ConversorPersonalizado.convertStringToUF(jCBUF.getSelectedItem().toString()));
+        associado.setTelefone(jTFTelefone.getText());
+        associado.setEmail(jTFEmail.getText());
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="Documentação">
-        asso.setCpf(jFTFCPF.getText());
-        asso.setRg(jTFRG.getText());
-        asso.setOrgaoExpedidor(jTFOrgExpeditor.getText());
+        associado.setCpf(jFTFCPF.getText());
+        associado.setRg(jTFRG.getText());
+        associado.setOrgaoExpedidor(jTFOrgExpeditor.getText());
         try {
-            asso.setDataExpedicaoRG(ConversorPersonalizado.convertStringToDate(jFTFDataExpedicaoRG.getText()));
-            asso.setDataRecadastramento(ConversorPersonalizado.convertStringToDate(jFTFDataRecadastramento.getText()));
-            asso.setDataTransferenciaSTTR(ConversorPersonalizado.convertStringToDate(jFTFDataTransferencia.getText()));
+            associado.setDataExpedicaoRG(ConversorPersonalizado.convertStringToDate(jFTFDataExpedicaoRG.getText()));
+            associado.setDataRecadastramento(ConversorPersonalizado.convertStringToDate(jFTFDataRecadastramento.getText()));
+            associado.setDataTransferenciaSTTR(ConversorPersonalizado.convertStringToDate(jFTFDataTransferencia.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
         }
-        asso.setCtps(jTFCtps.getText());
-        asso.setSerieCtps(jTFSerie.getText());
-        asso.setCertidaoNascimentoCasamento(jTFCertidaoNascimentoCasamento.getText());
-        asso.setTituloEleitor(jTFTituloEleitor.getText());
-        asso.setZonaEleitoral(jTFZona.getText());
-        asso.setSecaoEleitoral(jTFSecao.getText());
-        asso.setNumeroBeneficio(jTFNumeroBeneficio.getText());
-        asso.setEspecieBeneficio(jTFEspecie.getText());
-        asso.setNit(jTFNit.getText());
-        asso.setTransferidoSTTR(jTFSttr.getText());
+        associado.setCtps(jTFCtps.getText());
+        associado.setSerieCtps(jTFSerie.getText());
+        associado.setCertidaoNascimentoCasamento(jTFCertidaoNascimentoCasamento.getText());
+        associado.setTituloEleitor(jTFTituloEleitor.getText());
+        associado.setZonaEleitoral(jTFZona.getText());
+        associado.setSecaoEleitoral(jTFSecao.getText());
+        associado.setNumeroBeneficio(jTFNumeroBeneficio.getText());
+        associado.setEspecieBeneficio(jTFEspecie.getText());
+        associado.setNit(jTFNit.getText());
+        associado.setTransferidoSTTR(jTFSttr.getText());
 
 
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Dados Profissionais">
-        asso.setProfissao(jTFProfissao.getText());
-        asso.setEmpresaPropriedade(jTFEmpresaPropriedade.getText());
-        asso.setRegimeAtividade(ConversorPersonalizado.convertStringToRegimeAtividade(jCBRegimeAtividade.getSelectedItem().toString()));
-        asso.setTamanhoPropriedade(jTFTamanhoPropriedade.getText());
-        asso.setAreaUtilizada(jTFAreaUtilizada.getText());
-        asso.setIncra(jTFIncra.getText());
-        asso.setEnderecoPropriedade(jTFEnderecoProfissao.getText());
-        asso.setNomeProprietario(jTFNomeProprietario.getText());
-        asso.setMunicipioPropriedade(jTFMunicipioProfissao.getText());
-        asso.setUfPropriedade(ConversorPersonalizado.convertStringToUF(jCBUfProfissao.getSelectedItem().toString()));
+        associado.setProfissao(jTFProfissao.getText());
+        associado.setEmpresaPropriedade(jTFEmpresaPropriedade.getText());
+        associado.setRegimeAtividade(ConversorPersonalizado.convertStringToRegimeAtividade(jCBRegimeAtividade.getSelectedItem().toString()));
+        associado.setTamanhoPropriedade(jTFTamanhoPropriedade.getText());
+        associado.setAreaUtilizada(jTFAreaUtilizada.getText());
+        associado.setIncra(jTFIncra.getText());
+        associado.setEnderecoPropriedade(jTFEnderecoProfissao.getText());
+        associado.setNomeProprietario(jTFNomeProprietario.getText());
+        associado.setMunicipioPropriedade(jTFMunicipioProfissao.getText());
+        associado.setUfPropriedade(ConversorPersonalizado.convertStringToUF(jCBUfProfissao.getSelectedItem().toString()));
         try {
-            asso.setDataPropriedade(ConversorPersonalizado.convertStringToDate(jFTFDataPropria.getText()));
+            associado.setDataPropriedade(ConversorPersonalizado.convertStringToDate(jFTFDataPropria.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1192,13 +1194,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
       
 //  </editor-fold>
 
-        if (asso.getId() <= 0) {
-            dao.inserirAlterar(asso);
-            JOptionPane.showMessageDialog(rootPane, asso.getNome().toUpperCase() + " cadastrado com sucesso!");
+        if (associado.getId() <= 0) {
+            dao.inserirAlterar(associado);
+            JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " cadastrado com sucesso!");
         }
         else {
-            dao.alterar(asso);
-            JOptionPane.showMessageDialog(rootPane, asso.getNome().toUpperCase() + " alterado com sucesso!");
+            dao.alterar(associado);
+            JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " alterado com sucesso!");
         }
         
         limparCampos();
@@ -1265,8 +1267,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 
                 if (opcao == 0) { // 0 = primeira opção (SIM). 1 = segunda opção (NÃO)
                     dao.deletar(associado);  
-                     limparCampos();
-                     associado = new Associado();
+                    limparCampos();
+                    associado = new Associado();
                 }
             }    
         } catch (Exception e) {
