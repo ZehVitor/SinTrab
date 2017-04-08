@@ -37,11 +37,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         jTAssociados.setRowSorter(new TableRowSorter(modelo));
         try {
             readJTable();
-        } catch (InstantiationException ex) {
-            Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
             Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -231,7 +227,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
             case "Nome":
                 try {
                     associados = dao.findAssociadoByFiltros(jTFValorFiltro.getText(), null, null);
-                } catch (Exception ex) {
+                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
@@ -240,7 +236,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
             case "CPF":
                 try {
                     associados = dao.findAssociadoByFiltros(null, jTFValorFiltro.getText(), null);
-                } catch (Exception ex) {
+                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
@@ -255,7 +251,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
                     }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Apenas números são permitidos para o código.");
-                } catch (Exception ex) {
+                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
@@ -264,7 +260,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
             default:
                 try {
                     readJTable();
-                } catch (Exception ex) {
+                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
