@@ -7,6 +7,8 @@ package com.rural.visual;
 
 import com.rural.persistence.Banco;
 import com.rural.visual.entidades.jIFAssociado;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.persistence.EntityManager;
 
 /**
@@ -86,6 +88,9 @@ public class Principal extends javax.swing.JFrame {
     private void jMIAssociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAssociadoActionPerformed
         jIFAssociado jifas = new jIFAssociado();
         jDPPrincipal.add(jifas);
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        jifas.setLocation(dim.width/2-jifas.getSize().width/2, dim.height/2-jifas.getSize().height/2);
         jifas.setVisible(true);
     }//GEN-LAST:event_jMIAssociadoActionPerformed
 
