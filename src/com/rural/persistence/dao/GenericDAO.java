@@ -15,6 +15,7 @@ public class GenericDAO {
                 }
 		em.persist(entidade);
 		em.getTransaction().commit();
+                em.close();
 	}
 	
 	public void alterar (Object entidade){
@@ -24,6 +25,7 @@ public class GenericDAO {
                 }
 		em.merge(entidade);
 		em.getTransaction().commit();
+                em.close();
 	}
 	
 	public void deletar (Object entidade){
@@ -33,6 +35,7 @@ public class GenericDAO {
                 }
 		em.remove(entidade);
 		em.getTransaction().commit();
+                em.close();
 	}
 	
 	public void inserirLog(Object log){
@@ -49,6 +52,7 @@ public class GenericDAO {
 		}
 		finally {
 			em.close();
+                        em.close();
 		}
 	}
         
@@ -65,6 +69,7 @@ public class GenericDAO {
             }
             
             em.getTransaction().commit();
+            em.close();
         }
 	
 	public <T> Object findById (int id, Class<T> objClass) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
