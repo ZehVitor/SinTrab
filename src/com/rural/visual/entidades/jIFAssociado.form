@@ -1483,59 +1483,77 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField1" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
-                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField2" max="32767" attributes="0"/>
+                                  <Component id="jTFDependenteID" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="164" max="32767" attributes="0"/>
+                                      <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="75" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jFormattedTextField1" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFDependenteNome" min="-2" pref="597" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTFDependenteParentesco" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
+                                  <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jFTFDependenteNascimento" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jBAdicionarDependente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTFDependenteNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFDependenteID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jFTFDependenteNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFDependenteParentesco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBAdicionarDependente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="316" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="283" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1550,7 +1568,7 @@
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jTFDependenteNome">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -1565,14 +1583,14 @@
                 <Property name="text" type="java.lang.String" value="Parentesco"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="jTFDependenteParentesco">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+            <Component class="javax.swing.JFormattedTextField" name="jFTFDependenteNascimento">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -1592,18 +1610,21 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jButton2"/>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="jBAdicionarDependente">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jButton3"/>
+                <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAdicionarDependenteActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -1613,20 +1634,38 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="jTDependentes">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                      <Table columnCount="4" rowCount="0">
+                        <Column editable="true" title="ID" type="java.lang.Object"/>
+                        <Column editable="true" title="Nome" type="java.lang.Object"/>
+                        <Column editable="true" title="Parentesco" type="java.lang.Object"/>
+                        <Column editable="true" title="Nascimento" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTDependentesMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JTextField" name="jTFDependenteID">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel50">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
@@ -1821,6 +1860,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBNovo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Novo"/>
       </Properties>
       <Events>

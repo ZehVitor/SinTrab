@@ -1,18 +1,22 @@
 package com.rural.visual.entidades;
 
 import com.rural.model.Associado;
+import com.rural.model.Dependente;
+import com.rural.persistence.dao.DependenteDAO;
 import com.rural.persistence.dao.GenericDAO;
 import com.rural.reports.AssociadosReport;
 import com.rural.uteis.ConversorPersonalizado;
 import com.rural.uteis.Formatos;
 import com.rural.uteis.ValidatorUtil;
 import java.text.ParseException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,7 +30,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     public jIFAssociado() {
         initComponents();
         limparCampos();
-        
+
         try {
             setFormatos();
         } catch (Exception e) {
@@ -128,15 +132,17 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFEmpresaPropriedade = new javax.swing.JTextField();
         jPDependentes = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTFDependenteNome = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jTFDependenteParentesco = new javax.swing.JTextField();
+        jFTFDependenteNascimento = new javax.swing.JFormattedTextField();
         jLabel37 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBAdicionarDependente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTDependentes = new javax.swing.JTable();
+        jTFDependenteID = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
         jBExcluir = new javax.swing.JButton();
         jBCarteiraReport = new javax.swing.JButton();
         jBPesquisa = new javax.swing.JButton();
@@ -814,41 +820,53 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel19.setText("Nome");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTFDependenteNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel36.setText("Parentesco");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTFDependenteParentesco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jFormattedTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jFTFDependenteNascimento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel37.setText("Nascimento");
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("jButton2");
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Excluir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jBAdicionarDependente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBAdicionarDependente.setText("Adicionar");
+        jBAdicionarDependente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAdicionarDependenteActionPerformed(evt);
+            }
+        });
+
+        jTDependentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Parentesco", "Nascimento"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTDependentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTDependentesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTDependentes);
+
+        jTFDependenteID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel50.setText("Código");
 
         javax.swing.GroupLayout jPDependentesLayout = new javax.swing.GroupLayout(jPDependentes);
         jPDependentes.setLayout(jPDependentesLayout);
@@ -857,47 +875,60 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             .addGroup(jPDependentesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(jPDependentesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPDependentesLayout.createSequentialGroup()
+                        .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFDependenteID)
+                            .addGroup(jPDependentesLayout.createSequentialGroup()
+                                .addComponent(jLabel50)
+                                .addGap(0, 75, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jTFDependenteNome, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10))
                     .addGroup(jPDependentesLayout.createSequentialGroup()
                         .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19))
+                            .addComponent(jTFDependenteParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel36))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
                             .addGroup(jPDependentesLayout.createSequentialGroup()
-                                .addComponent(jLabel36)
-                                .addGap(0, 164, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel37)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPDependentesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addContainerGap())
+                                .addComponent(jLabel37)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPDependentesLayout.createSequentialGroup()
+                                .addComponent(jFTFDependenteNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBAdicionarDependente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)))
+                        .addContainerGap())))
         );
         jPDependentesLayout.setVerticalGroup(
             jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPDependentesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jLabel36)
-                    .addComponent(jLabel37))
+                    .addComponent(jLabel50))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFDependenteNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFDependenteID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFTFDependenteNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFDependenteParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBAdicionarDependente)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -996,6 +1027,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel38.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel38.setText("Data Recad.");
 
+        jBNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBNovo.setText("Novo");
         jBNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1172,7 +1204,6 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         associado.setNit(jTFNit.getText());
         associado.setTransferidoSTTR(jTFSttr.getText());
 
-
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Dados Profissionais">
         associado.setProfissao(jTFProfissao.getText());
@@ -1190,19 +1221,16 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         } catch (ParseException ex) {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
-      
-//  </editor-fold>
 
+//  </editor-fold>
         if (associado.getId() <= 0) {
             dao.inserirAlterar(associado);
             JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " cadastrado com sucesso!");
-        }
-        else {
+        } else {
             dao.alterar(associado);
             JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " alterado com sucesso!");
         }
-        
+
         limparCampos();
     }//GEN-LAST:event_jBSalvarActionPerformed
 
@@ -1236,7 +1264,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         if (jdpa.getAssociado() == null) {
             return;
         }
-        
+
         setAssociado(jdpa.getAssociado());
         populaCampos(associado);
     }//GEN-LAST:event_jBPesquisaActionPerformed
@@ -1247,39 +1275,84 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Realize a busca de um associado antes.");
             return;
         }
-        
+
         filtro.put("Id", associado.getId());
         AssociadosReport.buildRelatorio("CarteiraAss", "Teste", filtro);
     }//GEN-LAST:event_jBCarteiraReportActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jBAdicionarDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarDependenteActionPerformed
+        int indice = 0;
+        DependenteDAO ddao = new DependenteDAO();
+
+        if (!"".equals(jTFDependenteID.getText())) {
+            this.dependente.setId(Integer.parseInt(jTFDependenteID.getText()));
+        }
+
+        this.dependente.setNome(jTFDependenteNome.getText());
+        this.dependente.setParentesco(jTFDependenteParentesco.getText());
+        try {
+            this.dependente.setNascimento(ConversorPersonalizado.convertStringToDate(jFTFDependenteNascimento.getText()));
+        } catch (ParseException ex) {
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dependente.setAssociado(this.associado);
+
+        ddao.inserirAlterar(this.dependente);
+
+        limpaCamposDependentes();
+
+        try {
+            this.associado.setDependentes(ddao.findDependenteByAssociado(this.associado.getId()));
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        popularTabela(this.associado.getDependentes());
+
+    }//GEN-LAST:event_jBAdicionarDependenteActionPerformed
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         try {
             if (associado != null && associado.getId() > 0) {
-                int opcao = JOptionPane.showConfirmDialog(rootPane, 
-                        "Tem certeza que deseja excluir o associado " +
-                        associado.getNome().toUpperCase() + " - " +
-                        associado.getApelido().toUpperCase() + "?", "Exclusão de associado", JOptionPane.YES_NO_OPTION);
+                int opcao = JOptionPane.showConfirmDialog(rootPane,
+                        "Tem certeza que deseja excluir o associado "
+                        + associado.getNome().toUpperCase() + " - "
+                        + associado.getApelido().toUpperCase() + "?", "Exclusão de associado", JOptionPane.YES_NO_OPTION);
                 GenericDAO dao = new GenericDAO();
-                
+
                 if (opcao == 0) { // 0 = primeira opção (SIM). 1 = segunda opção (NÃO)
-                    dao.deletar(associado);  
+                    dao.deletar(associado);
                     limparCampos();
                     associado = new Associado();
                 }
-            }    
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Não foi possível excluir o associado selecionado.\nMotivo: " + e.getMessage());
         }
-        
+
     }//GEN-LAST:event_jBExcluirActionPerformed
 
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
         limparCampos();
     }//GEN-LAST:event_jBNovoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTDependentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTDependentesMouseClicked
+        int linha = -1;
+        int indice = 0;
+        linha = jTDependentes.getSelectedRow();
+        if (linha >= 0) {
+            int id = (int) jTDependentes.getValueAt(linha, 0);
+            this.dependente.setId(id);
+            indice = this.associado.getDependentes().indexOf(this.dependente);
+            this.dependente = this.associado.getDependentes().get(indice);
+            populaCamposDependente(this.dependente);
+
+        }
+    }//GEN-LAST:event_jTDependentesMouseClicked
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
@@ -1299,9 +1372,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         if (ValidatorUtil.isNullOrEmpty(jTFNome.getText())) {
             erros.append("O Nome não foi preenchido.\n");
         }
-        
+
         String cpf = jFTFCPF.getText().replace(".", "").replace("-", "").trim();
-        
+
         if (ValidatorUtil.isNullOrEmpty(cpf)) {
             erros.append("O CPF não foi preenchido.\n");
         }
@@ -1312,6 +1385,20 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         }
 
         return true;
+    }
+
+    private void popularTabela(Collection<Dependente> dependentes) {
+        int indice = 0;
+
+        this.modeloDependentes = (DefaultTableModel) jTDependentes.getModel();
+        dependentes.forEach((a) -> {
+            modeloDependentes.addRow(new Object[]{
+                a.getId(),
+                a.getNome(),
+                a.getParentesco(),
+                a.getNascimento()
+            });
+        });
     }
 
     private void populaCampos(Associado asso) {
@@ -1336,10 +1423,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jCBUF.setSelectedItem(asso.getUf().toString());
         jTFTelefone.setText(asso.getTelefone());
         jTFEmail.setText(asso.getEmail());
-        
+
         jCBRegimeAtividade.setSelectedItem(asso.getRegimeAtividade().toString());
         jCBUfProfissao.setSelectedItem(asso.getUfPropriedade().toString());
-        
+
         jFTFCPF.setText(asso.getCpf());
         jTFRG.setText(asso.getRg());
         jTFOrgExpeditor.setText(asso.getOrgaoExpedidor());
@@ -1356,7 +1443,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFSttr.setText(asso.getTransferidoSTTR());
         jFTFDataTransferencia.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataTransferenciaSTTR()));
         jFTFDataRecadastramento.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataRecadastramento()));
-        
+
         jCBUfProfissao.setSelectedItem(ConversorPersonalizado.convertStringToUF(asso.getUfPropriedade().toString()));
         jCBRegimeAtividade.setSelectedItem(ConversorPersonalizado.convertStringToRegimeAtividade(asso.getRegimeAtividade().toString()));
         jTFProfissao.setText(asso.getProfissao());
@@ -1368,11 +1455,23 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFMunicipioProfissao.setText(asso.getMunicipioPropriedade());
         jFTFDataPropria.setText(ConversorPersonalizado.convertDateToPTBRDate(asso.getDataPropriedade()));
         jTFEmpresaPropriedade.setText(asso.getEmpresaPropriedade());
-       
+
+        if (asso.getDependentes().size() > 0) {
+            popularTabela(asso.getDependentes());
+        }
+
+    }
+
+    private void populaCamposDependente(Dependente dependente) {
+
+        jTFDependenteID.setText(String.valueOf(dependente.getId()));
+        jTFDependenteNome.setText(dependente.getNome());
+        jTFDependenteParentesco.setText(dependente.getParentesco());
 
     }
 
     private void limparCampos() {
+
         jTFMatricula.setText("");
         jFTFExpedicaoCart.setText("");
         jTFMatriculaAnterior.setText("");
@@ -1410,7 +1509,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFSttr.setText("");
         jFTFDataTransferencia.setText("");
         jFTFDataRecadastramento.setText("");
-        
+
         jCBUfProfissao.setSelectedIndex(0);
         jCBRegimeAtividade.setSelectedIndex(0);
         jTFProfissao.setText("");
@@ -1421,8 +1520,20 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFEnderecoProfissao.setText("");
         jTFMunicipioProfissao.setText("");
         jFTFDataPropria.setText("");
-         jTFEmpresaPropriedade.setText("");
-        
+        jTFEmpresaPropriedade.setText("");
+
+        modeloDependentes = (DefaultTableModel) jTDependentes.getModel();
+        modeloDependentes.setNumRows(0);
+
+        limpaCamposDependentes();
+
+    }
+
+    private void limpaCamposDependentes() {
+        jTFDependenteID.setText("");
+        jTFNome.setText("");
+        jTFDependenteParentesco.setText("");
+        jFTFDependenteNascimento.setText("");
     }
 
     private void setFormatos() throws ParseException {
@@ -1434,21 +1545,22 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         formatos.getFormatoDataSimples().install(jFTFDataPropria);
         formatos.getFormatoDataSimples().install(jFTFDataRecadastramento);
         formatos.getFormatoDataSimples().install(jFTFDataTransferencia);
+        formatos.getFormatoDataSimples().install(jFTFDependenteNascimento);
     }
-    
-    private void setAssociado(Associado asso){
+
+    private void setAssociado(Associado asso) {
         this.associado = asso;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Variables declaration">
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAdicionarDependente;
     private javax.swing.JButton jBCarteiraReport;
     private javax.swing.JButton jBExcluir;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBPesquisa;
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jCBEstadoCivil;
     private javax.swing.JComboBox<String> jCBRegimeAtividade;
     private javax.swing.JComboBox<String> jCBSexo;
@@ -1460,9 +1572,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField jFTFDataPropria;
     private javax.swing.JFormattedTextField jFTFDataRecadastramento;
     private javax.swing.JFormattedTextField jFTFDataTransferencia;
+    private javax.swing.JFormattedTextField jFTFDependenteNascimento;
     private javax.swing.JFormattedTextField jFTFExpedicaoCart;
     private javax.swing.JFormattedTextField jFTFNascimento;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1508,6 +1620,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
@@ -1520,12 +1633,16 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTDependentes;
     private javax.swing.JTextField jTFApelido;
     private javax.swing.JTextField jTFAreaUtilizada;
     private javax.swing.JTextField jTFBairro;
     private javax.swing.JTextField jTFCertidaoNascimentoCasamento;
     private javax.swing.JTextField jTFConjuge;
     private javax.swing.JTextField jTFCtps;
+    private javax.swing.JTextField jTFDependenteID;
+    private javax.swing.JTextField jTFDependenteNome;
+    private javax.swing.JTextField jTFDependenteParentesco;
     private javax.swing.JTextField jTFEmail;
     private javax.swing.JTextField jTFEmpresaPropriedade;
     private javax.swing.JTextField jTFEnderecoProfissao;
@@ -1554,14 +1671,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTFTelefone;
     private javax.swing.JTextField jTFTituloEleitor;
     private javax.swing.JTextField jTFZona;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
     private Associado associado = new Associado();
     private Formatos formatos = new Formatos();
     private jDPesquisaAssociado jdpa;
     private Long dd = 0L;
+    private DefaultTableModel modeloDependentes;
+    private Dependente dependente = new Dependente();
 
 }

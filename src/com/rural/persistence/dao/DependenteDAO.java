@@ -6,6 +6,10 @@
 package com.rural.persistence.dao;
 
 import com.rural.model.Dependente;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +31,23 @@ public class DependenteDAO extends GenericDAO {
             System.out.println("Erro ao procurar o ID");
         }
         return dep;
+    }
+
+    public List<Dependente> findDependenteByAssociado(int idAssociado) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        EntityManager em = getEntityManager();
+        List<Dependente> retorno = new ArrayList<Dependente>();
+        
+        
+        if (!em.getTransaction().isActive()) {
+            em.getTransaction().begin();
+        }
+
+        String select = "Select a from Dependente as a where 1=1 AND a.associado = " + idAssociado + " ORDER BY a.id ";
+
+        Query q = em.createQuery(select);
+        retorno = q.getResultList();
+
+        return retorno;
     }
 
 }

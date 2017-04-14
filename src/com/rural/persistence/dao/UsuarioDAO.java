@@ -5,12 +5,8 @@
  */
 package com.rural.persistence.dao;
 
-import com.rural.model.Associado;
 import com.rural.model.Usuario;
 import com.rural.persistence.Banco;
-import com.rural.uteis.ValidatorUtil;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
