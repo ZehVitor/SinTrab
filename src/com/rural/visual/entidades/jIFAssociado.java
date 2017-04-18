@@ -1264,7 +1264,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         limparCampos();
         this.associado = new Associado();
         this.dependente = new Dependente();
-        
+
         jdpa = new jDPesquisaAssociado(null, true);
         jdpa.setVisible(true);
         if (jdpa.getAssociado() == null) {
@@ -1308,12 +1308,14 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         limpaCamposDependentes();
 
         try {
+            this.associado.setDependentes(null);
+            limpaTabelaDependentes();
             this.associado.setDependentes(ddao.findDependenteByAssociado(this.associado.getId()));
+            popularTabelaDependentes(this.associado.getDependentes());
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        popularTabela(this.associado.getDependentes());
+
 
     }//GEN-LAST:event_jBAdicionarDependenteActionPerformed
 
@@ -1395,7 +1397,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         return true;
     }
 
-    private void popularTabela(Collection<Dependente> dependentes) {
+    private void popularTabelaDependentes(Collection<Dependente> dependentes) {
         int indice = 0;
 
         this.modeloDependentes = (DefaultTableModel) jTDependentes.getModel();
@@ -1407,6 +1409,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 a.getNascimento()
             });
         });
+    }
+    
+    private void limpaTabelaDependentes(){
+        this.modeloDependentes = (DefaultTableModel) jTDependentes.getModel();
+        this.modeloDependentes.setNumRows(0);
     }
 
     private void populaCampos(Associado asso) {
@@ -1465,7 +1472,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFEmpresaPropriedade.setText(asso.getEmpresaPropriedade());
 
         if (asso.getDependentes().size() > 0) {
-            popularTabela(asso.getDependentes());
+            popularTabelaDependentes(asso.getDependentes());
         }
 
     }
@@ -1540,7 +1547,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
     private void limpaCamposDependentes() {
         jTFDependenteID.setText("");
-        jTFNome.setText("");
+        jTFDependenteNome.setText("");
         jTFDependenteParentesco.setText("");
         jFTFDependenteNascimento.setText("");
     }
