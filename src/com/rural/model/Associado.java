@@ -12,6 +12,7 @@ import com.rural.enums.UF;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -41,6 +42,7 @@ public class Associado implements Serializable {
     private String apelido;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
+    @Column(unique = true)
     private String cpf;
     private String rg;
     private String orgaoExpedidor;
@@ -790,4 +792,176 @@ public class Associado implements Serializable {
         this.regimeAtividade = regimeAtividade;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Associado other = (Associado) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.apelido, other.apelido)) {
+            return false;
+        }
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.rg, other.rg)) {
+            return false;
+        }
+        if (!Objects.equals(this.orgaoExpedidor, other.orgaoExpedidor)) {
+            return false;
+        }
+        if (!Objects.equals(this.certidaoNascimentoCasamento, other.certidaoNascimentoCasamento)) {
+            return false;
+        }
+        if (!Objects.equals(this.ctps, other.ctps)) {
+            return false;
+        }
+        if (!Objects.equals(this.serieCtps, other.serieCtps)) {
+            return false;
+        }
+        if (!Objects.equals(this.tituloEleitor, other.tituloEleitor)) {
+            return false;
+        }
+        if (!Objects.equals(this.zonaEleitoral, other.zonaEleitoral)) {
+            return false;
+        }
+        if (!Objects.equals(this.secaoEleitoral, other.secaoEleitoral)) {
+            return false;
+        }
+        if (!Objects.equals(this.numeroBeneficio, other.numeroBeneficio)) {
+            return false;
+        }
+        if (!Objects.equals(this.especieBeneficio, other.especieBeneficio)) {
+            return false;
+        }
+        if (!Objects.equals(this.nit, other.nit)) {
+            return false;
+        }
+        if (!Objects.equals(this.profissao, other.profissao)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomeProprietario, other.nomeProprietario)) {
+            return false;
+        }
+        if (!Objects.equals(this.tamanhoPropriedade, other.tamanhoPropriedade)) {
+            return false;
+        }
+        if (!Objects.equals(this.areaUtilizada, other.areaUtilizada)) {
+            return false;
+        }
+        if (!Objects.equals(this.incra, other.incra)) {
+            return false;
+        }
+        if (!Objects.equals(this.enderecoPropriedade, other.enderecoPropriedade)) {
+            return false;
+        }
+        if (!Objects.equals(this.municipioPropriedade, other.municipioPropriedade)) {
+            return false;
+        }
+        if (!Objects.equals(this.empresaPropriedade, other.empresaPropriedade)) {
+            return false;
+        }
+        if (!Objects.equals(this.cargoPropriedade, other.cargoPropriedade)) {
+            return false;
+        }
+        if (!Objects.equals(this.transferidoSTTR, other.transferidoSTTR)) {
+            return false;
+        }
+        if (!Objects.equals(this.filiacaoMae, other.filiacaoMae)) {
+            return false;
+        }
+        if (!Objects.equals(this.filiacaoPai, other.filiacaoPai)) {
+            return false;
+        }
+        if (!Objects.equals(this.matriculaAnterior, other.matriculaAnterior)) {
+            return false;
+        }
+        if (!Objects.equals(this.naturalidade, other.naturalidade)) {
+            return false;
+        }
+        if (!Objects.equals(this.conjuge, other.conjuge)) {
+            return false;
+        }
+        if (!Objects.equals(this.grauInstrucao, other.grauInstrucao)) {
+            return false;
+        }
+        if (!Objects.equals(this.endereco, other.endereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.bairro, other.bairro)) {
+            return false;
+        }
+        if (!Objects.equals(this.cidade, other.cidade)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefone, other.telefone)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (this.sexo != other.sexo) {
+            return false;
+        }
+        if (this.regimeAtividade != other.regimeAtividade) {
+            return false;
+        }
+        if (this.ufPropriedade != other.ufPropriedade) {
+            return false;
+        }
+        if (!Objects.equals(this.dataPropriedade, other.dataPropriedade)) {
+            return false;
+        }
+        if (!Objects.equals(this.dependentes, other.dependentes)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataTransferenciaSTTR, other.dataTransferenciaSTTR)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataRecadastramento, other.dataRecadastramento)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataExpedicao, other.dataExpedicao)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataExpedicaoRG, other.dataExpedicaoRG)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataAdmissao, other.dataAdmissao)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataNascimento, other.dataNascimento)) {
+            return false;
+        }
+        if (this.estadoCivil != other.estadoCivil) {
+            return false;
+        }
+        if (this.uf != other.uf) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
+    
 }

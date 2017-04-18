@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.hibernate.exception.ConstraintViolationException;
 
 /**
  *
@@ -1225,12 +1226,20 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         }
 
 //  </editor-fold>
-        if (associado.getId() <= 0) {
-            dao.inserirAlterar(associado);
-            JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " cadastrado com sucesso!");
-        } else {
-            dao.alterar(associado);
-            JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " alterado com sucesso!");
+
+        //Esse tratamento de exceção ConstraintViolationException ex
+        try {
+            if (associado.getId() <= 0) {
+                dao.inserirAlterar(associado);
+                JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " cadastrado com sucesso!");
+            } else {
+                dao.alterar(associado);
+                JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " alterado com sucesso!");
+            }
+        } catch (ConstraintViolationException ex) {
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            
         }
 
         limparCampos();
@@ -1351,7 +1360,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         if (!"".equals(jTFDependenteID.getText())) {
             this.dependente.setId(Integer.parseInt(jTFDependenteID.getText()));
         }
-        
+
         ddao.deletar(this.dependente);
 
         limpaCamposDependentes();
@@ -1428,8 +1437,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             });
         });
     }
-    
-    private void limpaTabelaDependentes(){
+
+    private void limpaTabelaDependentes() {
         this.modeloDependentes = (DefaultTableModel) jTDependentes.getModel();
         this.modeloDependentes.setNumRows(0);
     }
