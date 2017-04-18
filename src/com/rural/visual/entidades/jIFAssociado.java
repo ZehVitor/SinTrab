@@ -137,7 +137,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFDependenteParentesco = new javax.swing.JTextField();
         jFTFDependenteNascimento = new javax.swing.JFormattedTextField();
         jLabel37 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jBExcluirDependente = new javax.swing.JButton();
         jBAdicionarDependente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTDependentes = new javax.swing.JTable();
@@ -832,11 +832,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel37.setText("Nascimento");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Excluir");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBExcluirDependente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBExcluirDependente.setText("Excluir");
+        jBExcluirDependente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBExcluirDependenteActionPerformed(evt);
             }
         });
 
@@ -905,7 +905,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jBAdicionarDependente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))
+                                .addComponent(jBExcluirDependente)))
                         .addContainerGap())))
         );
         jPDependentesLayout.setVerticalGroup(
@@ -928,7 +928,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jFTFDependenteNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFDependenteParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBAdicionarDependente)
-                    .addComponent(jButton2))
+                    .addComponent(jBExcluirDependente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1344,9 +1344,27 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         limparCampos();
     }//GEN-LAST:event_jBNovoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jBExcluirDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirDependenteActionPerformed
+        int indice = 0;
+        DependenteDAO ddao = new DependenteDAO();
+
+        if (!"".equals(jTFDependenteID.getText())) {
+            this.dependente.setId(Integer.parseInt(jTFDependenteID.getText()));
+        }
+        
+        ddao.deletar(this.dependente);
+
+        limpaCamposDependentes();
+
+        try {
+            this.associado.setDependentes(null);
+            limpaTabelaDependentes();
+            this.associado.setDependentes(ddao.findDependenteByAssociado(this.associado.getId()));
+            popularTabelaDependentes(this.associado.getDependentes());
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBExcluirDependenteActionPerformed
 
     private void jTDependentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTDependentesMouseClicked
         int linha = -1;
@@ -1573,10 +1591,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBAdicionarDependente;
     private javax.swing.JButton jBCarteiraReport;
     private javax.swing.JButton jBExcluir;
+    private javax.swing.JButton jBExcluirDependente;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBPesquisa;
     private javax.swing.JButton jBSalvar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCBEstadoCivil;
     private javax.swing.JComboBox<String> jCBRegimeAtividade;
     private javax.swing.JComboBox<String> jCBSexo;

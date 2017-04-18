@@ -1518,7 +1518,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jBAdicionarDependente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jBExcluirDependente" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1550,7 +1550,7 @@
                           <Component id="jFTFDependenteNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTFDependenteParentesco" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jBAdicionarDependente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBExcluirDependente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="283" max="-2" attributes="0"/>
@@ -1605,7 +1605,7 @@
                 <Property name="text" type="java.lang.String" value="Nascimento"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="jBExcluirDependente">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -1613,7 +1613,7 @@
                 <Property name="text" type="java.lang.String" value="Excluir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBExcluirDependenteActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jBAdicionarDependente">
