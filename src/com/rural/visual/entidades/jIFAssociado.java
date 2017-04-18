@@ -863,7 +863,9 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTDependentes);
 
+        jTFDependenteID.setEditable(false);
         jTFDependenteID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTFDependenteID.setRequestFocusEnabled(false);
 
         jLabel50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel50.setText("Código");
@@ -1259,6 +1261,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jFTFDataAdmissaoFocusLost
 
     private void jBPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaActionPerformed
+        limparCampos();
+        this.associado = new Associado();
+        this.dependente = new Dependente();
+        
         jdpa = new jDPesquisaAssociado(null, true);
         jdpa.setVisible(true);
         if (jdpa.getAssociado() == null) {
