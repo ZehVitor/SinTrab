@@ -1350,6 +1350,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         int linha = -1;
         int indice = 0;
         linha = jTDependentes.getSelectedRow();
+        this.dependente = new Dependente();
+        limpaCamposDependentes();
         if (linha >= 0) {
             int id = (int) jTDependentes.getValueAt(linha, 0);
             this.dependente.setId(id);
@@ -1473,6 +1475,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFDependenteID.setText(String.valueOf(dependente.getId()));
         jTFDependenteNome.setText(dependente.getNome());
         jTFDependenteParentesco.setText(dependente.getParentesco());
+        jFTFDependenteNascimento.setText(ConversorPersonalizado.convertDateToPTBRDate(dependente.getNascimento()));
 
     }
 
