@@ -47,7 +47,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPDocumentacao = new javax.swing.JTabbedPane();
+        jPDependente = new javax.swing.JTabbedPane();
         jPDadosPessoais = new javax.swing.JPanel();
         jTFFiliacao = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -168,10 +168,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Associado");
 
-        jPDocumentacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPDocumentacao.setAutoscrolls(true);
-        jPDocumentacao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPDocumentacao.setPreferredSize(getPreferredSize());
+        jPDependente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPDependente.setAutoscrolls(true);
+        jPDependente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPDependente.setPreferredSize(getPreferredSize());
 
         jPDadosPessoais.setPreferredSize(new java.awt.Dimension(1063, 400));
 
@@ -371,7 +371,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPDocumentacao.addTab("Dados Pessoais", jPDadosPessoais);
+        jPDependente.addTab("Dados Pessoais", jPDadosPessoais);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel21.setText("CPF");
@@ -632,7 +632,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
-        jPDocumentacao.addTab("Documentação", jPanel2);
+        jPDependente.addTab("Documentação", jPanel2);
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel39.setText("Profissão");
@@ -814,7 +814,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
-        jPDocumentacao.addTab("Dados Profissionais", jPDadosProfissionais);
+        jPDependente.addTab("Dados Profissionais", jPDadosProfissionais);
 
         jPDependentes.setPreferredSize(new java.awt.Dimension(200, 550));
 
@@ -935,7 +935,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPDocumentacao.addTab("Dependentes", jPDependentes);
+        jPDependente.addTab("Dependentes", jPDependentes);
 
         jBExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jBExcluir.setText("Excluir");
@@ -1097,7 +1097,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPDocumentacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPDependente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1133,7 +1133,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPDocumentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPDependente, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalvar)
@@ -1296,6 +1296,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBCarteiraReportActionPerformed
 
     private void jBAdicionarDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarDependenteActionPerformed
+        
+        if(this.associado.getId() <= 0){
+           JOptionPane.showMessageDialog(null, "Não há um associado selecionado.", "Associado não selecionado", JOptionPane.WARNING_MESSAGE);
+           limpaCamposDependentes();
+           return;
+        }
+        
         int indice = 0;
         DependenteDAO ddao = new DependenteDAO();
 
@@ -1354,6 +1361,19 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBNovoActionPerformed
 
     private void jBExcluirDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirDependenteActionPerformed
+        
+        if(this.associado.getId() <= 0){
+           JOptionPane.showMessageDialog(null, "Não há um associado selecionado.", "Associado não selecionado", JOptionPane.WARNING_MESSAGE);
+           limpaCamposDependentes();
+           return;
+        }
+        
+        if(this.dependente.getId() <= 0){
+           JOptionPane.showMessageDialog(null, "Não há um dependente selecionado.", "Dependentediegodiego não selecionado", JOptionPane.WARNING_MESSAGE);
+           limpaCamposDependentes();
+           return;
+        }
+        
         int indice = 0;
         DependenteDAO ddao = new DependenteDAO();
 
@@ -1671,8 +1691,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPDadosPessoais;
     private javax.swing.JPanel jPDadosProfissionais;
+    private javax.swing.JTabbedPane jPDependente;
     private javax.swing.JPanel jPDependentes;
-    private javax.swing.JTabbedPane jPDocumentacao;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
