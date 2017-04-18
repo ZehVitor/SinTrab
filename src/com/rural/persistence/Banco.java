@@ -6,15 +6,18 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Banco {
+    
 	private static EntityManager em;
         private static Usuario currentUser;
 
 	public static EntityManager getInstance(){
-		if (em == null) {
+		if (em == null || !em.isOpen()) {
 			EntityManagerFactory emf =
 					Persistence.createEntityManagerFactory("SinTrab");
 			em = emf.createEntityManager();
 		}
+                
+                
 		
 		return em;
 	}
