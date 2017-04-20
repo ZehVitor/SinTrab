@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.PersistenceException;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -1238,6 +1239,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             }
         } catch (ConstraintViolationException ex) {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PersistenceException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage() + "\n Erro ao cadastrar o associado");
+            Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
+            return;
         } finally {
             
         }
@@ -1589,6 +1594,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         modeloDependentes.setNumRows(0);
 
         limpaCamposDependentes();
+        this.associado = new Associado();
 
     }
 

@@ -4,6 +4,7 @@ import com.rural.persistence.Banco;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import org.hibernate.exception.GenericJDBCException;
 
 public class GenericDAO {
 
@@ -64,6 +65,8 @@ public class GenericDAO {
             em.persist(entidade);
         } catch (EntityExistsException e) {
             em.merge(entidade);
+        } catch (GenericJDBCException e) {
+            em.getTransaction().rollback();
         }
 
         em.getTransaction().commit();
