@@ -8,6 +8,7 @@ package com.rural.persistence.dao;
 import com.rural.model.Associado;
 import com.rural.uteis.ValidatorUtil;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -89,8 +90,9 @@ public class AssociadoDAO extends GenericDAO {
         return as;
     }
 
-    public void atualizaExpedicao(String sql) {
+    public void atualizaExpedicao(String data, int id) {
         EntityManager em = getEntityManager();
+        String sql = "UPDATE Associado SET dataExpedicao = '" + data + "' WHERE id_Associado = " + id;
         
         if (!em.getTransaction().isActive()) {
             em.getTransaction().begin();

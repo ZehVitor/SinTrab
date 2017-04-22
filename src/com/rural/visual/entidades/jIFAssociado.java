@@ -945,12 +945,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jLabel37)
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFTFDependenteNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFDependenteParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAdicionarDependente)
-                    .addComponent(jBExcluirDependente)
-                    .addComponent(jBDependenteNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBDependenteNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPDependentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jFTFDependenteNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTFDependenteParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBAdicionarDependente)
+                        .addComponent(jBExcluirDependente)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1328,8 +1329,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             aDao = new AssociadoDAO();
             this.data = new Date();
             String data = ConversorPersonalizado.convertDateToDateBD(this.data);
-            String sql = "UPDATE Associado SET dataExpedicao = '" + data + "' WHERE id_Associado = " + associado.getId();
-            aDao.atualizaExpedicao(sql);
+            aDao.atualizaExpedicao(data, this.associado.getId());
             associado.setDataExpedicao(this.data);
             jFTFExpedicaoCart.setText(ConversorPersonalizado.convertDateToPTBRDate(this.data));
 

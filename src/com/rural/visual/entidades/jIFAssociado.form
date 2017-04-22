@@ -1551,12 +1551,14 @@
                           <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jFTFDependenteNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFDependenteParentesco" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBAdicionarDependente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBExcluirDependente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jBDependenteNovo" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jFTFDependenteNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFDependenteParentesco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBAdicionarDependente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBExcluirDependente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="283" max="-2" attributes="0"/>
