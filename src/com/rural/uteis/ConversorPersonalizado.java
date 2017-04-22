@@ -19,8 +19,10 @@ import java.util.Date;
  */
 public class ConversorPersonalizado {
 
-    static String formato = "dd/MM/yyyy";
-    static SimpleDateFormat PTBRDate = new SimpleDateFormat(formato);
+    static final String formato = "dd/MM/yyyy";
+    static final String formatoBD = "yyyy-MM-dd";
+    static final SimpleDateFormat PTBRDate = new SimpleDateFormat(formato);
+    static final SimpleDateFormat BDDate = new SimpleDateFormat(formatoBD);
     static Date date;
 
     public static Date convertStringToDate(String textoData) throws ParseException {
@@ -43,6 +45,13 @@ public class ConversorPersonalizado {
             return null;
         }
         return PTBRDate.format(date);
+    }
+    
+    public static String convertDateToDateBD(Date date) {
+        if (date == null) {
+            return null;
+        }
+        return BDDate.format(date);
     }
 
     public String convertNumberToString(Long numero) {
