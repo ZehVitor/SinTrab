@@ -148,6 +148,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTDependentes = new javax.swing.JTable();
         jTFDependenteID = new javax.swing.JTextField();
         jLabel50 = new javax.swing.JLabel();
+        jBDependenteNovo = new javax.swing.JButton();
         jBExcluir = new javax.swing.JButton();
         jBCarteiraReport = new javax.swing.JButton();
         jBPesquisa = new javax.swing.JButton();
@@ -877,6 +878,15 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jLabel50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel50.setText("Código");
 
+        jBDependenteNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBDependenteNovo.setText("Novo");
+        jBDependenteNovo.setPreferredSize(new java.awt.Dimension(73, 25));
+        jBDependenteNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDependenteNovoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPDependentesLayout = new javax.swing.GroupLayout(jPDependentes);
         jPDependentes.setLayout(jPDependentesLayout);
         jPDependentesLayout.setHorizontalGroup(
@@ -910,6 +920,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addGroup(jPDependentesLayout.createSequentialGroup()
                                 .addComponent(jFTFDependenteNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBDependenteNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBAdicionarDependente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBExcluirDependente)))
@@ -935,7 +947,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jFTFDependenteNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFDependenteParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBAdicionarDependente)
-                    .addComponent(jBExcluirDependente))
+                    .addComponent(jBExcluirDependente)
+                    .addComponent(jBDependenteNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1334,6 +1347,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         int indice = 0;
         DependenteDAO ddao = new DependenteDAO();
+        this.dependente = new Dependente();
 
         if (!"".equals(jTFDependenteID.getText())) {
             this.dependente.setId(Integer.parseInt(jTFDependenteID.getText()));
@@ -1439,6 +1453,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_jTDependentesMouseClicked
+
+    private void jBDependenteNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDependenteNovoActionPerformed
+        limpaCamposDependentes();
+        this.dependente = new Dependente();
+    }//GEN-LAST:event_jBDependenteNovoActionPerformed
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
@@ -1649,6 +1668,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAdicionarDependente;
     private javax.swing.JButton jBCarteiraReport;
+    private javax.swing.JButton jBDependenteNovo;
     private javax.swing.JButton jBExcluir;
     private javax.swing.JButton jBExcluirDependente;
     private javax.swing.JButton jBNovo;
