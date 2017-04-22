@@ -1322,8 +1322,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 null, null, null);
 
         if (escolha == 0) {
-            
-            aDao =  new AssociadoDAO();
+
+            aDao = new AssociadoDAO();
             this.data = new Date();
             String data = ConversorPersonalizado.convertDateToDateBD(this.data);
             String sql = "UPDATE Associado SET dataExpedicao = '" + data + "' WHERE id_Associado = " + associado.getId();
@@ -1362,7 +1362,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         }
         this.dependente.setAssociado(this.associado);
 
-        ddao.inserirAlterar(this.dependente);
+        if (this.dependente.getId() <= 0) {
+            ddao.inserir(this.dependente);
+        } else {
+            ddao.alterar(this.dependente);
+        }
 
         limpaCamposDependentes();
 
@@ -1792,7 +1796,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private Long dd = 0L;
     private DefaultTableModel modeloDependentes;
     private Dependente dependente = new Dependente();
-    private Date data; 
+    private Date data;
     private AssociadoDAO aDao;
 
 }
