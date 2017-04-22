@@ -9,7 +9,9 @@ import com.rural.reports.AssociadosReport;
 import com.rural.uteis.ConversorPersonalizado;
 import com.rural.uteis.Formatos;
 import com.rural.uteis.ValidatorUtil;
+import java.io.File;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -1333,8 +1335,45 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         }
 
+        ArrayList<String> rels = new ArrayList<String>();
+        File baseFolder = new File("C:\\SinTrab");
+        StringBuilder relatorios = new StringBuilder();
+        File[] files = baseFolder.listFiles();
+        for (int i = 0; i < files.length; i++) {
+            File file = files[i];
+            if (file.getPath().endsWith(".jasper")) {
+                String name = file.getName();
+                name = name.substring(0, name.length() - 7);
+                
+                rels.add(name);
+                relatorios.append("\n" + name);
+            }
+        }
+        
+        String opcoesRelatorios[] = new String[rels.size()];
+        for (int i = 0; i < rels.size(); i++) {
+            opcoesRelatorios[i] = rels.get(i);
+        }
+        
+        String relatorioEscolhido = "";
+        if (relatorios.length() > 0) {
+            int idRelatorio = JOptionPane.showOptionDialog(null,
+                "Selecione o relatório que deseja: " + relatorios.toString(),
+                "Relatórios",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null, opcoesRelatorios, opcoesRelatorios[0]);
+            
+            relatorioEscolhido = opcoesRelatorios[idRelatorio];
+        }
+        
+        if (relatorioEscolhido.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível localizar os relatórios.");
+            return;
+        }
+        
         filtro.put("Id", associado.getId());
-        AssociadosReport.buildRelatorio("CarteiraAss", "Teste", filtro);
+        AssociadosReport.buildRelatorio(relatorioEscolhido, "Teste", filtro);
     }//GEN-LAST:event_jBCarteiraReportActionPerformed
 
     private void jBAdicionarDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarDependenteActionPerformed
