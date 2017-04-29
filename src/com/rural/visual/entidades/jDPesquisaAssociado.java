@@ -8,7 +8,6 @@ package com.rural.visual.entidades;
 import com.rural.model.Associado;
 import com.rural.persistence.dao.AssociadoDAO;
 import com.rural.uteis.ValidatorUtil;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,8 +15,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JToggleButton;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -35,6 +32,10 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         initComponents();
         DefaultTableModel modelo = (DefaultTableModel) jTAssociados.getModel();
         jTAssociados.setRowSorter(new TableRowSorter(modelo));
+        jTAssociados.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTAssociados.getColumnModel().getColumn(1).setPreferredWidth(250);
+        jTAssociados.getColumnModel().getColumn(2).setPreferredWidth(500);
+        jTAssociados.getColumnModel().getColumn(3).setPreferredWidth(250);
         try {
             readJTable();
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
@@ -124,9 +125,10 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Matrícula", "Nome", "Apelido"
+                "Matrícula", "Apelido", "Nome", "CPF"
             }
         ));
+        jTAssociados.getTableHeader().setReorderingAllowed(false);
         jTAssociados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTAssociadosMouseClicked(evt);
@@ -270,7 +272,7 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
-        
+
         preencherTabela(associados);
     }//GEN-LAST:event_jBFiltrarActionPerformed
 
@@ -358,8 +360,9 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
 
             modelo.addRow(new Object[]{
                 a.getId(),
+                a.getApelido(),
                 a.getNome(),
-                a.getApelido()
+                a.getCpf()
             });
 
         }
@@ -378,8 +381,9 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
         associados.forEach((a) -> {
             modelo.addRow(new Object[]{
                 a.getId(),
+                a.getApelido(),
                 a.getNome(),
-                a.getApelido()
+                a.getCpf()
             });
         });
     }
