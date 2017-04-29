@@ -419,6 +419,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFCertidaoNascimentoCasamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jFTFCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jFTFCPF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFTFCPFFocusLost(evt);
+            }
+        });
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel28.setText("Título de Eleitor");
@@ -1501,6 +1506,16 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         limpaCamposDependentes();
         this.dependente = new Dependente();
     }//GEN-LAST:event_jBDependenteNovoActionPerformed
+
+    private void jFTFCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFCPFFocusLost
+        if (!ValidatorUtil.isNullOrEmpty(jFTFCPF.getText())) {
+            String cpf = jFTFCPF.getText().replace(".", "").replace("-", "").trim();
+            if (!ValidatorUtil.isValidCPF(cpf)) {
+                JOptionPane.showMessageDialog(rootPane, "CPF inválido!");
+                jFTFCPF.setText("");
+            }
+        }
+    }//GEN-LAST:event_jFTFCPFFocusLost
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
