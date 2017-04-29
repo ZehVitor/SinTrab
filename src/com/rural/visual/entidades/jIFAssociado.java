@@ -1525,7 +1525,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         File[] files = baseFolder.listFiles();
         for (int i = 0; i < files.length; i++) {
             File file = files[i];
-            if (file.getPath().endsWith(".jasper") && !file.getPath().startsWith("Sub")) {
+            if (file.getPath().endsWith(".jasper") && !file.getName().startsWith("sub") && !file.getName().startsWith("Carteira")) {
                 String name = file.getName();
                 name = name.substring(0, name.length() - 7);
                 
