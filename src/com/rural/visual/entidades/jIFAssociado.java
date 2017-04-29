@@ -698,7 +698,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFMunicipioProfissao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jCBRegimeAtividade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jCBRegimeAtividade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ECONOMIA_FAMILIAR", "ASSALARIADO", "PROPRIETARIO", "MEEIRO", "PARCEIRO", "ARRENDATARIO", "COMODATARIO", "ASSENTADO", "POSSEIRO", "OUTROS" }));
+        jCBRegimeAtividade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ECONOMIA FAMILIAR", "ASSALARIADO", "PROPRIETARIO", "MEEIRO", "PARCEIRO", "ARRENDATARIO", "COMODATARIO", "ASSENTADO", "POSSEIRO", "OUTROS" }));
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel48.setText("Nome Proprietário");
@@ -1263,9 +1263,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " alterado com sucesso!");
             }
         } catch (ConstraintViolationException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage() + (associado.getId() > 0 ? "Erro ao cadastrar " : "Erro ao alterar ") + "o associado");
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
         } catch (PersistenceException ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage() + "\n Erro ao cadastrar o associado");
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage() + "\nErro ao cadastrar o associado");
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
             return;
         } finally {

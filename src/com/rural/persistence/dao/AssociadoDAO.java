@@ -30,7 +30,7 @@ public class AssociadoDAO extends GenericDAO {
         String where = " where 1=1 ";
 
         if (!ValidatorUtil.isNullOrEmpty(nomeAssociado)) {
-            where += " AND a.nome = :nome ";
+            where += " AND a.nome LIKE :nome% ";
         }
 
         Query q = em.createQuery(select + where);
@@ -66,14 +66,37 @@ public class AssociadoDAO extends GenericDAO {
             where += " AND a.id = " + id;
         }
 
-        String orderBy = " ORDER BY a.id ";
-
+        String orderBy = " ORDER BY a.id DESC";
+        
         Query q = em.createQuery(select + where + orderBy);
-        retorno = q.getResultList();
+        if (ValidatorUtil.isNullOrEmpty(nome) && ValidatorUtil.isNullOrEmpty(cpf) && (id == null || id <= 0)) {
+          q.setMaxResults(10);
+        }
+        
+        if ((!ValidatorUtil.isNullOrEmpty(nome) && nome.equals("*")) || (!ValidatorUtil.isNullOrEmpty(cpf) && cpf.equals("*"))) {
+            retorno = findAllAssociados();
+        }
+        else {
+            retorno = q.getResultList();
+        }
 
         return retorno;
     }
 
+    public List<Associado> findAllAssociados() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        EntityManager em = getEntityManager();
+        List<Associado> retorno = new ArrayList<Associado>();
+        if (!em.getTransaction().isActive()) {
+            em.getTransaction().begin();
+        }
+
+        String sql = "SELECT a from Associado as a ORDER BY a.id";
+        Query q = em.createQuery(sql);
+        retorno = q.getResultList();
+
+        return retorno;
+    }
+    
     /** </summary>
      * Método para buscar um ID, que também é utilizado como matrícula
      * </summary>

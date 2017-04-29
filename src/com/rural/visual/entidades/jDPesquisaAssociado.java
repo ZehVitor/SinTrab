@@ -74,6 +74,12 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
 
         jLabel1.setText("Pesquisa associados");
 
+        jTFValorFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFValorFiltroKeyPressed(evt);
+            }
+        });
+
         jBFiltrar.setText("Filtrar");
         jBFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,10 +270,8 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
                     Logger.getLogger(jDPesquisaAssociado.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
-
-        if (associados != null && associados.size() > 0) {
-            preencherTabela(associados);
-        }
+        
+        preencherTabela(associados);
     }//GEN-LAST:event_jBFiltrarActionPerformed
 
     private void jTAssociadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTAssociadosKeyPressed
@@ -278,6 +282,12 @@ public class jDPesquisaAssociado extends javax.swing.JDialog {
             setVisible(false);
         }
     }//GEN-LAST:event_jTAssociadosKeyPressed
+
+    private void jTFValorFiltroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFValorFiltroKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jBFiltrar.doClick();
+        }
+    }//GEN-LAST:event_jTFValorFiltroKeyPressed
 
     public Associado getAssociado() {
         return this.associado;

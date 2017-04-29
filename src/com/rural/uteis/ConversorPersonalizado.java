@@ -91,6 +91,7 @@ public class ConversorPersonalizado {
             return null;
         }
 
+        texto = texto.replace(" ", "_");
         return RegimeAtividade.valueOf(texto);
     }
 
