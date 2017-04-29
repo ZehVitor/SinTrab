@@ -2,6 +2,7 @@ package com.rural.visual.entidades;
 
 import com.rural.model.Associado;
 import com.rural.model.Dependente;
+import com.rural.persistence.Banco;
 import com.rural.persistence.dao.AssociadoDAO;
 import com.rural.persistence.dao.DependenteDAO;
 import com.rural.persistence.dao.GenericDAO;
@@ -1282,7 +1283,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
             return;
         } finally {
-
+            Banco.closeInstance();
         }
 
         limparCampos();
