@@ -171,6 +171,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jFTFDataRecadastramento = new javax.swing.JFormattedTextField();
         jLabel38 = new javax.swing.JLabel();
         jBNovo = new javax.swing.JButton();
+        jBImprimir = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Associado");
@@ -1065,19 +1066,29 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
             }
         });
 
+        jBImprimir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBImprimir.setText("Imprimir");
+        jBImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jBNovo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBSalvar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBPesquisa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBImprimir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBCarteiraReport)
+                .addGap(6, 6, 6)
+                .addComponent(jBNovo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBExcluir))
             .addGroup(layout.createSequentialGroup()
@@ -1167,7 +1178,8 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                     .addComponent(jBPesquisa)
                     .addComponent(jBCarteiraReport)
                     .addComponent(jBExcluir)
-                    .addComponent(jBNovo))
+                    .addComponent(jBNovo)
+                    .addComponent(jBImprimir))
                 .addContainerGap())
         );
 
@@ -1256,14 +1268,14 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         //Esse tratamento de exceção ConstraintViolationException ex
         try {
             if (associado.getId() <= 0) {
-                dao.inserirAlterar(associado);
+                dao.inserir(associado);
                 JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " cadastrado com sucesso!");
             } else {
                 dao.alterar(associado);
                 JOptionPane.showMessageDialog(rootPane, associado.getNome().toUpperCase() + " alterado com sucesso!");
             }
         } catch (ConstraintViolationException ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage() + (associado.getId() > 0 ? "Erro ao cadastrar " : "Erro ao alterar ") + "o associado");
+            JOptionPane.showMessageDialog(rootPane, (associado.getId() > 0 ? "Erro ao cadastrar " : "Erro ao alterar ") + "o associado.\nCPF já existente.");
             Logger.getLogger(jIFAssociado.class.getName()).log(Level.SEVERE, null, ex);
         } catch (PersistenceException ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage() + "\nErro ao cadastrar o associado");
@@ -1341,45 +1353,26 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         }
 
-        ArrayList<String> rels = new ArrayList<String>();
         File baseFolder = new File("C:\\SinTrab");
         StringBuilder relatorios = new StringBuilder();
         File[] files = baseFolder.listFiles();
+        String relatorioSelecionado = "";
         for (int i = 0; i < files.length; i++) {
             File file = files[i];
-            if (file.getPath().endsWith(".jasper")) {
-                String name = file.getName();
-                name = name.substring(0, name.length() - 7);
-                
-                rels.add(name);
-                relatorios.append("\n" + name);
+            if (file.getName().startsWith("Carteira") && file.getPath().endsWith(".jasper")) {
+                relatorioSelecionado = file.getName();
+                relatorioSelecionado = relatorioSelecionado.substring(0, relatorioSelecionado.length() - 7);
+                break;
             }
         }
         
-        String opcoesRelatorios[] = new String[rels.size()];
-        for (int i = 0; i < rels.size(); i++) {
-            opcoesRelatorios[i] = rels.get(i);
-        }
-        
-        String relatorioEscolhido = "";
-        if (relatorios.length() > 0) {
-            int idRelatorio = JOptionPane.showOptionDialog(null,
-                "Selecione o relatório que deseja: " + relatorios.toString(),
-                "Relatórios",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null, opcoesRelatorios, opcoesRelatorios[0]);
-            
-            relatorioEscolhido = opcoesRelatorios[idRelatorio];
-        }
-        
-        if (relatorioEscolhido.isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Não foi possível localizar os relatórios.");
+        if (relatorioSelecionado.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível localizar o relatório.");
             return;
         }
         
         filtro.put("Id", associado.getId());
-        AssociadosReport.buildRelatorio(relatorioEscolhido, "Teste", filtro);
+        AssociadosReport.buildRelatorio(relatorioSelecionado, "Teste", filtro);
     }//GEN-LAST:event_jBCarteiraReportActionPerformed
 
     private void jBAdicionarDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarDependenteActionPerformed
@@ -1511,12 +1504,78 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private void jFTFCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFCPFFocusLost
         if (!ValidatorUtil.isNullOrEmpty(jFTFCPF.getText())) {
             String cpf = jFTFCPF.getText().replace(".", "").replace("-", "").trim();
-            if (!ValidatorUtil.isValidCPF(cpf)) {
+            if (!ValidatorUtil.isNullOrEmpty(cpf) && !ValidatorUtil.isValidCPF(cpf)) {
                 JOptionPane.showMessageDialog(rootPane, "CPF inválido!");
                 jFTFCPF.setText("");
             }
         }
     }//GEN-LAST:event_jFTFCPFFocusLost
+
+    private void jBImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBImprimirActionPerformed
+        Map<String, Object> filtro = new HashMap<String, Object>();
+        if (associado == null || associado.getId() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Realize a busca de um associado antes.");
+            return;
+        }
+
+        ArrayList<String> rels = new ArrayList<String>();
+        File baseFolder = new File("C:\\SinTrab");
+        StringBuilder relatorios = new StringBuilder();
+        File[] files = baseFolder.listFiles();
+        for (int i = 0; i < files.length; i++) {
+            File file = files[i];
+            if (file.getPath().endsWith(".jasper") && !file.getPath().startsWith("Sub")) {
+                String name = file.getName();
+                name = name.substring(0, name.length() - 7);
+                
+                rels.add(name);
+                relatorios.append("\n" + name);
+            }
+        }
+        
+        String opcoesRelatorios[] = new String[rels.size()];
+        for (int i = 0; i < rels.size(); i++) {
+            opcoesRelatorios[i] = rels.get(i);
+        }
+        
+        String relatorioEscolhido = "";
+        if (relatorios.length() > 0) {
+            int idRelatorio = JOptionPane.showOptionDialog(null,
+                "Selecione o relatório que deseja: " + relatorios.toString(),
+                "Relatórios",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null, opcoesRelatorios, opcoesRelatorios[0]);
+            
+            relatorioEscolhido = opcoesRelatorios[idRelatorio];
+        }
+        
+        if (relatorioEscolhido.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível localizar os relatórios.");
+            return;
+        } else if (relatorioEscolhido.equals("Carteira")){
+            int escolha = JOptionPane.showOptionDialog(null,
+                    "Deseja atualizar a data de expedição da carteira do associado?",
+                    "Data de Expedição",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null, null, null);
+
+            if (escolha == 0) {
+
+                aDao = new AssociadoDAO();
+                this.data = new Date();
+                String data = ConversorPersonalizado.convertDateToDateBD(this.data);
+                aDao.atualizaExpedicao(data, this.associado.getId());
+                associado.setDataExpedicao(this.data);
+                jFTFExpedicaoCart.setText(ConversorPersonalizado.convertDateToPTBRDate(this.data));
+
+            }
+        }
+        
+        filtro.put("Id", associado.getId());
+        AssociadosReport.buildRelatorio(relatorioEscolhido, "Relatório", filtro);
+    }//GEN-LAST:event_jBImprimirActionPerformed
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
@@ -1730,6 +1789,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBDependenteNovo;
     private javax.swing.JButton jBExcluir;
     private javax.swing.JButton jBExcluirDependente;
+    private javax.swing.JButton jBImprimir;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jBPesquisa;
     private javax.swing.JButton jBSalvar;

@@ -4,6 +4,7 @@ import com.rural.persistence.Banco;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.exception.GenericJDBCException;
 
 public class GenericDAO {
@@ -13,7 +14,15 @@ public class GenericDAO {
         if (!em.getTransaction().isActive()) {
             em.getTransaction().begin();
         }
-        em.persist(entidade);
+        
+        try {
+          em.persist(entidade);  
+        } catch (ConstraintViolationException ex) {
+            em.getTransaction().rollback();
+        } catch (GenericJDBCException e) {
+            em.getTransaction().rollback();
+        }
+        
         em.getTransaction().commit();
         em.close();
     }
@@ -23,7 +32,15 @@ public class GenericDAO {
         if (!em.getTransaction().isActive()) {
             em.getTransaction().begin();
         }
-        em.merge(entidade);
+        
+        try {
+            em.merge(entidade);    
+        } catch (ConstraintViolationException ex) {
+            em.getTransaction().rollback();
+        } catch (GenericJDBCException e) {
+            em.getTransaction().rollback();
+        }
+        
         em.getTransaction().commit();
         em.close();
     }
@@ -33,7 +50,15 @@ public class GenericDAO {
         if (!em.getTransaction().isActive()) {
             em.getTransaction().begin();
         }
-        em.remove(entidade);
+        
+        try {
+            em.remove(entidade);  
+        } catch (ConstraintViolationException ex) {
+            em.getTransaction().rollback();
+        } catch (GenericJDBCException e) {
+            em.getTransaction().rollback();
+        }
+        
         em.getTransaction().commit();
         em.close();
     }
