@@ -5,11 +5,9 @@
  */
 package com.rural.visual;
 
-import com.rural.persistence.Banco;
 import com.rural.visual.entidades.jIFAssociado;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.persistence.EntityManager;
 
 /**
  *
@@ -37,7 +35,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMIAssociado = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,9 +63,6 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,6 +76,8 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jDPPrincipal)
         );
 
+        jDPPrincipal.getAccessibleContext().setAccessibleName("Sindicato Rural 1.0");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -90,7 +86,7 @@ public class Principal extends javax.swing.JFrame {
         jDPPrincipal.add(jifas);
         
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        jifas.setLocation(dim.width/2-jifas.getSize().width/2, dim.height/2-jifas.getSize().height/2);
+        jifas.setLocation(dim.width/2-jifas.getSize().width/2, (dim.height/2-jifas.getSize().height/2) - 60);
         jifas.setVisible(true);
     }//GEN-LAST:event_jMIAssociadoActionPerformed
 
@@ -133,7 +129,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDPPrincipal;
     private javax.swing.JMenuItem jMIAssociado;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

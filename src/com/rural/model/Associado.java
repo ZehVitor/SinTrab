@@ -9,6 +9,7 @@ import com.rural.enums.EstadoCivil;
 import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
+import com.rural.enums.Zona;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -105,6 +106,11 @@ public class Associado implements Serializable {
     private UF uf;
     private String telefone;
     private String email;
+    
+    @Enumerated(EnumType.STRING)
+    private Zona zonaPessoa;
+    @Enumerated(EnumType.STRING)
+    private Zona zonaProprietario;
 
     /**
      * @return the id
@@ -790,6 +796,22 @@ public class Associado implements Serializable {
      */
     public void setRegimeAtividade(RegimeAtividade regimeAtividade) {
         this.regimeAtividade = regimeAtividade;
+    }
+    
+    public Zona getZonaPessoa() {
+        return zonaPessoa;
+    }
+
+    public void setZonaPessoa(Zona zonaPessoa) {
+        this.zonaPessoa = zonaPessoa;
+    }
+    
+    public Zona getZonaProprietario() {
+        return zonaProprietario;
+    }
+
+    public void setZonaProprietario(Zona zonaProprietario) {
+        this.zonaProprietario = zonaProprietario;
     }
 
     @Override

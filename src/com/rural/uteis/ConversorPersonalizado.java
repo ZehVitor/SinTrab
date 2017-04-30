@@ -9,6 +9,7 @@ import com.rural.enums.EstadoCivil;
 import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
 import com.rural.enums.UF;
+import com.rural.enums.Zona;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -101,6 +102,13 @@ public class ConversorPersonalizado {
         }
 
         return EstadoCivil.valueOf(texto);
+    }
+    
+    public static Zona convertStringToZona(String texto) {
+        if (ValidatorUtil.isNullOrEmpty(texto)) {
+            return null;
+        }
+        return Zona.valueOf(texto);
     }
 
 }

@@ -30,9 +30,9 @@ public class AssociadosReport {
         try {
             //path = System.getProperty("user.dir") + "\\" + nomeRelatorio + ".jasper";
             
-            path = "C:\\SinTrab\\" + nomeRelatorio + ".jasper";
+            path = "C:\\Rural\\" + nomeRelatorio + ".jasper";
 
-            String dbUrl = "jdbc:mysql://localhost:3306/treino";
+            String dbUrl = "jdbc:mysql://localhost:3306/rural";
             String dbDriver = "com.mysql.jdbc.Driver";
             String dbUser = "root";
             String dbPwd = "123456";

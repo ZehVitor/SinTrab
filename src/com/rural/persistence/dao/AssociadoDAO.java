@@ -70,7 +70,7 @@ public class AssociadoDAO extends GenericDAO {
         
         Query q = em.createQuery(select + where + orderBy);
         if (ValidatorUtil.isNullOrEmpty(nome) && ValidatorUtil.isNullOrEmpty(cpf) && (id == null || id <= 0)) {
-          q.setMaxResults(10);
+          q.setMaxResults(50);
         }
         
         if ((!ValidatorUtil.isNullOrEmpty(nome) && nome.equals("*")) || (!ValidatorUtil.isNullOrEmpty(cpf) && cpf.equals("*"))) {
