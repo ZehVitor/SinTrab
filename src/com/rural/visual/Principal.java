@@ -37,6 +37,7 @@ public class Principal extends javax.swing.JFrame {
         jMIAssociado = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Teju V 1.0.01");
 
         jDPPrincipal.setBackground(new java.awt.Color(204, 255, 204));
 
