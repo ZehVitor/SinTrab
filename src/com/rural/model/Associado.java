@@ -71,6 +71,7 @@ public class Associado implements Serializable {
     private UF ufPropriedade;
     @Temporal(TemporalType.DATE)
     private Date dataPropriedade;
+    //Virou nome da propriedade, onde se lê empresa deve-se pensar em nome
     private String empresaPropriedade;
     private String cargoPropriedade;
 

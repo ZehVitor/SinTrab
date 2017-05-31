@@ -720,6 +720,11 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
 
         jCBRegimeAtividade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jCBRegimeAtividade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ECONOMIA FAMILIAR", "ASSALARIADO", "PROPRIETARIO", "MEEIRO", "PARCEIRO", "ARRENDATARIO", "COMODATARIO", "ASSENTADO", "POSSEIRO", "OUTROS" }));
+        jCBRegimeAtividade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBRegimeAtividadeActionPerformed(evt);
+            }
+        });
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel48.setText("Nome Proprietário");
@@ -727,7 +732,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         jTFNomeProprietario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel49.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel49.setText("Empresa");
+        jLabel49.setText("Nome da Propriedade");
 
         jTFEmpresaPropriedade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -758,13 +763,13 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                                 .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                                         .addComponent(jLabel43)
-                                        .addGap(0, 186, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jTFIncra)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPDadosProfissionaisLayout.createSequentialGroup()
                                 .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                                         .addComponent(jLabel39)
-                                        .addGap(0, 436, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jTFProfissao))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -786,7 +791,7 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
                             .addComponent(jTFEnderecoPropriedade, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPDadosProfissionaisLayout.createSequentialGroup()
                                 .addComponent(jLabel44)
-                                .addGap(488, 663, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPDadosProfissionaisLayout.createSequentialGroup()
                                 .addGroup(jPDadosProfissionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel47)
@@ -1615,6 +1620,10 @@ public class jIFAssociado extends javax.swing.JInternalFrame {
         filtro.put("Id", associado.getId());
         AssociadosReport.buildRelatorio(relatorioEscolhido, "Relatório", filtro);
     }//GEN-LAST:event_jBImprimirActionPerformed
+
+    private void jCBRegimeAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBRegimeAtividadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBRegimeAtividadeActionPerformed
 
     private void validateData(JFormattedTextField data) {
         String aux = data.getText();
