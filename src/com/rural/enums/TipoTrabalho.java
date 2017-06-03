@@ -9,9 +9,14 @@ package com.rural.enums;
  *
  * @author diego
  */
-public enum RegimeAtividade {
-    
-    ECONOMIA_FAMILIAR,
-    INDIVIDUAL; 
-    
+public enum TipoTrabalho {
+
+    ARRENDATARIO,
+    ASSALARIADO,
+    ASSENTADO,
+    COMODATARIO,
+    MEEIRO,
+    PARCEIRO,
+    PEQ_PROPRIETARIO,
+    POSSEIRO;
 }

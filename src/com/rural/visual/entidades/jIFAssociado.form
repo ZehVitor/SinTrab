@@ -258,7 +258,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTFGrauInstrucao" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="jTFGrauInstrucao" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1169,6 +1169,11 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCBTipoTrabalho" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
@@ -1192,10 +1197,7 @@
                                   <Component id="jTFEmpresaPropriedade" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTFNomeProprietario" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTFEnderecoPropriedade" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="488" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
@@ -1234,14 +1236,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTFProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCBRegimeAtividade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTFProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCBRegimeAtividade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jCBTipoTrabalho" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1472,23 +1483,12 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="10">
+                  <StringArray count="2">
                     <StringItem index="0" value="ECONOMIA FAMILIAR"/>
-                    <StringItem index="1" value="ASSALARIADO"/>
-                    <StringItem index="2" value="PROPRIETARIO"/>
-                    <StringItem index="3" value="MEEIRO"/>
-                    <StringItem index="4" value="PARCEIRO"/>
-                    <StringItem index="5" value="ARRENDATARIO"/>
-                    <StringItem index="6" value="COMODATARIO"/>
-                    <StringItem index="7" value="ASSENTADO"/>
-                    <StringItem index="8" value="POSSEIRO"/>
-                    <StringItem index="9" value="OUTROS"/>
+                    <StringItem index="1" value="INDIVIDUAL"/>
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBRegimeAtividadeActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -1546,6 +1546,39 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jCBTipoTrabalho">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="8">
+                    <StringItem index="0" value="ARRENDATARIO"/>
+                    <StringItem index="1" value="ASSALARIADO"/>
+                    <StringItem index="2" value="ASSENTADO"/>
+                    <StringItem index="3" value="COMODATARIO"/>
+                    <StringItem index="4" value="MEEIRO"/>
+                    <StringItem index="5" value="PARCEIRO"/>
+                    <StringItem index="6" value="PEQ PROPRIETARIO"/>
+                    <StringItem index="7" value="POSSEIRO"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBTipoTrabalhoActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel53">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Tipo de Trabalho"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

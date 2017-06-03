@@ -8,6 +8,7 @@ package com.rural.uteis;
 import com.rural.enums.EstadoCivil;
 import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
+import com.rural.enums.TipoTrabalho;
 import com.rural.enums.UF;
 import com.rural.enums.Zona;
 import java.text.ParseException;
@@ -47,7 +48,7 @@ public class ConversorPersonalizado {
         }
         return PTBRDate.format(date);
     }
-    
+
     public static String convertDateToDateBD(Date date) {
         if (date == null) {
             return null;
@@ -96,6 +97,23 @@ public class ConversorPersonalizado {
         return RegimeAtividade.valueOf(texto);
     }
 
+    public static TipoTrabalho convertStringToTipoTrabalho(String texto) {
+        if (ValidatorUtil.isNullOrEmpty(texto)) {
+            return null;
+        }
+
+        texto = texto.replace(" ", "_");
+        return TipoTrabalho.valueOf(texto);
+    }
+
+    public static String convertTipoTrabalhoToString(TipoTrabalho tipoTrabalho) {
+
+        String texto = tipoTrabalho.toString();
+        texto = texto.replace("_", " ");
+
+        return texto;
+    }
+
     public static EstadoCivil convertStringToEstadoCivil(String texto) {
         if (ValidatorUtil.isNullOrEmpty(texto)) {
             return null;
@@ -103,7 +121,7 @@ public class ConversorPersonalizado {
 
         return EstadoCivil.valueOf(texto);
     }
-    
+
     public static Zona convertStringToZona(String texto) {
         if (ValidatorUtil.isNullOrEmpty(texto)) {
             return null;

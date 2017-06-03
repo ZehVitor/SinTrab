@@ -8,6 +8,7 @@ package com.rural.model;
 import com.rural.enums.EstadoCivil;
 import com.rural.enums.RegimeAtividade;
 import com.rural.enums.Sexo;
+import com.rural.enums.TipoTrabalho;
 import com.rural.enums.UF;
 import com.rural.enums.Zona;
 import java.io.Serializable;
@@ -61,6 +62,8 @@ public class Associado implements Serializable {
     private String profissao;
     @Enumerated(EnumType.STRING)
     private RegimeAtividade regimeAtividade;
+    @Enumerated(EnumType.STRING)
+    private TipoTrabalho tipoTrabalho;
     private String nomeProprietario;
     private String tamanhoPropriedade;
     private String areaUtilizada;
@@ -107,7 +110,7 @@ public class Associado implements Serializable {
     private UF uf;
     private String telefone;
     private String email;
-    
+
     @Enumerated(EnumType.STRING)
     private Zona zonaPessoa;
     @Enumerated(EnumType.STRING)
@@ -798,7 +801,7 @@ public class Associado implements Serializable {
     public void setRegimeAtividade(RegimeAtividade regimeAtividade) {
         this.regimeAtividade = regimeAtividade;
     }
-    
+
     public Zona getZonaPessoa() {
         return zonaPessoa;
     }
@@ -806,7 +809,7 @@ public class Associado implements Serializable {
     public void setZonaPessoa(Zona zonaPessoa) {
         this.zonaPessoa = zonaPessoa;
     }
-    
+
     public Zona getZonaProprietario() {
         return zonaProprietario;
     }
@@ -815,10 +818,75 @@ public class Associado implements Serializable {
         this.zonaProprietario = zonaProprietario;
     }
 
+    /**
+     * @return the tipoTgrabalho
+     */
+    public TipoTrabalho getTipoTrabalho() {
+        return tipoTrabalho;
+    }
+
+    /**
+     * @param tipoTgrabalho the tipoTgrabalho to set
+     */
+    public void setTipoTgrabalho(TipoTrabalho tipoTrabalho) {
+        this.tipoTrabalho = tipoTrabalho;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + this.id;
+        hash = 41 * hash + this.id;
+        hash = 41 * hash + Objects.hashCode(this.nome);
+        hash = 41 * hash + Objects.hashCode(this.apelido);
+        hash = 41 * hash + Objects.hashCode(this.sexo);
+        hash = 41 * hash + Objects.hashCode(this.cpf);
+        hash = 41 * hash + Objects.hashCode(this.rg);
+        hash = 41 * hash + Objects.hashCode(this.orgaoExpedidor);
+        hash = 41 * hash + Objects.hashCode(this.certidaoNascimentoCasamento);
+        hash = 41 * hash + Objects.hashCode(this.ctps);
+        hash = 41 * hash + Objects.hashCode(this.serieCtps);
+        hash = 41 * hash + Objects.hashCode(this.tituloEleitor);
+        hash = 41 * hash + Objects.hashCode(this.zonaEleitoral);
+        hash = 41 * hash + Objects.hashCode(this.secaoEleitoral);
+        hash = 41 * hash + Objects.hashCode(this.numeroBeneficio);
+        hash = 41 * hash + Objects.hashCode(this.especieBeneficio);
+        hash = 41 * hash + Objects.hashCode(this.nit);
+        hash = 41 * hash + Objects.hashCode(this.profissao);
+        hash = 41 * hash + Objects.hashCode(this.regimeAtividade);
+        hash = 41 * hash + Objects.hashCode(this.tipoTrabalho);
+        hash = 41 * hash + Objects.hashCode(this.nomeProprietario);
+        hash = 41 * hash + Objects.hashCode(this.tamanhoPropriedade);
+        hash = 41 * hash + Objects.hashCode(this.areaUtilizada);
+        hash = 41 * hash + Objects.hashCode(this.incra);
+        hash = 41 * hash + Objects.hashCode(this.enderecoPropriedade);
+        hash = 41 * hash + Objects.hashCode(this.municipioPropriedade);
+        hash = 41 * hash + Objects.hashCode(this.ufPropriedade);
+        hash = 41 * hash + Objects.hashCode(this.dataPropriedade);
+        hash = 41 * hash + Objects.hashCode(this.empresaPropriedade);
+        hash = 41 * hash + Objects.hashCode(this.cargoPropriedade);
+        hash = 41 * hash + Objects.hashCode(this.dependentes);
+        hash = 41 * hash + Objects.hashCode(this.transferidoSTTR);
+        hash = 41 * hash + Objects.hashCode(this.dataTransferenciaSTTR);
+        hash = 41 * hash + Objects.hashCode(this.filiacaoMae);
+        hash = 41 * hash + Objects.hashCode(this.filiacaoPai);
+        hash = 41 * hash + Objects.hashCode(this.matriculaAnterior);
+        hash = 41 * hash + Objects.hashCode(this.dataRecadastramento);
+        hash = 41 * hash + Objects.hashCode(this.dataExpedicao);
+        hash = 41 * hash + Objects.hashCode(this.dataExpedicaoRG);
+        hash = 41 * hash + Objects.hashCode(this.dataAdmissao);
+        hash = 41 * hash + Objects.hashCode(this.dataNascimento);
+        hash = 41 * hash + Objects.hashCode(this.naturalidade);
+        hash = 41 * hash + Objects.hashCode(this.estadoCivil);
+        hash = 41 * hash + Objects.hashCode(this.conjuge);
+        hash = 41 * hash + Objects.hashCode(this.grauInstrucao);
+        hash = 41 * hash + Objects.hashCode(this.endereco);
+        hash = 41 * hash + Objects.hashCode(this.bairro);
+        hash = 41 * hash + Objects.hashCode(this.cidade);
+        hash = 41 * hash + Objects.hashCode(this.uf);
+        hash = 41 * hash + Objects.hashCode(this.telefone);
+        hash = 41 * hash + Objects.hashCode(this.email);
+        hash = 41 * hash + Objects.hashCode(this.zonaPessoa);
+        hash = 41 * hash + Objects.hashCode(this.zonaProprietario);
         return hash;
     }
 
@@ -948,6 +1016,9 @@ public class Associado implements Serializable {
         if (this.regimeAtividade != other.regimeAtividade) {
             return false;
         }
+        if (this.tipoTrabalho != other.tipoTrabalho) {
+            return false;
+        }
         if (this.ufPropriedade != other.ufPropriedade) {
             return false;
         }
@@ -981,10 +1052,15 @@ public class Associado implements Serializable {
         if (this.uf != other.uf) {
             return false;
         }
+        if (this.zonaPessoa != other.zonaPessoa) {
+            return false;
+        }
+        if (this.zonaProprietario != other.zonaProprietario) {
+            return false;
+        }
         return true;
     }
 
-    
     
     
 }
