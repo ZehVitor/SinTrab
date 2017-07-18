@@ -32,10 +32,12 @@ public class AssociadosReport {
             
             path = "C:\\Rural\\" + nomeRelatorio + ".jasper";
 
-            String dbUrl = "jdbc:mysql://localhost:3306/rural";
+            String dbUrl = "jdbc:mysql://localhost:3306/treino";
+            
+            //String dbUrl = "jdbc:mysql://192.168.1.11:3306/treino";
             String dbDriver = "com.mysql.jdbc.Driver";
             String dbUser = "root";
-            String dbPwd = "123456";
+            String dbPwd = "adminlocal";
 
             try {
                 Class.forName(dbDriver);
@@ -44,8 +46,8 @@ public class AssociadosReport {
             }
 
             try {
-                Properties props = new Properties();
-                props.put("user", "root");
+                //Properties props = new Properties();
+               // props.put("user", "root");
                 conn = DriverManager
                         .getConnection(dbUrl, dbUser, dbPwd);
             } catch (SQLException ex) {
